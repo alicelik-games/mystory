@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Çelik Games | Stüdyo</title>
+    <title>Ali Çelik Games | Falling Letters Healthy Brain</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #00f2ff; /* Loop Games tarzı neon mavi */
+            --primary: #00f2ff; /* Modern Neon Mavi */
             --bg-dark: #0a0b10;
             --card-bg: #16181d;
             --text-main: #ffffff;
@@ -28,7 +28,7 @@
             overflow-x: hidden;
         }
 
-        /* Arka Plan Efekti */
+        /* Dinamik Arka Plan */
         body::before {
             content: "";
             position: fixed;
@@ -62,7 +62,7 @@
 
         /* Hero Section */
         .hero {
-            height: 60vh;
+            height: 50vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -71,94 +71,114 @@
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 5rem);
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
             font-weight: 900;
-            line-height: 1;
+            line-height: 1.1;
             margin-bottom: 20px;
             background: linear-gradient(to bottom, #fff 40%, #64748b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* Grid Sistemi */
         .section-label {
             color: var(--primary);
             text-transform: uppercase;
             letter-spacing: 4px;
             font-size: 0.8rem;
             font-weight: 700;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             display: block;
+            text-align: center;
         }
 
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 40px;
-            margin-bottom: 100px;
+        /* Ana Kart Tasarımı */
+        .main-game-section {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 80px;
         }
 
-        /* Kart Tasarımı */
         .game-card {
             background: var(--card-bg);
-            border-radius: 24px;
+            border-radius: 32px;
             border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-            position: relative;
+            width: 100%;
+            max-width: 800px;
             overflow: hidden;
+            transition: 0.4s;
         }
 
         .game-card:hover {
-            transform: translateY(-10px);
             border-color: var(--primary);
-            box-shadow: 0 20px 40px rgba(0, 242, 255, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 242, 255, 0.1);
         }
 
         .card-visual {
-            height: 240px;
-            background: #23262d;
+            height: 350px;
+            background: linear-gradient(135deg, #00DBDE 0%, #FC00FF 100%);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
+            font-size: 6rem;
             position: relative;
         }
 
-        /* Loop Games benzeri renk geçişleri */
-        .visual-1 { background: linear-gradient(45deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%); }
-        .visual-2 { background: linear-gradient(45deg, #00DBDE 0%, #FC00FF 100%); }
-        .visual-3 { background: linear-gradient(45deg, #08AEEA 0%, #2AF598 100%); }
+        .game-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.5);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            backdrop-filter: blur(5px);
+        }
 
         .game-info {
-            padding: 30px;
+            padding: 40px;
         }
 
-        .game-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
+        .game-info h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: var(--primary);
         }
 
-        .game-info p {
+        .features-list {
+            list-style: none;
+            margin: 20px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .features-list li {
             color: var(--text-dim);
             font-size: 0.95rem;
-            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
+
+        .features-list li::before { content: "✓"; color: var(--primary); font-weight: bold; }
 
         /* Butonlar */
         .btn-group {
             display: flex;
-            gap: 10px;
+            gap: 15px;
+            margin-top: 30px;
         }
 
         .main-btn {
             background: var(--primary);
             color: #000;
-            padding: 12px 24px;
-            border-radius: 12px;
+            padding: 16px 32px;
+            border-radius: 14px;
             text-decoration: none;
-            font-weight: 700;
-            flex-grow: 1;
+            font-weight: 800;
+            flex-grow: 2;
             text-align: center;
             transition: 0.3s;
         }
@@ -166,12 +186,16 @@
         .sub-btn {
             background: rgba(255,255,255,0.05);
             color: #fff;
-            padding: 12px;
-            border-radius: 12px;
+            padding: 16px 24px;
+            border-radius: 14px;
             text-decoration: none;
+            font-weight: 600;
+            flex-grow: 1;
+            text-align: center;
             transition: 0.3s;
         }
 
+        .main-btn:hover { transform: scale(1.02); filter: brightness(1.1); }
         .sub-btn:hover { background: rgba(255,255,255,0.15); }
 
         /* Footer */
@@ -183,8 +207,9 @@
         }
 
         @media (max-width: 768px) {
-            .games-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.5rem; }
+            .features-list { grid-template-columns: 1fr; }
+            .btn-group { flex-direction: column; }
+            .hero h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -193,58 +218,47 @@
 <div class="container">
     <nav>
         <div class="logo">Ali Celik<span>Games</span></div>
-        <div class="contact-email">alicelik.games@gmail.com</div>
+        <div class="contact-email">alicelik1980@gmail.com</div>
     </nav>
 
     <header class="hero">
-        <span class="section-label">Mobile Game Studio</span>
-        <h1>We create stories.</h1>
+        <span class="section-label">Mobile Brain Training</span>
+        <h1>Falling Letters<br>Healthy Brain</h1>
     </header>
 
-    <main>
-        <span class="section-label">Oyunlar & Projeler</span>
-        
-        <div class="games-grid">
-            <div class="game-card">
-                <div class="card-visual visual-1">📝</div>
-                <div class="game-info">
-                    <h3>Kelime Ustası</h3>
-                    <p>3D silindir üzerinde dönen harflerle zihnini zorla. 500'den fazla seviye.</p>
-                    <div class="btn-group">
-                        <a href="https://play.google.com/..." class="main-btn">Play Now</a>
-                        <a href="kelime-ustasi-privacy.html" class="sub-btn">Privacy</a>
-                    </div>
-                </div>
+    <main class="main-game-section">
+        <div class="game-card">
+            <div class="card-visual">
+                <span class="game-badge">NEW RELEASE</span>
+                🔠
+                <div style="font-size: 1.2rem; margin-top: 10px; font-weight: 600;">Word Puzzle Adventure</div>
             </div>
+            
+            <div class="game-info">
+                <h2>Oyun Hakkında</h2>
+                <p>Falling Letters Healthy Brain, düşen harf bloklarından kelimeler türeterek hem eğleneceğiniz hem de kelime haznenizi geliştireceğiniz eğitici bir bulmaca oyunudur.</p>
+                
+                <ul class="features-list">
+                    <li>Eğitici Kelime Yapısı</li>
+                    <li>İngilizce & Türkçe Desteği</li>
+                    <li>Gizlilik Odaklı Tasarım</li>
+                    <li>+4 Yaş Uygunluğu</li>
+                    <li>Yerel Kayıt Sistemi</li>
+                    <li>Zihin Egzersizi</li>
+                </ul>
 
-            <div class="game-card">
-                <div class="card-visual visual-2">📍</div>
-                <div class="game-info">
-                    <h3>Rotanot</h3>
-                    <p>Seyahatlerini dijital bir günlüğe dönüştür. GPS destekli anı defteri.</p>
-                    <div class="btn-group">
-                        <a href="#" class="main-btn">Coming Soon</a>
-                        <a href="rotanot-privacy.html" class="sub-btn">Privacy</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="game-card">
-                <div class="card-visual visual-3">⚒️</div>
-                <div class="game-info">
-                    <h3>Saha Asistanı</h3>
-                    <p>Jeoloji mühendisleri için profesyonel saha veri toplama aracı.</p>
-                    <div class="btn-group">
-                        <a href="#" class="main-btn">Download</a>
-                        <a href="saha-asistani-privacy.html" class="sub-btn">Privacy</a>
-                    </div>
+                <div class="btn-group">
+                    <a href="#" class="main-btn">COMING SOON ON PLAY STORE</a>
+                    <a href="https://sites.google.com/view/fallinglettershealthybrain/privacy-policy" class="sub-btn">Privacy Policy</a>
+                    <a href="https://sites.google.com/view/fallinglettershealthybrain/terms-of-service" class="sub-btn">Terms</a>
                 </div>
             </div>
         </div>
     </main>
 
     <footer>
-        <p>© 2024 Ali Çelik Games. Made with passion in Ankara/Turkey.</p>
+        <p>© 2024 Ali Çelik Games. Falling Letters Healthy Brain is a trademark of Ali Çelik.</p>
+        <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.6;">Ankara, Türkiye</p>
     </footer>
 </div>
 
