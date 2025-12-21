@@ -3,264 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Çelik Games | Falling Letters Healthy Brain</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>Falling Letters Healthy Brain - Ali Çelik Games</title>
     <style>
-        :root {
-            --primary: #00f2ff; /* Modern Neon Mavi */
-            --bg-dark: #0a0b10;
-            --card-bg: #16181d;
-            --text-main: #ffffff;
-            --text-dim: #94a3b8;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
         }
-
+        
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1c2c 0%, #4a192c 100%);
+            min-height: 100vh;
+            color: white;
         }
-
-        /* Dinamik Arka Plan */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0a0b10 100%);
-            z-index: -1;
-        }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px;
         }
-
-        /* Navbar */
-        nav {
-            padding: 30px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-weight: 900;
-            font-size: 1.5rem;
-            letter-spacing: -1px;
-            text-transform: uppercase;
-        }
-
-        .logo span { color: var(--primary); }
-
-        /* Hero Section */
-        .hero {
-            height: 50vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        
+        /* Header */
+        .header {
             text-align: center;
+            padding: 60px 20px;
         }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 7vw, 4.5rem);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            background: linear-gradient(to bottom, #fff 40%, #64748b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        
+        .header h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            animation: fadeInDown 0.8s ease;
         }
-
-        .section-label {
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            margin-bottom: 30px;
-            display: block;
-            text-align: center;
+        
+        .header p {
+            font-size: 1.4em;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease;
         }
-
-        /* Ana Kart Tasarımı */
-        .main-game-section {
+        
+        /* Kartlar */
+        .games-grid {
             display: flex;
             justify-content: center;
-            margin-bottom: 80px;
+            margin: 40px 0;
         }
-
+        
         .game-card {
-            background: var(--card-bg);
-            border-radius: 32px;
-            border: 1px solid rgba(255,255,255,0.05);
-            width: 100%;
-            max-width: 800px;
+            background: white;
+            border-radius: 25px;
             overflow: hidden;
-            transition: 0.4s;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            max-width: 500px;
+            color: #2d3748;
         }
-
+        
         .game-card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 20px 60px rgba(0, 242, 255, 0.1);
+            transform: translateY(-10px);
         }
-
-        .card-visual {
-            height: 350px;
-            background: linear-gradient(135deg, #00DBDE 0%, #FC00FF 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-size: 6rem;
+        
+        .game-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 50px;
+            text-align: center;
+            color: white;
             position: relative;
         }
-
-        .game-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(0,0,0,0.5);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            backdrop-filter: blur(5px);
+        
+        .game-icon {
+            font-size: 5em;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
         }
-
-        .game-info {
-            padding: 40px;
+        
+        .game-content {
+            padding: 35px;
         }
-
-        .game-info h2 {
+        
+        .game-title {
             font-size: 2.2rem;
-            margin-bottom: 15px;
-            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 800;
+            text-align: center;
+        }
+        
+        .game-description {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 1.05em;
+            color: #4a5568;
         }
 
         .features-list {
             list-style: none;
-            margin: 20px 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
+            margin-bottom: 25px;
         }
 
         .features-list li {
-            color: var(--text-dim);
-            font-size: 0.95rem;
+            padding: 8px 0;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
-        .features-list li::before { content: "✓"; color: var(--primary); font-weight: bold; }
-
-        /* Butonlar */
-        .btn-group {
-            display: flex;
+        .features-list li:before { content: "✅"; }
+        
+        .game-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
-            margin-top: 30px;
         }
-
-        .main-btn {
-            background: var(--primary);
-            color: #000;
-            padding: 16px 32px;
-            border-radius: 14px;
-            text-decoration: none;
-            font-weight: 800;
-            flex-grow: 2;
+        
+        .btn {
+            padding: 15px;
             text-align: center;
-            transition: 0.3s;
-        }
-
-        .sub-btn {
-            background: rgba(255,255,255,0.05);
-            color: #fff;
-            padding: 16px 24px;
-            border-radius: 14px;
             text-decoration: none;
+            border-radius: 12px;
             font-weight: 600;
-            flex-grow: 1;
-            text-align: center;
             transition: 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-privacy { background: #edf2f7; color: #4a5568; }
+        .btn-terms { background: #edf2f7; color: #4a5568; }
+        .btn-play {
+            grid-column: 1 / -1;
+            background: #48bb78;
+            color: white;
         }
 
-        .main-btn:hover { transform: scale(1.02); filter: brightness(1.1); }
-        .sub-btn:hover { background: rgba(255,255,255,0.15); }
+        .btn:hover { opacity: 0.8; transform: scale(1.02); }
+
+        /* Modal (Gizlilik ve Şartlar Penceresi) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 40px;
+            border-radius: 20px;
+            width: 80%;
+            max-width: 800px;
+            color: #333;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close {
+            position: sticky;
+            top: 0; float: right;
+            font-size: 28px; font-weight: bold; cursor: pointer;
+        }
 
         /* Footer */
-        footer {
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding: 60px 0;
+        .footer {
             text-align: center;
-            color: var(--text-dim);
+            padding: 40px;
+            opacity: 0.7;
+            font-size: 0.9em;
         }
 
-        @media (max-width: 768px) {
-            .features-list { grid-template-columns: 1fr; }
-            .btn-group { flex-direction: column; }
-            .hero h1 { font-size: 2.2rem; }
-        }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <nav>
-        <div class="logo">Ali Celik<span>Games</span></div>
-        <div class="contact-email">alicelik1980@gmail.com</div>
-    </nav>
+    <div class="container">
+        <header class="header">
+            <h1>🎮 Ali Çelik Games</h1>
+            <p>Zihin Egzersizi ve Eğlence Bir Arada</p>
+        </header>
 
-    <header class="hero">
-        <span class="section-label">Mobile Brain Training</span>
-        <h1>Falling Letters<br>Healthy Brain</h1>
-    </header>
-
-    <main class="main-game-section">
-        <div class="game-card">
-            <div class="card-visual">
-                <span class="game-badge">NEW RELEASE</span>
-                🔠
-                <div style="font-size: 1.2rem; margin-top: 10px; font-weight: 600;">Word Puzzle Adventure</div>
-            </div>
-            
-            <div class="game-info">
-                <h2>Oyun Hakkında</h2>
-                <p>Falling Letters Healthy Brain, düşen harf bloklarından kelimeler türeterek hem eğleneceğiniz hem de kelime haznenizi geliştireceğiniz eğitici bir bulmaca oyunudur.</p>
-                
-                <ul class="features-list">
-                    <li>Eğitici Kelime Yapısı</li>
-                    <li>İngilizce & Türkçe Desteği</li>
-                    <li>Gizlilik Odaklı Tasarım</li>
-                    <li>+4 Yaş Uygunluğu</li>
-                    <li>Yerel Kayıt Sistemi</li>
-                    <li>Zihin Egzersizi</li>
-                </ul>
-
-                <div class="btn-group">
-                    <a href="#" class="main-btn">COMING SOON ON PLAY STORE</a>
-                    <a href="https://sites.google.com/view/fallinglettershealthybrain/privacy-policy" class="sub-btn">Privacy Policy</a>
-                    <a href="https://sites.google.com/view/fallinglettershealthybrain/terms-of-service" class="sub-btn">Terms</a>
+        <section class="games-grid">
+            <div class="game-card">
+                <div class="game-header">
+                    <div class="game-icon">🔠</div>
+                </div>
+                <div class="game-content">
+                    <h2 class="game-title">Falling Letters Healthy Brain</h2>
+                    <p class="game-description">
+                        Düşen harf bloklarından kelimeler türeterek hem eğlenin hem de kelime haznenizi geliştirin. Zihin sağlığınızı korumak için tasarlanmış benzersiz bir bulmaca deneyimi!
+                    </p>
+                    <ul class="features-list">
+                        <li>Eğitici ve Zihin Geliştirici</li>
+                        <li>İngilizce & Türkçe Dil Desteği</li>
+                        <li>Her Yaş Grubu İçin Uygun (+4)</li>
+                        <li>İnternetsiz Oynama Özelliği</li>
+                    </ul>
+                    <div class="game-buttons">
+                        <button onclick="openModal('privacy')" class="btn btn-privacy">🔒 Gizlilik</button>
+                        <button onclick="openModal('terms')" class="btn btn-terms">📜 Şartlar</button>
+                        <a href="#" class="btn btn-play">▶️ Yakında Play Store'da</a>
+                    </div>
                 </div>
             </div>
+        </section>
+
+        <footer class="footer">
+            <p>© 2024 Ali Çelik - alicelik1980@gmail.com</p>
+            <p>Ankara, Türkiye</p>
+        </footer>
+    </div>
+
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody">
+                </div>
         </div>
-    </main>
+    </div>
 
-    <footer>
-        <p>© 2024 Ali Çelik Games. Falling Letters Healthy Brain is a trademark of Ali Çelik.</p>
-        <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.6;">Ankara, Türkiye</p>
-    </footer>
-</div>
+    <script>
+        const content = {
+            privacy: `
+                <h2>Gizlilik Politikası</h2><br>
+                <p><strong>Falling Letters Healthy Brain</strong>, kullanıcı gizliliğine önem verir. Bu uygulama:</p><br>
+                <ul>
+                    <li>Kişisel veri toplamaz.</li>
+                    <li>Konum bilgisi veya rehber erişimi istemez.</li>
+                    <li>Reklamlar Google AdMob üzerinden sunulur ve kişiselleştirilmemiş olabilir.</li>
+                    <li>Oyun verileri sadece cihazınızda saklanır.</li>
+                </ul><br>
+                <p>Sorularınız için: alicelik1980@gmail.com</p>
+            `,
+            terms: `
+                <h2>Kullanım Şartları</h2><br>
+                <p>Bu uygulamayı kullanarak aşağıdaki şartları kabul etmiş sayılırsınız:</p><br>
+                <ul>
+                    <li>Uygulama "olduğu gibi" sunulmaktadır.</li>
+                    <li>Oyunun içeriği zihinsel eğlence amaçlıdır.</li>
+                    <li>Uygulamanın kopyalanması veya tersine mühendislik yapılması yasaktır.</li>
+                    <li>Geliştirici, güncellemeler yapma hakkını saklı tutar.</li>
+                </ul>
+            `
+        };
 
+        function openModal(type) {
+            document.getElementById('modalBody').innerHTML = content[type];
+            document.getElementById('infoModal').style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('infoModal')) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>
