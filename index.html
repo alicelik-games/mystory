@@ -3,481 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Story - Ali Çelik Games</title>
+    <title>Ali Çelik Games | Stüdyo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #00f2ff; /* Loop Games tarzı neon mavi */
+            --bg-dark: #0a0b10;
+            --card-bg: #16181d;
+            --text-main: #ffffff;
+            --text-dim: #94a3b8;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
-        
+
+        /* Arka Plan Efekti */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0a0b10 100%);
+            z-index: -1;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
-        
-        /* Header */
-        .header {
+
+        /* Navbar */
+        nav {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .logo span { color: var(--primary); }
+
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            color: white;
-            padding: 60px 20px;
         }
-        
-        .header h1 {
-            font-size: 3.5em;
-            margin-bottom: 15px;
-            animation: fadeInDown 0.8s ease;
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 20px;
+            background: linear-gradient(to bottom, #fff 40%, #64748b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        
-        .header p {
-            font-size: 1.4em;
-            opacity: 0.95;
-            animation: fadeInUp 0.8s ease;
-        }
-        
-        /* Ana Bölüm */
-        .main-section {
-            margin: 40px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            color: white;
-            font-size: 2.5em;
+
+        /* Grid Sistemi */
+        .section-label {
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
             margin-bottom: 40px;
-            position: relative;
-        }
-        
-        .section-title:after {
-            content: '';
-            width: 100px;
-            height: 4px;
-            background: white;
             display: block;
-            margin: 15px auto;
-            border-radius: 2px;
         }
-        
-        /* Kartlar */
+
         .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 100px;
         }
-        
+
+        /* Kart Tasarımı */
         .game-card {
-            background: white;
-            border-radius: 20px;
+            background: var(--card-bg);
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            animation: slideUp 0.6s ease;
         }
-        
+
         .game-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 242, 255, 0.1);
         }
-        
-        .game-header {
-            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
-            padding: 40px;
-            text-align: center;
+
+        .card-visual {
+            height: 240px;
+            background: #23262d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
             position: relative;
         }
-        
-        .game-header.app {
-            background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
-        }
-        
-        .game-icon {
-            font-size: 5em;
-            margin-bottom: 15px;
-            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
-        }
-        
-        .game-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(255,255,255,0.3);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: bold;
-        }
-        
-        .game-content {
+
+        /* Loop Games benzeri renk geçişleri */
+        .visual-1 { background: linear-gradient(45deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%); }
+        .visual-2 { background: linear-gradient(45deg, #00DBDE 0%, #FC00FF 100%); }
+        .visual-3 { background: linear-gradient(45deg, #08AEEA 0%, #2AF598 100%); }
+
+        .game-info {
             padding: 30px;
         }
-        
-        .game-title {
-            font-size: 2em;
-            color: #2d3748;
+
+        .game-info h3 {
+            font-size: 1.5rem;
             margin-bottom: 10px;
-            font-weight: bold;
         }
-        
-        .game-platform {
-            color: #718096;
-            font-size: 0.95em;
-            margin-bottom: 15px;
+
+        .game-info p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        /* Butonlar */
+        .btn-group {
             display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .game-description {
-            color: #4a5568;
-            line-height: 1.7;
-            margin-bottom: 25px;
-            font-size: 1.05em;
-        }
-        
-        .game-features {
-            list-style: none;
-            margin-bottom: 25px;
-        }
-        
-        .game-features li {
-            padding: 8px 0;
-            color: #2d3748;
-            display: flex;
-            align-items: center;
             gap: 10px;
         }
-        
-        .game-features li:before {
-            content: "✨";
-        }
-        
-        .game-buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-        
-        .btn {
-            padding: 15px 25px;
-            text-align: center;
+
+        .main-btn {
+            background: var(--primary);
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 12px;
             text-decoration: none;
-            border-radius: 10px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 1.05em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+            font-weight: 700;
+            flex-grow: 1;
+            text-align: center;
+            transition: 0.3s;
         }
-        
-        .btn-privacy {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+
+        .sub-btn {
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            padding: 12px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: 0.3s;
         }
-        
-        .btn-privacy:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
-        }
-        
-        .btn-terms {
-            background: linear-gradient(135deg, #f687b3 0%, #d53f8c 100%);
-            color: white;
-        }
-        
-        .btn-terms:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(213, 63, 140, 0.4);
-        }
-        
-        .btn-play {
-            grid-column: 1 / -1;
-            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
-            color: white;
-        }
-        
-        .btn-play:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(72, 187, 120, 0.4);
-        }
-        
+
+        .sub-btn:hover { background: rgba(255,255,255,0.15); }
+
         /* Footer */
-        .footer {
-            background: rgba(0,0,0,0.2);
-            backdrop-filter: blur(10px);
-            color: white;
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 60px 0;
             text-align: center;
-            padding: 40px 20px;
-            margin-top: 80px;
-            border-radius: 20px 20px 0 0;
+            color: var(--text-dim);
         }
-        
-        .footer-links {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1em;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .footer-links a:hover {
-            transform: translateY(-2px);
-        }
-        
-        /* Animasyonlar */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Mobil Uyumluluk */
+
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5em;
-            }
-            
-            .games-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .game-buttons {
-                grid-template-columns: 1fr;
-            }
-            
-            .btn-play {
-                grid-column: 1;
-            }
+            .games-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <h1>🎮 My Story</h1>
-            <p>Mobil Oyun & Uygulama Koleksiyonum</p>
-        </header>
+
+<div class="container">
+    <nav>
+        <div class="logo">Ali Celik<span>Games</span></div>
+        <div class="contact-email">alicelik.games@gmail.com</div>
+    </nav>
+
+    <header class="hero">
+        <span class="section-label">Mobile Game Studio</span>
+        <h1>We create stories.</h1>
+    </header>
+
+    <main>
+        <span class="section-label">Oyunlar & Projeler</span>
         
-        <!-- Oyunlar -->
-        <section class="main-section">
-            <h2 class="section-title">Oyunlarım</h2>
-            <div class="games-grid">
-                
-                <!-- Oyun 1 -->
-                <div class="game-card">
-                    <div class="game-header">
-                        <span class="game-badge">🔥 Popüler</span>
-                        <div class="game-icon">📝</div>
-                    </div>
-                    <div class="game-content">
-                        <h3 class="game-title">Kelime Ustası</h3>
-                        <div class="game-platform">
-                            <span>📱 Android</span> • <span>🍎 iOS (Yakında)</span>
-                        </div>
-                        <p class="game-description">
-                            3D silindir üzerinde dönen harflerle kelimeler oluşturun! 
-                            Eğlenceli ve bağımlılık yapan kelime bulmaca oyunu.
-                        </p>
-                        <ul class="game-features">
-                            <li>500+ eğlenceli seviye</li>
-                            <li>10.000+ Türkçe kelime</li>
-                            <li>Günlük ödüller</li>
-                            <li>Çevrimdışı oynanabilir</li>
-                        </ul>
-                        <div class="game-buttons">
-                            <a href="kelime-ustasi-privacy.html" class="btn btn-privacy">
-                                🔒 Gizlilik
-                            </a>
-                            <a href="kelime-ustasi-terms.html" class="btn btn-terms">
-                                📜 Şartlar
-                            </a>
-                            <a href="https://play.google.com/store/apps/details?id=com.alicelik.kelimeustasi" class="btn btn-play">
-                                ▶️ Google Play'de Oyna
-                            </a>
-                        </div>
+        <div class="games-grid">
+            <div class="game-card">
+                <div class="card-visual visual-1">📝</div>
+                <div class="game-info">
+                    <h3>Kelime Ustası</h3>
+                    <p>3D silindir üzerinde dönen harflerle zihnini zorla. 500'den fazla seviye.</p>
+                    <div class="btn-group">
+                        <a href="https://play.google.com/..." class="main-btn">Play Now</a>
+                        <a href="kelime-ustasi-privacy.html" class="sub-btn">Privacy</a>
                     </div>
                 </div>
-                
-                <!-- Oyun 2 -->
-                <div class="game-card">
-                    <div class="game-header">
-                        <span class="game-badge">🆕 Yeni</span>
-                        <div class="game-icon">🧩</div>
-                    </div>
-                    <div class="game-content">
-                        <h3 class="game-title">Puzzle Master</h3>
-                        <div class="game-platform">
-                            <span>📱 Android</span> • <span>🍎 iOS</span>
-                        </div>
-                        <p class="game-description">
-                            Zeka geliştiren benzersiz puzzle oyunu. Her seviye yeni bir 
-                            meydan okuma, her bulmaca yeni bir macera!
-                        </p>
-                        <ul class="game-features">
-                            <li>300+ özgün bulmaca</li>
-                            <li>Rahatlatıcı müzikler</li>
-                            <li>İpucu sistemi</li>
-                            <li>Haftalık turnuvalar</li>
-                        </ul>
-                        <div class="game-buttons">
-                            <a href="puzzle-master-privacy.html" class="btn btn-privacy">
-                                🔒 Gizlilik
-                            </a>
-                            <a href="puzzle-master-terms.html" class="btn btn-terms">
-                                📜 Şartlar
-                            </a>
-                            <a href="#" class="btn btn-play">
-                                ▶️ Yakında Yayında
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
             </div>
-        </section>
-        
-        <!-- Uygulamalar -->
-        <section class="main-section">
-            <h2 class="section-title">Uygulamalarım</h2>
-            <div class="games-grid">
-                
-                <!-- Uygulama 1 -->
-                <div class="game-card">
-                    <div class="game-header app">
-                        <span class="game-badge">⭐ Öne Çıkan</span>
-                        <div class="game-icon">📍</div>
-                    </div>
-                    <div class="game-content">
-                        <h3 class="game-title">Rotanot</h3>
-                        <div class="game-platform">
-                            <span>📱 Android</span> • <span>🍎 iOS</span>
-                        </div>
-                        <p class="game-description">
-                            Seyahat günlüğü uygulaması. GPS konumunuzla gezdiğiniz 
-                            yerleri kaydedin, fotoğraflarınızı organize edin.
-                        </p>
-                        <ul class="game-features">
-                            <li>GPS konum kayıt</li>
-                            <li>Fotoğraf galerisi</li>
-                            <li>Not ve anı defteri</li>
-                            <li>Harita görünümü</li>
-                        </ul>
-                        <div class="game-buttons">
-                            <a href="rotanot-privacy.html" class="btn btn-privacy">
-                                🔒 Gizlilik
-                            </a>
-                            <a href="rotanot-terms.html" class="btn btn-terms">
-                                📜 Şartlar
-                            </a>
-                            <a href="#" class="btn btn-play">
-                                ▶️ İndir
-                            </a>
-                        </div>
+
+            <div class="game-card">
+                <div class="card-visual visual-2">📍</div>
+                <div class="game-info">
+                    <h3>Rotanot</h3>
+                    <p>Seyahatlerini dijital bir günlüğe dönüştür. GPS destekli anı defteri.</p>
+                    <div class="btn-group">
+                        <a href="#" class="main-btn">Coming Soon</a>
+                        <a href="rotanot-privacy.html" class="sub-btn">Privacy</a>
                     </div>
                 </div>
-                
-                <!-- Uygulama 2 -->
-                <div class="game-card">
-                    <div class="game-header app">
-                        <span class="game-badge">💼 Profesyonel</span>
-                        <div class="game-icon">⚒️</div>
-                    </div>
-                    <div class="game-content">
-                        <h3 class="game-title">Saha Asistanı</h3>
-                        <div class="game-platform">
-                            <span>📱 Android</span>
-                        </div>
-                        <p class="game-description">
-                            Jeoloji mühendisleri için saha çalışmalarını kolaylaştıran 
-                            profesyonel veri toplama uygulaması.
-                        </p>
-                        <ul class="game-features">
-                            <li>GPS koordinat kayıt</li>
-                            <li>Numune takip sistemi</li>
-                            <li>Fotoğraflı raporlama</li>
-                            <li>Çevrimdışı çalışma</li>
-                        </ul>
-                        <div class="game-buttons">
-                            <a href="saha-asistani-privacy.html" class="btn btn-privacy">
-                                🔒 Gizlilik
-                            </a>
-                            <a href="saha-asistani-terms.html" class="btn btn-terms">
-                                📜 Şartlar
-                            </a>
-                            <a href="#" class="btn btn-play">
-                                ▶️ İndir
-                            </a>
-                        </div>
+            </div>
+
+            <div class="game-card">
+                <div class="card-visual visual-3">⚒️</div>
+                <div class="game-info">
+                    <h3>Saha Asistanı</h3>
+                    <p>Jeoloji mühendisleri için profesyonel saha veri toplama aracı.</p>
+                    <div class="btn-group">
+                        <a href="#" class="main-btn">Download</a>
+                        <a href="saha-asistani-privacy.html" class="sub-btn">Privacy</a>
                     </div>
                 </div>
-                
             </div>
-        </section>
-        
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-links">
-                <a href="mailto:alicelik.games@gmail.com">
-                    📧 E-posta
-                </a>
-                <a href="https://play.google.com/store/apps/developer?id=AliCelik">
-                    🎮 Play Store
-                </a>
-                <a href="https://github.com/alicelik-games">
-                    💻 GitHub
-                </a>
-            </div>
-            <p>© 2024 Ali Çelik - My Story. Tüm hakları saklıdır.</p>
-            <p style="margin-top: 10px; opacity: 0.8;">Ankara, Türkiye 🇹🇷</p>
-        </footer>
-    </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Ali Çelik Games. Made with passion in Ankara/Turkey.</p>
+    </footer>
+</div>
+
 </body>
 </html>
