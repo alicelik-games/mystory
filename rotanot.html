@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotanot | Gizlilik ve Şartlar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #FC00FF; --bg: #0a0b10; --card: #16181d; }
+        body { background: var(--bg); color: #fff; font-family: 'Inter', sans-serif; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .back { color: var(--primary); text-decoration: none; display: block; margin-bottom: 20px; }
+        .hero { background: linear-gradient(45deg, #00DBDE, #FC00FF); height: 250px; border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 5rem; margin-bottom: 30px; }
+        h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .tabs { display: flex; gap: 10px; margin: 30px 0; }
+        .tab-btn { background: var(--card); border: 1px solid #333; color: #fff; padding: 10px 20px; border-radius: 8px; cursor: pointer; }
+        .tab-btn.active { border-color: var(--primary); background: rgba(252, 0, 255, 0.1); }
+        .content-section { background: var(--card); padding: 30px; border-radius: 20px; display: none; }
+        .content-section.active { display: block; }
+        h2 { color: var(--primary); margin: 20px 0 10px; font-size: 1.4rem; }
+        p, li { color: #94a3b8; margin-bottom: 10px; font-size: 0.95rem; }
+        ul { margin-left: 20px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="index.html" class="back">← Projelere Dön</a>
+    <div class="hero">📍</div>
+    <h1>Rotanot</h1>
+    <p>Seyahatlerinizi dijital bir günlüğe dönüştürün.</p>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="showTab('privacy')">Gizlilik Politikası</button>
+        <button class="tab-btn" onclick="showTab('terms')">Kullanım Şartları</button>
+    </div>
+
+    <div id="privacy" class="content-section active">
+        <h1>Gizlilik Politikası</h1>
+        <p>Son Güncelleme: 20 Aralık 2024</p>
+        <h2>1. Toplanan Veriler</h2>
+        <p><strong>1.1. Konum Verileri:</strong> Seyahat girişlerinizde konum bilgisi eklemek için kullanılır. Verileriniz hiçbir sunucuya yüklenmez, sadece cihazınızda saklanır.</p>
+        <p><strong>1.2. Medya:</strong> Fotoğraf ve videolarınız cihazınızın yerel depolama alanında saklanır.</p>
+        <p><strong>1.3. Ses ve Notlar:</strong> Ses kayıtlarınız ve seyahat notlarınız cihazınızın SQLite veritabanında saklanır.</p>
+        <h2>2. Veri Depolama</h2>
+        <p>Uygulama hiçbir merkezi sunucu kullanmaz. Tüm verileriniz offline (yerel) olarak saklanmaktadır.</p>
+        <h2>3. Kullanıcı Hakları</h2>
+        <p>KVKK ve GDPR kapsamında verilerinize erişme, silme ve taşıma hakkına sahipsiniz.</p>
+        <p>İletişim: alicelik1980@gmail.com</p>
+    </div>
+
+    <div id="terms" class="content-section">
+        <h1>Kullanım Şartları</h1>
+        <h2>1. Genel Hükümler</h2>
+        <p>Rotanot uygulamasını kullanarak bu şartları kabul etmiş sayılırsınız. Uygulamayı kullanmak için en az 13 yaşında olmalısınız.</p>
+        <h2>2. İçerik Sorumluluğu</h2>
+        <p>Yüklediğiniz tüm fotoğraflar, videolar ve notlar tamamen size aittir. Bu verilerin yedeklenmesi kullanıcının sorumluluğundadır. Cihaz kaybı durumunda veri kaybından geliştirici sorumlu tutulamaz.</p>
+        <h2>3. Yasaklanan Kullanımlar</h2>
+        <p>Tersine mühendislik yapmak, uygulamanın kaynak kodunu çalmak veya yasadışı faaliyetlerde kullanmak yasaktır.</p>
+        <h2>4. Sorumluluk Reddi</h2>
+        <p>Uygulama "olduğu gibi" sunulmaktadır. Navigasyon hataları veya teknik kesintilerden kaynaklanan sorunlarda sorumluluk kabul edilmez.</p>
+    </div>
+</div>
+
+<script>
+    function showTab(id) {
+        document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+</script>
+</body>
+</html>
