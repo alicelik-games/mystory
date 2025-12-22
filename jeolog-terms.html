@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanım Şartları - JeoLog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00f2ff;
+            --bg-dark: #0a0b10;
+            --card-bg: #16181d;
+            --text-main: #ffffff;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0a0b10 100%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo span { color: var(--primary); }
+
+        .back-link {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 0 40px;
+        }
+
+        .header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 15px;
+            background: linear-gradient(to bottom, #fff 40%, #64748b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        .content {
+            background: var(--card-bg);
+            padding: 50px;
+            border-radius: 24px;
+            margin: 40px 0 80px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .content h2 {
+            font-size: 1.8rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .content h2:first-child {
+            margin-top: 0;
+        }
+
+        .content h3 {
+            font-size: 1.3rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .content p {
+            color: var(--text-dim);
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .content ul, .content ol {
+            color: var(--text-dim);
+            margin: 15px 0 15px 30px;
+            line-height: 1.8;
+        }
+
+        .content li {
+            margin-bottom: 10px;
+        }
+
+        .content strong {
+            color: var(--text-main);
+        }
+
+        .highlight-box {
+            background: rgba(0, 242, 255, 0.05);
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .warning-box {
+            background: rgba(239, 68, 68, 0.05);
+            border-left: 4px solid #ef4444;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .last-updated {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 60px 0;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .footer-mail {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .content { padding: 30px 20px; }
+            .header h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <nav>
+        <a href="index.html" class="logo">Ali Celik<span>Games</span></a>
+        <a href="jeolog.html" class="back-link">← JeoLog'a Dön</a>
+    </nav>
+
+    <div class="header">
+        <h1>Kullanım Şartları</h1>
+        <p>JeoLog Uygulaması</p>
+    </div>
+
+    <div class="last-updated">
+        <strong>Son Güncelleme:</strong> 23 Aralık 2024
+    </div>
+
+    <div class="content">
+        <div class="highlight-box">
+            <p><strong>Önemli:</strong> JeoLog uygulamasını indirip kullanarak, aşağıdaki kullanım şartlarını kabul etmiş sayılırsınız. Lütfen bu şartları dikkatlice okuyunuz.</p>
+        </div>
+
+        <h2>1. Şartların Kabulü</h2>
+        <p>
+            JeoLog mobil uygulaması ("Uygulama"), Ali Çelik ("Geliştirici", "Biz", "Bizim")
+            tarafından geliştirilmiş ve sunulmaktadır. Uygulamayı indirerek, yükleyerek veya
+            kullanarak bu Kullanım Şartlarını ("Şartlar") kabul etmiş olursunuz.
+        </p>
+        <p>
+            Bu şartları kabul etmiyorsanız, lütfen uygulamayı kullanmayınız ve cihazınızdan kaldırınız.
+        </p>
+
+        <h2>2. Satın Alma ve Ödeme</h2>
+
+        <h3>2.1. Fiyatlandırma</h3>
+        <p>
+            JeoLog, ücretli bir uygulamadır. Mevcut fiyat: <strong>₺199,99</strong> (Tek seferlik ödeme)
+        </p>
+        <ul>
+            <li>Ödeme, App Store veya Google Play üzerinden gerçekleştirilir</li>
+            <li>Fiyatlar önceden haber verilerek değiştirilebilir</li>
+            <li>Yeni kullanıcılar güncel fiyatı öder, mevcut kullanıcılar etkilenmez</li>
+            <li>Abonelik sistemi yoktur - tek seferlik ödeme ile kalıcı kullanım</li>
+        </ul>
+
+        <h3>2.2. Ödeme İşlemi</h3>
+        <ul>
+            <li>Ödemeler Apple veya Google tarafından işlenir</li>
+            <li>Geliştirici kredi kartı bilgilerinize erişmez</li>
+            <li>Faturanız App Store/Google Play hesabınıza gönderilir</li>
+            <li>KDV dahil fiyatlardır (Türkiye için)</li>
+        </ul>
+
+        <h3>2.3. İade Politikası</h3>
+        <div class="warning-box">
+            <p><strong>Önemli:</strong> İadeler, App Store ve Google Play'in standart politikalarına tabidir.</p>
+        </div>
+        <ul>
+            <li><strong>iOS (App Store):</strong> Satın alma sonrası 14 gün içinde iade talep edilebilir</li>
+            <li><strong>Android (Google Play):</strong> İlk 48 saat içinde tam iade, sonrası değerlendirmeye tabidir</li>
+            <li>İade talepleri için doğrudan Apple veya Google ile iletişime geçiniz</li>
+            <li>Geliştirici, iade işlemlerini yönetemez</li>
+            <li>İade onaylandığında lisans otomatik olarak iptal edilir</li>
+        </ul>
+
+        <h2>3. Lisans ve Kullanım Hakları</h2>
+
+        <h3>3.1. Lisans Verme</h3>
+        <p>
+            Uygulamayı satın alarak, JeoLog uygulamasını kişisel veya ticari amaçlı kullanmak
+            için sınırlı, münhasır olmayan, devredilemez, kalıcı bir lisans elde edersiniz.
+        </p>
+        <ul>
+            <li><strong>Kalıcı Kullanım:</strong> Tek ödeme ile ömür boyu kullanım hakkı</li>
+            <li><strong>Çoklu Cihaz:</strong> Aynı App Store/Google Play hesabınıza kayıtlı cihazlarda kullanabilirsiniz</li>
+            <li><strong>Ücretsiz Güncellemeler:</strong> Tüm gelecek sürümler ve özellikler ücretsizdir</li>
+        </ul>
+
+        <h3>3.2. İzin Verilen Kullanımlar</h3>
+        <ul>
+            <li>Jeolojik arazi çalışmaları ve veri toplama</li>
+            <li>Akademik araştırma ve eğitim amaçlı kullanım</li>
+            <li>Ticari mühendislik projeleri</li>
+            <li>Kişisel hobi amaçlı coğrafi veri toplama</li>
+            <li>Lisans sahibinin tüm cihazlarında kullanım</li>
+        </ul>
+
+        <h3>3.4. Yasaklanan Kullanımlar</h3>
+        <div class="warning-box">
+            <p><strong>Uyarı:</strong> Aşağıdaki kullanımlar yasaktır ve lisansınızın iptaline neden olabilir:</p>
+        </div>
+        <ul>
+            <li><strong>Paylaşım:</strong> Lisansınızı başkalarıyla paylaşmak veya satmak</li>
+            <li><strong>Korsanlık:</strong> Uygulamayı crack'lemek veya korsan dağıtmak</li>
+            <li><strong>Tersine Mühendislik:</strong> Kaynak kodunu çıkarmak veya kopyalamak</li>
+            <li><strong>Yeniden Satış:</strong> Uygulamayı veya lisansını yeniden satmak</li>
+            <li><strong>Toplu Kullanım:</strong> Tek lisansla kurumsal kullanım (kurumsal lisans için iletişime geçiniz)</li>
+            <li><strong>Değiştirme:</strong> Uygulamayı modifiye etmek veya türev ürünler oluşturmak</li>
+            <li>Yasadışı aktiviteler için kullanmak</li>
+            <li>Kötü amaçlı yazılım yaymak veya güvenlik açıklarından yararlanmak</li>
+        </ul>
+
+        <h3>3.5. Lisans İptali</h3>
+        <p>
+            Aşağıdaki durumlarda lisansınız iptal edilebilir:
+        </p>
+        <ul>
+            <li>Kullanım şartlarının ağır ihlali</li>
+            <li>Yasadışı kullanım tespiti</li>
+            <li>İade talebinin onaylanması</li>
+            <li>Ödeme iptali veya geri çekilmesi (chargeback)</li>
+        </ul>
+
+        <h2>4. Kullanıcı Sorumlulukları</h2>
+
+        <h3>4.1. Veri Sorumluluğu</h3>
+        <div class="warning-box">
+            <p><strong>Önemli Uyarı:</strong> Uygulamada oluşturduğunuz ve sakladığınız tüm verilerden siz sorumlusunuz. Düzenli yedekleme yapmanız önerilir.</p>
+        </div>
+        <ul>
+            <li>Verilerinizi düzenli olarak yedeklemek sizin sorumluluğunuzdadır</li>
+            <li>Veri kaybından geliştirici sorumlu tutulamaz</li>
+            <li>Hassas verileri güvenli şekilde saklamak kullanıcının sorumluluğundadır</li>
+        </ul>
+
+        <h3>4.2. Doğruluk ve Hassasiyet</h3>
+        <p>
+            JeoLog, GPS ve çeşitli sensör verilerini kullanır. Kullanıcılar şunları kabul eder:
+        </p>
+        <ul>
+            <li>GPS doğruluğu cihaza ve çevresel koşullara bağlıdır</li>
+            <li>Konum verileri ±3-10 metre hata payı içerebilir</li>
+            <li>Yükseklik verileri tahminseldir ve harici API'lerden alınır</li>
+            <li>Kritik uygulamalar için profesyonel ekipman kullanılmalıdır</li>
+        </ul>
+
+        <h3>4.3. Yasal Uyumluluk</h3>
+        <p>Kullanıcılar aşağıdakileri taahhüt eder:</p>
+        <ul>
+            <li>Uygulamayı yerel yasalara uygun şekilde kullanmak</li>
+            <li>Özel mülkiyetlere izinsiz girmemek</li>
+            <li>Çevre koruma yasalarına uymak</li>
+            <li>Gerekli izin ve ruhsatları almak</li>
+        </ul>
+
+        <h2>5. Gizlilik ve Veri Koruma</h2>
+        <p>
+            Gizlilik uygulamalarımız hakkında detaylı bilgi için lütfen
+            <a href="jeolog-privacy.html" class="footer-mail">Gizlilik Politikamızı</a> inceleyiniz.
+        </p>
+        <ul>
+            <li>Tüm verileriniz cihazınızda yerel olarak saklanır</li>
+            <li>Otomatik veri toplama veya paylaşımı yoktur</li>
+            <li>KVKK ve GDPR uyumlu veri işleme</li>
+        </ul>
+
+        <h2>6. Fikri Mülkiyet Hakları</h2>
+
+        <h3>6.1. Uygulama Mülkiyeti</h3>
+        <p>
+            JeoLog uygulaması, tasarımı, kod tabanı, logo ve tüm içeriği Ali Çelik'in
+            fikri mülkiyetidir ve telif hakkı yasaları ile korunmaktadır.
+        </p>
+
+        <h3>6.2. Kullanıcı İçeriği</h3>
+        <p>
+            Uygulamada oluşturduğunuz tüm içerik (notlar, fotoğraflar, veri kayıtları)
+            size aittir. Bu içerik üzerindeki tüm haklar tarafınıza aittir.
+        </p>
+
+        <h3>6.3. Üçüncü Taraf İçerik</h3>
+        <ul>
+            <li><strong>OpenStreetMap:</strong> Harita verileri ODbL lisansı altındadır</li>
+            <li><strong>Flutter Framework:</strong> BSD lisanslıdır</li>
+            <li>Diğer açık kaynak kütüphaneler ilgili lisanslarına tabidir</li>
+        </ul>
+
+        <h2>7. Garanti ve Sorumluluk Reddi</h2>
+
+        <h3>7.1. "Olduğu Gibi" Sunumu</h3>
+        <p>
+            JeoLog ücretli bir uygulama olsa da, "OLDUĞU GİBİ" sunulmaktadır.
+            Satın alma, uygulamanın mevcut durumunu kabul ettiğiniz anlamına gelir.
+        </p>
+        <div class="warning-box">
+            <p><strong>Önemli:</strong> JeoLog uygulaması "OLDUĞU GİBİ" ve "MEVCUT OLDUĞU HALIYLE" sunulmaktadır.
+            Açık veya zımni hiçbir garanti verilmemektedir.</p>
+        </div>
+
+        <h3>7.2. Garantisiz Hususlar</h3>
+        <p>Aşağıdakiler konusunda garanti verilmemektedir:</p>
+        <ul>
+            <li>Uygulamanın kesintisiz veya hatasız çalışması</li>
+            <li>Veri kaybı yaşanmayacağı</li>
+            <li>Tüm cihazlarda uyumlu olacağı</li>
+            <li>Sonuçların %100 doğru olacağı</li>
+            <li>Güvenlik açıklarının olmayacağı</li>
+        </ul>
+
+        <h3>7.3. Sorumluluk Sınırlaması</h3>
+        <div class="warning-box">
+            <p><strong>Maksimum Sorumluluk:</strong> Geliştiricinin toplam sorumluluğu, uygulamanın satın alma fiyatı (₺199,99) ile sınırlıdır.</p>
+        </div>
+        <p>
+            Geliştirici, aşağıdaki durumlardan sorumlu tutulamaz:
+        </p>
+        <ul>
+            <li>Uygulama kullanımından kaynaklanan doğrudan veya dolaylı zararlar</li>
+            <li>Veri kaybı, iş kaybı veya kar kaybı</li>
+            <li>Hatalı verilerden kaynaklanan sonuçlar</li>
+            <li>Üçüncü taraf servislerinin (harita API'leri vb.) çalışmaması</li>
+            <li>Cihaz uyumsuzluğu veya işletim sistemi sorunları</li>
+            <li>İnternet bağlantısı problemleri</li>
+        </ul>
+
+        <h2>8. Güncelleme ve Bakım</h2>
+
+        <h3>8.1. Uygulama Güncellemeleri</h3>
+        <ul>
+            <li><strong>Ücretsiz Güncellemeler:</strong> Tüm gelecek sürümler satın alma fiyatına dahildir</li>
+            <li>Düzenli hata düzeltmeleri ve iyileştirmeler yapılır</li>
+            <li>Yeni özellikler için ek ödeme talep edilmez</li>
+            <li>Güncellemeler otomatik veya manuel olabilir</li>
+            <li>Eski sürümler zamanla desteklenmeyebilir</li>
+        </ul>
+
+        <h3>8.2. Destek Hizmetleri</h3>
+        <p><strong>Ücretli müşteriler için öncelikli destek:</strong></p>
+        <p>
+            Teknik destek, e-posta yoluyla sağlanır:
+        </p>
+        <ul>
+            <li>Destek best-effort (en iyi çaba) prensibiyle verilir</li>
+            <li>Yanıt süresi garanti edilmez (genellikle 24-48 saat)</li>
+            <li>Özelleştirilmiş çözümler sağlanamayabilir</li>
+        </ul>
+
+        <h2>9. Hizmetin Sonlandırılması</h2>
+
+        <h3>9.1. Geliştirici Tarafından</h3>
+        <p>Geliştirici, aşağıdaki durumlarda hizmeti sonlandırabilir:</p>
+        <ul>
+            <li>Kullanım şartlarının ihlali</li>
+            <li>Kötüye kullanım tespiti</li>
+            <li>Yasal zorunluluklar</li>
+            <li>Uygulamanın genel olarak sonlandırılması</li>
+        </ul>
+
+        <h3>9.2. Kullanıcı Tarafından</h3>
+        <p>
+            Uygulamayı istediğiniz zaman cihazınızdan kaldırarak hizmeti sonlandırabilirsiniz.
+        </p>
+
+        <h2>10. Değişiklikler ve Bildirimler</h2>
+
+        <h3>10.1. Şartlarda Değişiklik</h3>
+        <p>
+            Bu Kullanım Şartları herhangi bir zamanda güncellenebilir:
+        </p>
+        <ul>
+            <li>Değişiklikler bu sayfada yayınlanır</li>
+            <li>Önemli değişiklikler uygulama içinde bildirilir</li>
+            <li>"Son Güncelleme" tarihi değiştirilir</li>
+            <li>Devam eden kullanım, değişikliklerin kabulü anlamına gelir</li>
+        </ul>
+
+        <h3>10.2. Bildirimler</h3>
+        <p>Geliştirici, aşağıdaki yollarla bildirim gönderebilir:</p>
+        <ul>
+            <li>Uygulama içi bildirimler</li>
+            <li>E-posta (kayıtlı ise)</li>
+            <li>Web sitesi duyuruları</li>
+        </ul>
+
+        <h2>11. Uyuşmazlık Çözümü</h2>
+
+        <h3>11.1. Uygulanacak Hukuk</h3>
+        <p>
+            Bu şartlar, Türkiye Cumhuriyeti yasalarına tabidir.
+        </p>
+
+        <h3>11.2. Yetki</h3>
+        <p>
+            Herhangi bir uyuşmazlık durumunda Ankara Mahkemeleri ve İcra Daireleri yetkilidir.
+        </p>
+
+        <h3>11.3. Çözüm Süreci</h3>
+        <ol>
+            <li>İlk olarak doğrudan iletişim kurulması önerilir</li>
+            <li>Arabuluculuk veya uzlaşma yolları denenmelidir</li>
+            <li>Son çare olarak yasal yollara başvurulabilir</li>
+        </ol>
+
+        <h2>12. Çeşitli Hükümler</h2>
+
+        <h3>12.1. Bölünebilirlik</h3>
+        <p>
+            Bu şartların herhangi bir hükmünün geçersiz sayılması, diğer hükümlerin
+            geçerliliğini etkilemez.
+        </p>
+
+        <h3>12.2. Feragat</h3>
+        <p>
+            Herhangi bir hakkın kullanılmaması, o haktan feragat edildiği anlamına gelmez.
+        </p>
+
+        <h3>12.3. Devir</h3>
+        <p>
+            Geliştirici, bu şartları önceden haber vermeksizin devredebilir.
+            Kullanıcılar bu haklarını devredemez.
+        </p>
+
+        <h3>12.4. Tam Anlaşma</h3>
+        <p>
+            Bu Kullanım Şartları ve Gizlilik Politikası, uygulama kullanımıyla ilgili
+            taraflar arasındaki tam anlaşmayı oluşturur.
+        </p>
+
+        <h2>13. Özel Durumlar ve Kurumsal Lisanslar</h2>
+
+        <h3>13.1. Eğitim Amaçlı Kullanım</h3>
+        <p>
+            Akademik kurumlar, üniversiteler ve öğrenciler için özel indirimler sunulmaktadır:
+        </p>
+        <ul>
+            <li><strong>Öğrenci İndirimi:</strong> Geçerli öğrenci belgesi ile %25 indirim</li>
+            <li><strong>Eğitim Kurumları:</strong> 10+ lisans için toplu fiyat</li>
+            <li>İletişim: <a href="mailto:alicelik1980@gmail.com" class="footer-mail">alicelik1980@gmail.com</a></li>
+        </ul>
+
+        <h3>13.2. Kurumsal Lisanslar</h3>
+        <p>
+            Şirketler ve mühendislik firmaları için özel kurumsal paketler:
+        </p>
+        <ul>
+            <li>Çoklu kullanıcı lisansları</li>
+            <li>Öncelikli teknik destek</li>
+            <li>Özel özellik geliştirme seçeneği</li>
+            <li>Faturalandırma ve sözleşme desteği</li>
+            <li>Beyaz etiketli çözümler (talep üzerine)</li>
+        </ul>
+
+        <h2>14. İletişim Bilgileri</h2>
+        <div class="highlight-box">
+            <p>
+                Kullanım Şartları hakkında sorularınız için:<br><br>
+                <strong>Geliştirici:</strong> Ali Çelik<br>
+                <strong>E-posta:</strong> <a href="mailto:alicelik1980@gmail.com" class="footer-mail">alicelik1980@gmail.com</a><br>
+                <strong>Konum:</strong> Ankara, Türkiye<br>
+                <strong>Yanıt Süresi:</strong> 24-48 saat
+            </p>
+        </div>
+
+        <h2>15. Onay Beyanı</h2>
+        <p>
+            JeoLog uygulamasını kullanarak, bu Kullanım Şartlarını tamamen okuduğunuzu,
+            anladığınızı ve kabul ettiğinizi beyan ve taahhüt edersiniz.
+        </p>
+        <p>
+            <strong>Son Güncelleme Tarihi:</strong> 23 Aralık 2024<br>
+            <strong>Versiyon:</strong> 1.0
+        </p>
+    </div>
+
+    <footer>
+        <p>© 2024 Ali Çelik Games. Tüm hakları saklıdır.</p>
+        <a href="mailto:alicelik1980@gmail.com" class="footer-mail">alicelik1980@gmail.com</a>
+    </footer>
+</div>
+
+</body>
+</html>

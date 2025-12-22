@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gizlilik Politikası - JeoLog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00f2ff;
+            --bg-dark: #0a0b10;
+            --card-bg: #16181d;
+            --text-main: #ffffff;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0a0b10 100%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo span { color: var(--primary); }
+
+        .back-link {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 0 40px;
+        }
+
+        .header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 15px;
+            background: linear-gradient(to bottom, #fff 40%, #64748b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        .content {
+            background: var(--card-bg);
+            padding: 50px;
+            border-radius: 24px;
+            margin: 40px 0 80px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .content h2 {
+            font-size: 1.8rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .content h2:first-child {
+            margin-top: 0;
+        }
+
+        .content h3 {
+            font-size: 1.3rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .content p {
+            color: var(--text-dim);
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .content ul, .content ol {
+            color: var(--text-dim);
+            margin: 15px 0 15px 30px;
+            line-height: 1.8;
+        }
+
+        .content li {
+            margin-bottom: 10px;
+        }
+
+        .content strong {
+            color: var(--text-main);
+        }
+
+        .highlight-box {
+            background: rgba(0, 242, 255, 0.05);
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .last-updated {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 60px 0;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .footer-mail {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .content { padding: 30px 20px; }
+            .header h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <nav>
+        <a href="index.html" class="logo">Ali Celik<span>Games</span></a>
+        <a href="jeolog.html" class="back-link">← JeoLog'a Dön</a>
+    </nav>
+
+    <div class="header">
+        <h1>Gizlilik Politikası</h1>
+        <p>JeoLog Uygulaması</p>
+    </div>
+
+    <div class="last-updated">
+        <strong>Son Güncelleme:</strong> 23 Aralık 2024
+    </div>
+
+    <div class="content">
+        <div class="highlight-box">
+            <p><strong>Önemli Not:</strong> JeoLog, kullanıcı gizliliğine önem veren ücretli bir profesyonel uygulamadır. Tüm verileriniz cihazınızda yerel olarak saklanır ve sunucularımıza otomatik olarak gönderilmez. Ücret karşılığında satın aldığınız uygulama, veri toplama veya reklam gösterimi yapmaz.</p>
+        </div>
+
+        <h2>1. Giriş</h2>
+        <p>
+            Bu Gizlilik Politikası, JeoLog mobil uygulamasını ("Uygulama") kullanırken toplanan, kullanılan ve korunan bilgileri açıklar.
+            Uygulamayı kullanarak bu gizlilik politikasını kabul etmiş olursunuz.
+        </p>
+
+        <h2>2. Toplanan Bilgiler</h2>
+
+        <h3>2.1. Konum Bilgileri</h3>
+        <p>
+            JeoLog, saha çalışmalarınızı kaydetmek için GPS konumunuza erişim talep eder:
+        </p>
+        <ul>
+            <li><strong>Amaç:</strong> Jeolojik gözlem noktalarınızın koordinatlarını kaydetmek</li>
+            <li><strong>Depolama:</strong> Tüm konum verileri yalnızca cihazınızda saklanır</li>
+            <li><strong>Paylaşım:</strong> Konum verileriniz izniniz olmadan üçüncü taraflarla paylaşılmaz</li>
+            <li><strong>Kontrol:</strong> Konum izinlerini istediğiniz zaman cihaz ayarlarınızdan iptal edebilirsiniz</li>
+        </ul>
+
+        <h3>2.2. Fotoğraf ve Medya</h3>
+        <p>
+            Uygulama, sahada çektiğiniz fotoğrafları kayıtlarınıza eklemenize olanak tanır:
+        </p>
+        <ul>
+            <li>Kamera erişimi yalnızca fotoğraf çekmek istediğinizde istenir</li>
+            <li>Galeriden fotoğraf seçmek için depolama izni gereklidir</li>
+            <li>Tüm fotoğraflar cihazınızda yerel olarak saklanır</li>
+            <li>Fotoğraflarınız izniniz olmadan paylaşılmaz veya yüklenmez</li>
+        </ul>
+
+        <h3>2.3. Depolama ve Dosya Erişimi</h3>
+        <p>
+            JeoLog, verilerinizi dışa aktarmanız için cihaz depolama alanına erişim talep eder:
+        </p>
+        <ul>
+            <li>CSV, KML formatlarında veri dışa aktarma işlemleri için kullanılır</li>
+            <li>Yedekleme dosyalarını kaydetmek ve geri yüklemek için gereklidir</li>
+            <li>Yalnızca uygulamanın oluşturduğu dosyalara erişir</li>
+        </ul>
+
+        <h3>2.4. Cihaz Bilgileri</h3>
+        <p>
+            Aşağıdaki teknik bilgiler uygulama performansı için toplanabilir:
+        </p>
+        <ul>
+            <li>İşletim sistemi sürümü (iOS/Android)</li>
+            <li>Uygulama sürümü</li>
+            <li>Cihaz modeli ve ekran çözünürlüğü</li>
+            <li>Uygulama çökme raporları (anonim)</li>
+        </ul>
+
+        <h2>3. Bilgilerin Kullanımı</h2>
+        <p>Toplanan bilgiler yalnızca şu amaçlarla kullanılır:</p>
+        <ul>
+            <li><strong>Temel İşlevsellik:</strong> Saha verilerini kaydetme ve haritalama</li>
+            <li><strong>Veri Yönetimi:</strong> Kayıtlarınızı organize etme ve dışa aktarma</li>
+            <li><strong>Uygulama İyileştirme:</strong> Hata ayıklama ve performans optimizasyonu</li>
+            <li><strong>Kullanıcı Deneyimi:</strong> Özelleştirilebilir ayarları kaydetme (tema, dil vb.)</li>
+        </ul>
+
+        <h2>4. Veri Saklama ve Güvenlik</h2>
+
+        <h3>4.1. Yerel Depolama</h3>
+        <p>
+            JeoLog, "offline-first" prensibiyle çalışır. Tüm verileriniz:
+        </p>
+        <ul>
+            <li>Cihazınızın yerel veritabanında şifreli olarak saklanır</li>
+            <li>İnternet bağlantısı gerektirmeden tam fonksiyonellik sunar</li>
+            <li>Otomatik olarak sunuculara yüklenmez</li>
+            <li>Yalnızca sizin kontrolünüzde bulunur</li>
+        </ul>
+
+        <h3>4.2. Veri Güvenliği</h3>
+        <p>Verilerinizin güvenliği için aldığımız önlemler:</p>
+        <ul>
+            <li>Endüstri standartlarında şifreleme teknolojileri</li>
+            <li>Cihaz düzeyinde güvenlik koruması</li>
+            <li>Düzenli güvenlik güncellemeleri</li>
+            <li>Yetkisiz erişime karşı koruma mekanizmaları</li>
+        </ul>
+
+        <h2>5. Veri Paylaşımı ve Aktarımı</h2>
+
+        <h3>5.1. Üçüncü Taraf Paylaşımı</h3>
+        <p>
+            JeoLog, kişisel verilerinizi üçüncü taraflarla <strong>paylaşmaz, satmaz veya kiralamaz</strong>.
+        </p>
+
+        <h3>5.2. Harita Servisleri</h3>
+        <p>
+            Uygulama, harita görüntüleme için OpenStreetMap kullanır:
+        </p>
+        <ul>
+            <li>OpenStreetMap, açık kaynaklı ve ücretsiz bir harita servisidir</li>
+            <li>Harita karoları görüntülenirken konum verileriniz paylaşılmaz</li>
+            <li>Sadece görsel harita verileri indirilir</li>
+        </ul>
+
+        <h3>5.3. Yükseklik Verileri</h3>
+        <p>
+            Enine kesit ve yükseklik profili özellikleri için harici API kullanılır:
+        </p>
+        <ul>
+            <li>Yalnızca koordinat noktaları API'ye gönderilir</li>
+            <li>Kişisel bilgiler veya notlarınız paylaşılmaz</li>
+            <li>Yükseklik verileri geçici olarak işlenir ve saklanmaz</li>
+        </ul>
+
+        <h2>6. Kullanıcı Hakları</h2>
+        <p>JeoLog kullanıcısı olarak aşağıdaki haklara sahipsiniz:</p>
+
+        <h3>6.1. Erişim Hakkı</h3>
+        <ul>
+            <li>Tüm verilerinize uygulama içinden erişebilirsiniz</li>
+            <li>Verilerinizi CSV/KML formatında dışa aktarabilirsiniz</li>
+        </ul>
+
+        <h3>6.2. Silme Hakkı</h3>
+        <ul>
+            <li>Kayıtlarınızı istediğiniz zaman silebilirsiniz</li>
+            <li>Uygulamayı silerek tüm verilerinizi kalıcı olarak kaldırabilirsiniz</li>
+        </ul>
+
+        <h3>6.3. Veri Taşınabilirliği</h3>
+        <ul>
+            <li>Verilerinizi standart formatlarda (CSV, KML) dışa aktarabilirsiniz</li>
+            <li>Dışa aktarılan veriler diğer uygulamalarda kullanılabilir</li>
+        </ul>
+
+        <h3>6.4. İtiraz Hakkı</h3>
+        <ul>
+            <li>İzinleri istediğiniz zaman cihaz ayarlarından iptal edebilirsiniz</li>
+            <li>Belirli özellikleri kullanmamayı tercih edebilirsiniz</li>
+        </ul>
+
+        <h2>7. Çocukların Gizliliği</h2>
+        <p>
+            JeoLog, profesyonel bir uygulama olup özellikle çocuklara yönelik değildir.
+            18 yaş altı kullanıcılar için ebeveyn onayı önerilir. Çocuklara ait verileri
+            bilerek toplamayız.
+        </p>
+
+        <h2>8. Çerezler ve İzleme Teknolojileri</h2>
+        <p>
+            JeoLog mobil uygulaması, çerez veya benzeri izleme teknolojileri kullanmaz.
+            Yalnızca uygulamanın temel işlevselliği için gerekli yerel depolama kullanılır.
+        </p>
+        <div class="highlight-box">
+            <p><strong>Reklamsız Deneyim:</strong> JeoLog ücretli bir uygulamadır ve hiçbir reklam ağı entegrasyonu içermez.
+            Reklam takip teknolojileri, üçüncü taraf analitik araçları veya kullanıcı profilleme sistemleri kullanılmaz.</p>
+        </div>
+
+        <h2>9. Değişiklikler ve Güncellemeler</h2>
+        <p>
+            Bu Gizlilik Politikası zaman zaman güncellenebilir. Önemli değişiklikler olması durumunda:
+        </p>
+        <ul>
+            <li>Uygulama içi bildirim ile bilgilendirilirsiniz</li>
+            <li>Güncel politika bu sayfada yayınlanır</li>
+            <li>"Son Güncelleme" tarihi değiştirilir</li>
+            <li>Güncellemeyi kabul etmek için izin istenebilir</li>
+        </ul>
+
+        <h2>10. Yasal Zorunluluklar</h2>
+        <p>
+            Verileriniz yalnızca aşağıdaki durumlarda açıklanabilir:
+        </p>
+        <ul>
+            <li>Yasal zorunluluk veya mahkeme kararı</li>
+            <li>Hukuki haklarımızı korumak için gerekli olması</li>
+            <li>Kamu güvenliği veya kanun uygulama amaçları</li>
+        </ul>
+
+        <h2>11. Uluslararası Veri Aktarımı</h2>
+        <p>
+            JeoLog, verilerinizi uluslararası sunuculara aktarmaz. Tüm veriler cihazınızda kalır.
+            Yalnızca harici API çağrıları (harita karoları, yükseklik verileri) internet üzerinden yapılır.
+        </p>
+
+        <h2>12. İletişim</h2>
+        <p>
+            Gizlilik politikamız hakkında sorularınız, endişeleriniz veya talepleriniz için:
+        </p>
+        <div class="highlight-box">
+            <p>
+                <strong>Geliştirici:</strong> Ali Çelik<br>
+                <strong>E-posta:</strong> <a href="mailto:alicelik1980@gmail.com" class="footer-mail">alicelik1980@gmail.com</a><br>
+                <strong>Konu:</strong> JeoLog - Gizlilik Politikası<br>
+                <strong>Yanıt Süresi:</strong> Ücretli müşteriler için 24-48 saat içinde öncelikli destek<br>
+                <strong>Konum:</strong> Ankara, Türkiye
+            </p>
+        </div>
+
+        <h2>13. Onay</h2>
+        <p>
+            JeoLog uygulamasını indirip kullanarak, bu Gizlilik Politikasını okuduğunuzu,
+            anladığınızı ve kabul ettiğinizi beyan edersiniz.
+        </p>
+    </div>
+
+    <footer>
+        <p>© 2024 Ali Çelik Games. Tüm hakları saklıdır.</p>
+        <a href="mailto:alicelik1980@gmail.com" class="footer-mail">alicelik1980@gmail.com</a>
+    </footer>
+</div>
+
+</body>
+</html>
