@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falling Letters Healthy Brain | Ali Çelik Games</title>
+    <meta name="description" content="Düşen harf bloklarıyla kelimeler oluşturun, zihninizi eğitin. Türkçe ve İngilizce destekli eğlenceli kelime bulmaca oyunu.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00f2ff;
+            --bg-dark: #0a0b10;
+            --card-bg: #16181d;
+            --text-main: #ffffff;
+            --text-dim: #94a3b8;
+            --gradient-start: #00f2ff;
+            --gradient-end: #0099ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0a0b10 100%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .logo span { color: var(--primary); }
+
+        .back-btn {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-btn:hover {
+            color: var(--primary);
+        }
+
+        .hero-game {
+            padding: 60px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content .tagline {
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-visual img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 242, 255, 0.2);
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--card-bg);
+            border: 2px solid var(--primary);
+            color: var(--text-main);
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .store-btn:hover {
+            background: var(--primary);
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        .store-icon {
+            font-size: 24px;
+        }
+
+        .badge-container {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .badge {
+            background: rgba(0, 242, 255, 0.1);
+            border: 1px solid var(--primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            color: var(--text-dim);
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.4s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 242, 255, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .feature-card p {
+            color: var(--text-dim);
+            line-height: 1.8;
+        }
+
+        .gameplay-section {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 60px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .gameplay-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin: 0 auto 20px;
+            color: #000;
+        }
+
+        .step h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            color: var(--text-dim);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 30px;
+            background: rgba(0, 242, 255, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(0, 242, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 80px 0;
+            background: var(--card-bg);
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-link {
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 600;
+        }
+
+        .footer-link:hover {
+            color: var(--primary);
+        }
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .footer-mail {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 968px) {
+            .hero-game {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .gameplay-section {
+                padding: 40px 30px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .download-buttons {
+                flex-direction: column;
+            }
+
+            .store-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <nav>
+        <a href="index.html" class="logo">Ali Celik<span>Games</span></a>
+        <a href="index.html" class="back-btn">← Tüm Oyunlar</a>
+    </nav>
+
+    <section class="hero-game">
+        <div class="hero-content">
+            <h1>Falling Letters Healthy Brain</h1>
+            <p class="tagline">Düşen harf bloklarıyla kelimeler oluşturun, zihninizi eğitin!</p>
+            
+            <div class="download-buttons">
+                <a href="https://play.google.com/store/apps/details?id=com.alicelik.fallinglettershealthybrain" class="store-btn" target="_blank">
+                    <span class="store-icon">📱</span>
+                    <span>Google Play'de İndir</span>
+                </a>
+                <a href="#" class="store-btn">
+                    <span class="store-icon">🍎</span>
+                    <span>App Store'da Yakında</span>
+                </a>
+            </div>
+
+            <div class="badge-container">
+                <span class="badge">🇹🇷 Türkçe</span>
+                <span class="badge">🇬🇧 English</span>
+                <span class="badge">🆓 Ücretsiz</span>
+                <span class="badge">🧠 Beyin Egzersizi</span>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <img src="FLHB.png" alt="Falling Letters Healthy Brain Icon">
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="stats-grid">
+            <div class="stat-box">
+                <span class="stat-number">20K+</span>
+                <span class="stat-label">Türkçe Kelime</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">11K+</span>
+                <span class="stat-label">İngilizce Kelime</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">∞</span>
+                <span class="stat-label">Sınırsız Seviye</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Ücretsiz Oyna</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Oyun Özellikleri</h2>
+        <p class="section-subtitle">Eşsiz bir kelime bulmaca deneyimi için tasarlandı</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🎮</span>
+                <h3>Benzersiz Gameplay</h3>
+                <p>Merkezden başlayan harfler yukarı ve aşağı hareket eder. Geleneksel Tetris mekaniğinin ötesinde yeni bir deneyim.</p>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🌍</span>
+                <h3>Çoklu Dil Desteği</h3>
+                <p>20.909 Türkçe ve 11.479 İngilizce kelime ile zengin kelime havuzu. İstediğiniz dilde oynayın.</p>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">⚡</span>
+                <h3>Özel Yetenekler</h3>
+                <p>Bomba, yıldırım, joker gibi güçlü yetenekler kullanın. Zor seviyeleri daha kolay geçin.</p>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🏆</span>
+                <h3>Liderlik Tablosu</h3>
+                <p>Firebase destekli global sıralama sistemi. Dünyadaki oyuncularla rekabet edin.</p>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🎨</span>
+                <h3>Görsel Efektler</h3>
+                <p>Parlayan harfler, patlamalar ve ödül animasyonları. Etkileyici görsel geri bildirimler.</p>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">📱</span>
+                <h3>Optimize Performans</h3>
+                <p>Object pooling ve akıllı kaynak yönetimi ile pürüzsüz gameplay. Her cihazda sorunsuz çalışır.</p>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🔊</span>
+                <h3>Ses & Haptik</h3>
+                <p>Özelleştirilebilir ses efektleri ve titreşim geri bildirimleri. Tam kontrol sizde.</p>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">💎</span>
+                <h3>Kristal Sistemi</h3>
+                <p>Oynarken kristal kazan, özel yetenekler satın al. Ödül videoları ile ücretsiz kristal kazan.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="gameplay-section">
+            <h2 class="section-title">Nasıl Oynanır?</h2>
+            <p class="section-subtitle">Basit kurallar, derin strateji</p>
+
+            <div class="gameplay-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Harfler Düşer</h4>
+                    <p>Harfler ekranın ortasından başlar ve yukarı-aşağı dönüşümlü hareket eder.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Kelimeleri Oluştur</h4>
+                    <p>Yan yana harflerle anlamlı kelimeler bul. Yatay, dikey veya çapraz.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Puan Kazan</h4>
+                    <p>Uzun kelimeler daha fazla puan getirir. Özel bonusları yakala.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Seviye Atla</h4>
+                    <p>Hedef puanı geç, yeni seviyeye ulaş. Her seviye daha zorlu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Özel Yetenekler</h2>
+        <p class="section-subtitle">Oyunu kolaylaştıran güçlü araçlar</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">💣</span>
+                <h3>Bomba</h3>
+                <p>Seçtiğin bloğu ve etrafındaki blokları patlatır. Sıkışık durumlardan kurtul.</p>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">⚡</span>
+                <h3>Yıldırım</h3>
+                <p>Tüm sütunu veya satırı temizler. Hızlı alan açmak için ideal.</p>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🃏</span>
+                <h3>Joker Harf</h3>
+                <p>İstediğin herhangi bir harfe dönüşür. Zor kelimeleri tamamla.</p>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🎯</span>
+                <h3>İpucu</h3>
+                <p>Kurulabilecek bir kelimeyi gösterir. Takıldığın yerde yardım al.</p>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">⏭️</span>
+                <h3>Seviye Atla</h3>
+                <p>Zor bir seviyeyi geç, bir sonrakine devam et. Sınırlı sayıda kullan.</p>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🔄</span>
+                <h3>Yeniden Başlat</h3>
+                <p>Seviyeyi sıfırla, en baştan dene. Başarısız olmadan yeni strateji oluştur.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Beyin Egzersiziyle Eğlencenin Birleşimi</h2>
+        <p>Kelime dağarcığını geliştir, strateji kur, zihinsel çevikliğini artır!</p>
+        
+        <div class="download-buttons" style="justify-content: center;">
+            <a href="https://play.google.com/store/apps/details?id=com.alicelik.fallinglettershealthybrain" class="store-btn" target="_blank">
+                <span class="store-icon">📱</span>
+                <span>Hemen İndir - Ücretsiz</span>
+            </a>
+        </div>
+    </section>
+
+    <div class="footer-links">
+        <a href="privacy-policy.html" class="footer-link">Gizlilik Politikası</a>
+        <a href="terms-of-service.html" class="footer-link">Kullanım Şartları</a>
+        <a href="mailto:alicelik1980@gmail.com" class="footer-link">İletişim</a>
+    </div>
+
+    <footer>
+        <p>© 2024 Ali Çelik Games. Made with passion in Ankara/Turkey.</p>
+        <a href="mailto:alicelik1980@gmail.com" class="footer-mail">alicelik1980@gmail.com</a>
+    </footer>
+</div>
+
+</body>
+</html>
