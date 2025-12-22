@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Çelik Games | Studio</title>
+    <title>Ali Çelik Games | Stüdyo</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -15,9 +15,7 @@
         }
 
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            margin: 0; padding: 0; box-sizing: border-box;
             font-family: 'Inter', sans-serif;
         }
 
@@ -28,69 +26,35 @@
             overflow-x: hidden;
         }
 
-        /* Arka Plan Efekti */
         body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0a0b10 100%);
             z-index: -1;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* Navbar */
-        nav {
-            padding: 30px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-weight: 900;
-            font-size: 1.5rem;
-            letter-spacing: -1px;
-            text-transform: uppercase;
-        }
-
+        nav { padding: 30px 0; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: -1px; text-transform: uppercase; }
         .logo span { color: var(--primary); }
 
-        /* Hero Section */
         .hero {
-            height: 40vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+            height: 60vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            font-weight: 900;
-            line-height: 1.2;
-            margin-bottom: 20px;
+            font-size: clamp(3rem, 8vw, 5rem); font-weight: 900; line-height: 1; margin-bottom: 20px;
             background: linear-gradient(to bottom, #fff 40%, #64748b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
         .section-label {
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            margin-bottom: 40px;
-            display: block;
+            color: var(--primary); text-transform: uppercase; letter-spacing: 4px;
+            font-size: 0.8rem; font-weight: 700; margin-bottom: 40px; display: block;
         }
 
-        /* Grid Sistemi */
+        /* --- SADECE BU KISIM GÜNCELLENDİ (KARTLAR) --- */
         .games-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -98,7 +62,6 @@
             margin-bottom: 100px;
         }
 
-        /* Kart Tasarımı */
         .game-card {
             background: var(--card-bg);
             border-radius: 24px;
@@ -120,8 +83,8 @@
         }
 
         .card-visual {
-            height: 220px; /* Sabit boyut */
-            background: #1a1c23;
+            height: 220px;
+            background: #23262d;
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -131,60 +94,31 @@
         .card-visual img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Resmi kutuya bozulmadan yayar */
+            object-fit: cover;
             transition: transform 0.5s ease;
         }
 
-        .game-card:hover .card-visual img {
-            transform: scale(1.1);
-        }
+        .game-card:hover .card-visual img { transform: scale(1.1); }
 
-        .game-info {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
+        .game-info { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
+        .game-info h3 { font-size: 1.5rem; margin-bottom: 10px; }
+        .game-info p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1; }
 
-        .game-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-        }
-
-        .game-info p {
-            color: var(--text-dim);
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-
-        /* Butonlar */
         .main-btn {
-            background: var(--primary);
-            color: #000;
-            padding: 12px 20px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            text-align: center;
-            transition: 0.3s;
-            font-size: 0.9rem;
+            background: var(--primary); color: #000; padding: 12px 24px;
+            border-radius: 12px; text-decoration: none; font-weight: 700;
+            text-align: center; transition: 0.3s;
         }
-
-        .main-btn:hover {
-            filter: brightness(1.1);
-        }
+        /* --------------------------------------------- */
 
         footer {
             border-top: 1px solid rgba(255,255,255,0.05);
-            padding: 60px 0;
-            text-align: center;
-            color: var(--text-dim);
+            padding: 60px 0; text-align: center; color: var(--text-dim);
         }
 
         @media (max-width: 768px) {
             .games-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.2rem; }
+            .hero h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -193,12 +127,12 @@
 <div class="container">
     <nav>
         <div class="logo">Ali Celik<span>Games</span></div>
-        <div class="contact-email">alicelik1980@gmail.com</div>
+        <div class="contact-email">alicelik.games@gmail.com</div>
     </nav>
 
     <header class="hero">
         <span class="section-label">Mobile Game Studio</span>
-        <h1>Future of Mobile Gaming.</h1>
+        <h1>We create stories.</h1>
     </header>
 
     <main>
@@ -207,11 +141,11 @@
         <div class="games-grid">
             <a href="falling-letters.html" class="game-card">
                 <div class="card-visual">
-                    <img src="FLHB.png" alt="Falling Letters Healthy Brain">
+                    <img src="FLHB.png" alt="Falling Letters">
                 </div>
                 <div class="game-info">
-                    <h3>Falling Letters Healthy Brain</h3>
-                    <p>Zihninizi eğiten düşen harf blokları. Eğlenceli beyin egzersizi.</p>
+                    <h3>Falling Letters</h3>
+                    <p>Zihninizi eğiten düşen harf blokları. Beyin sağlığı için egzersiz.</p>
                     <div class="main-btn">View Details</div>
                 </div>
             </a>
@@ -229,18 +163,18 @@
 
             <a href="password.html" class="game-card">
                 <div class="card-visual">
-                    <img src="PassWord.png" alt="PassWord Game">
+                    <img src="PassWord.png" alt="PassWord">
                 </div>
                 <div class="game-info">
                     <h3>PassWord</h3>
-                    <p>Kelime tahmin yeteneğinizi zorlayan, gizli şifreleri çözme oyunu.</p>
+                    <p>Kelime tahmin yeteneğini zorlayan gizli şifreleri çözme oyunu.</p>
                     <div class="main-btn">View Details</div>
                 </div>
             </a>
 
             <div class="game-card">
                 <div class="card-visual">
-                    <img src="JeoLog.png" alt="JeoLog Saha Asistanı">
+                    <img src="JeoLog.png" alt="Saha Asistanı">
                 </div>
                 <div class="game-info">
                     <h3>Saha Asistanı</h3>
