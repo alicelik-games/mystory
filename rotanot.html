@@ -3,180 +3,755 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rotanot - Gizlilik ve Şartlar</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>Rotanot - Akıllı Seyahat Günlüğü</title>
+    <meta name="description" content="GPS destekli, gamification özellikli ve harcama takipli akıllı seyahat günlüğü uygulaması. Gezilerinizi kaydedin, bütçenizi yönetin, başarılar kazanın!">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --primary: #00f2ff; 
-            --bg: #0a0b10; 
-            --card: #16181d; 
+        :root {
+            --primary: #2E7D32;
+            --primary-light: #4CAF50;
+            --accent: #FF6B35;
+            --bg-dark: #0a0b10;
+            --card-bg: #16181d;
             --text-main: #ffffff;
-            --text-dim: #94a3b8; 
+            --text-dim: #94a3b8;
+            --gradient-1: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            --gradient-2: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
         }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        
-        body { 
-            background: var(--bg); 
-            color: var(--text-main); 
-            line-height: 1.7; 
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Ana sayfa ile aynı arka plan efekti */
         body::before {
-            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0a0b10 100%); z-index: -1;
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0a0b10 100%);
+            z-index: -1;
         }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
-        
-        .back-btn { color: var(--primary); text-decoration: none; font-weight: 600; display: inline-block; margin-bottom: 30px; transition: 0.3s; }
-        .back-btn:hover { opacity: 0.7; }
-        
-        /* Rotanot temasına uygun gradyan başlık */
-        .hero-header { 
-            background: linear-gradient(45deg, #00DBDE, #FC00FF); 
-            height: 180px; 
-            border-radius: 24px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            font-size: 4rem; 
-            margin-bottom: 40px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        
-        h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 10px; text-align: center; }
-        .update-date { color: var(--text-dim); font-size: 0.9rem; text-align: center; margin-bottom: 40px; font-style: italic; }
 
-        .tabs { display: flex; gap: 15px; margin-bottom: 30px; border-bottom: 1px solid #222; padding-bottom: 15px; justify-content: center; }
-        .tab-btn { background: none; border: none; color: var(--text-dim); font-size: 1.1rem; font-weight: 600; cursor: pointer; padding: 5px 15px; transition: 0.3s; }
-        .tab-btn.active { color: var(--primary); border-bottom: 2px solid var(--primary); }
-
-        .content-box { 
-            background: var(--card); 
-            padding: 40px; 
-            border-radius: 24px; 
-            border: 1px solid rgba(255,255,255,0.05); 
-            display: none; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        nav {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .content-box.active { display: block; }
 
-        h2 { color: #fff; font-size: 1.6rem; margin: 35px 0 15px; border-left: 4px solid var(--primary); padding-left: 15px; }
-        h3 { color: var(--primary); font-size: 1.2rem; margin: 25px 0 10px; }
-        p, li { color: var(--text-dim); margin-bottom: 12px; font-size: 0.95rem; }
-        strong { color: #fff; }
-        ul { margin-left: 20px; margin-bottom: 20px; }
-        
-        /* Vurgu kutuları - Karanlık tema uyumlu */
-        .highlight-box { background: rgba(0, 242, 255, 0.05); padding: 20px; border-radius: 12px; border: 1px dashed var(--primary); margin-bottom: 30px; }
-        .important-box { background: rgba(231, 76, 60, 0.1); padding: 20px; border-radius: 12px; border: 1px dashed #e74c3c; margin-bottom: 30px; }
+        .logo {
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: -1px;
+        }
 
-        footer { text-align: center; padding: 60px 0; color: var(--text-dim); font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 40px; }
-        .contact-link { color: var(--primary); text-decoration: none; }
+        .logo span { color: var(--primary-light); }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-light);
+        }
+
+        .back-btn {
+            background: rgba(255,255,255,0.05);
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--gradient-1);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            background: linear-gradient(to bottom, #fff 30%, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: var(--text-dim);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            box-shadow: 0 10px 30px rgba(46, 125, 50, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(46, 125, 50, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.05);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .app-preview {
+            text-align: center;
+            margin: 60px 0;
+            padding: 40px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .app-preview img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-label {
+            color: var(--primary-light);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .section-desc {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-light);
+            box-shadow: 0 20px 40px rgba(46, 125, 50, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .feature-card p {
+            color: var(--text-dim);
+            line-height: 1.7;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: var(--text-dim);
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-light);
+            font-weight: 700;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        .highlight-box {
+            background: var(--gradient-1);
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 80px 0;
+        }
+
+        .highlight-box h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .highlight-box p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .screenshots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .screenshot-item {
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .screenshot-label {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 60px 0;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-light);
+        }
+
+        .footer-copyright {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .features-grid,
+            .screenshots {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .badge-new {
+            background: var(--gradient-2);
+            color: white;
+        }
+
+        .badge-feature {
+            background: rgba(255,255,255,0.1);
+            color: var(--text-dim);
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <a href="index.html" class="back-btn">← Projelere Dön</a>
-    <div class="hero-header">📍</div>
-    <h1>Rotanot</h1>
-    <p class="update-date">Son Güncelleme: 20 Aralık 2024</p>
+    <nav>
+        <div class="logo">Rota<span>not</span></div>
+        <div class="nav-links">
+            <a href="index.html" class="back-btn">← Tüm Projeler</a>
+            <a href="#features">Özellikler</a>
+            <a href="#about">Hakkında</a>
+            <a href="rotanot-legal.html">Gizlilik & Şartlar</a>
+        </div>
+    </nav>
 
-    <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab('privacy')">Gizlilik Politikası</button>
-        <button class="tab-btn" onclick="switchTab('terms')">Kullanım Şartları</button>
-    </div>
+    <header class="hero">
+        <div class="hero-badge">🚀 Yeni Nesil Seyahat Deneyimi</div>
+        <h1>Seyahatlerini Dijital<br>Bir Günlüğe Dönüştür</h1>
+        <p>GPS destekli akıllı anı defteri ile gezilerinizi kaydedin, bütçenizi yönetin ve başarılar kazanarak seviye atlayın. Tüm anılarınız cebinizde!</p>
 
-    <div id="privacy" class="content-box active">
-        <div class="highlight-box">
-            <strong>Önemli:</strong> Rotanot uygulaması, gizliliğinize saygı duyar ve verilerinizi korumayı taahhüt eder. Bu politika, uygulamanın hangi verileri topladığını ve nasıl kullandığını açıklar.
+        <div class="cta-buttons">
+            <a href="#" class="btn btn-primary">
+                <span>📱 App Store'dan İndir</span>
+            </a>
+            <a href="#" class="btn btn-primary">
+                <span>🤖 Google Play'den İndir</span>
+            </a>
+            <a href="#features" class="btn btn-secondary">
+                <span>Özellikleri Keşfet</span>
+            </a>
         </div>
 
-        <h2>1. Toplanan Veriler</h2>
-        <h3>1.1. Konum Verileri</h3>
-        <ul>
-            <li><strong>Amaç:</strong> Seyahat girişlerinizde konum bilgisi eklemek ve harita üzerinde göstermek için kullanılır.</li>
-            <li><strong>Nasıl Toplanır:</strong> Uygulama içinde "Konum Ekle" özelliğini kullandığınızda GPS konumunuz alınır.</li>
-            <li><strong>Depolama:</strong> Konum bilgileri yalnızca cihazınızda yerel olarak saklanır.</li>
-            <li><strong>Paylaşım:</strong> Verileriniz hiçbir üçüncü taraf ile paylaşılmaz.</li>
-        </ul>
+        <div class="app-preview">
+            <p style="color: var(--text-dim); margin-bottom: 20px;">📸 Uygulama ekran görüntülerini buraya ekleyebilirsiniz</p>
+            <!-- Gerçek ekran görüntülerini buraya ekleyin -->
+            <!-- <img src="Rotanot.png" alt="Rotanot Uygulama Önizlemesi"> -->
+        </div>
+    </header>
 
-        <h3>1.2. Fotoğraf ve Video</h3>
-        <ul>
-            <li><strong>Amaç:</strong> Seyahat anılarınızı görsel olarak kaydetmek için kullanılır.</li>
-            <li><strong>Depolama:</strong> Medya dosyaları yerel depolama alanında saklanır.</li>
-            <li><strong>Paylaşım:</strong> Sadece yedekleme yaptığınızda cihazdan çıkar, hiçbir sunucuya yüklenmez.</li>
-        </ul>
+    <section class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Ücretsiz</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Reklam</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">Sınırsız Gezi</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">🔒</div>
+            <div class="stat-label">Gizlilik Garantisi</div>
+        </div>
+    </section>
 
-        <h3>1.3. Ses Kayıtları</h3>
-        <ul>
-            <li><strong>Amaç:</strong> Seyahat notlarınıza sesli açıklamalar eklemenizi sağlar.</li>
-            <li><strong>Depolama:</strong> Ses dosyaları cihazınızda yerel olarak saklanır ve dışarıya aktarılmaz.</li>
-        </ul>
-
-        <h3>1.4. Kişisel Notlar</h3>
-        <p>Başlık, açıklama, bütçe gibi seyahat bilgileriniz cihazınızın SQLite veritabanında saklanır ve üçüncü taraflarla paylaşılmaz.</p>
-
-        <h2>2. Verilerin Kullanım Amacı</h2>
-        <ul>
-            <li>Seyahat günlüğü oluşturmak ve planlama yapmak.</li>
-            <li>Harita üzerinde rotalarınızı görüntülemek.</li>
-            <li>Hatırlatma bildirimleri göndermek (izin verdiğinizde).</li>
-        </ul>
-
-        <h2>3. Veri Depolama ve Güvenlik</h2>
-        <p>Uygulama hiçbir merkezi sunucu kullanmaz; tüm verileriniz çevrimdışı (offline) olarak cihazınızda saklanır.</p>
-
-        <h2>4. Kullanıcı Hakları</h2>
-        <p>KVKK ve GDPR kapsamında erişim, silme, taşıma ve düzeltme haklarına sahipsiniz.</p>
-        
-        <h2>10. İletişim</h2>
-        <p>E-posta: <a href="mailto:alicelik1980@gmail.com" class="contact-link">alicelik1980@gmail.com</a></p>
-    </div>
-
-    <div id="terms" class="content-box">
-        <div class="highlight-box">
-            <strong>Önemli:</strong> Bu Kullanım Şartları, Rotanot mobil uygulamasını kullanımınızı düzenler. Uygulamayı kullanarak bu şartları kabul etmiş sayılırsınız.
+    <section id="features" class="section">
+        <div class="section-header">
+            <span class="section-label">ÖZELLİKLER</span>
+            <h2 class="section-title">Neden Rotanot?</h2>
+            <p class="section-desc">Sadece bir gezi günlüğü değil, tüm seyahat deneyiminizi yöneten akıllı asistanınız.</p>
         </div>
 
-        <h2>1. Genel Hükümler</h2>
-        <p>Uygulamayı indirerek bu şartları okuduğunuzu ve kabul ettiğinizi onaylamış olursunuz. Kullanmak için en az 13 yaşında olmalısınız.</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🎮</span>
+                <h3>Gamification Sistemi</h3>
+                <span class="badge badge-new">YENİ</span>
+                <p>Gezi yaparken eğlenin! Her aktivite için XP kazanın, seviye atlayın ve 15+ başarı rozeti kilidi açın.</p>
+                <ul class="feature-list">
+                    <li>Dinamik seviye sistemi (Yeni Gezgin → Dünya Gezgini)</li>
+                    <li>Her aktivite için XP puanları</li>
+                    <li>15+ farklı başarı rozeti</li>
+                    <li>Gezi, fotoğraf, ülke ve mesafe başarıları</li>
+                    <li>Motivasyonel bildirimler</li>
+                </ul>
+            </div>
 
-        <h2>2. Lisans ve Kullanım</h2>
-        <p>Size kişisel, ticari olmayan kullanım için sınırlı bir lisans veriyoruz. Ters mühendislik veya uygulamanın kopyalanması yasaktır.</p>
+            <div class="feature-card">
+                <span class="feature-icon">💰</span>
+                <h3>Harcama Yönetimi</h3>
+                <span class="badge badge-new">YENİ</span>
+                <p>Bütçenizi kontrol altında tutun! Her gezi için detaylı harcama takibi ve görsel analiz.</p>
+                <ul class="feature-list">
+                    <li>6 kategori: Yemek, Konaklama, Ulaşım, Aktivite, Alışveriş</li>
+                    <li>Çoklu para birimi desteği (TRY, USD, EUR, GBP)</li>
+                    <li>Pasta grafik ile görselleştirme</li>
+                    <li>Gezi bazlı maliyet analizi</li>
+                    <li>Toplam ve ortalama hesaplamalar</li>
+                </ul>
+            </div>
 
-        <h2>3. Kullanıcı İçeriği</h2>
-        <p>Yüklediğiniz tüm fotoğraflar, videolar ve notlar tamamen size aittir. İçeriklerin yedeklenmesi kullanıcının sorumluluğundadır.</p>
+            <div class="feature-card">
+                <span class="feature-icon">📊</span>
+                <h3>Gelişmiş İstatistikler</h3>
+                <span class="badge badge-new">YENİ</span>
+                <p>Seyahat alışkanlıklarınızı keşfedin. Detaylı dashboard ile tüm verileriniz bir arada.</p>
+                <ul class="feature-list">
+                    <li>Toplam gezi ve fotoğraf sayısı</li>
+                    <li>Ziyaret edilen ülke ve şehirler</li>
+                    <li>Kat edilen toplam mesafe</li>
+                    <li>XP ve seviye ilerlemesi</li>
+                    <li>Başarı tamamlanma oranı</li>
+                </ul>
+            </div>
 
-        <div class="important-box">
-            <strong>Sorumluluk Reddi:</strong> Uygulama "olduğu gibi" sunulmaktadır. Veri kaybı veya cihaz hasarı durumlarında geliştirici sorumlu tutulamaz.
+            <div class="feature-card">
+                <span class="feature-icon">🗺️</span>
+                <h3>GPS Destekli Harita</h3>
+                <p>OpenStreetMap entegrasyonu ile tüm gezilerinizi harita üzerinde görün.</p>
+                <ul class="feature-list">
+                    <li>Otomatik konum belirleme</li>
+                    <li>İnteraktif harita pin'leri</li>
+                    <li>Anlık konum gösterimi</li>
+                    <li>Mesafe hesaplama</li>
+                    <li>Offline harita desteği</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">📸</span>
+                <h3>Zengin Medya Desteği</h3>
+                <p>Fotoğraflar, videolar ve ses kayıtları ile anılarınızı renklendirin.</p>
+                <ul class="feature-list">
+                    <li>Sınırsız fotoğraf ekleme</li>
+                    <li>Video kayıt ve oynatma</li>
+                    <li>Sesli notlar (voice memo)</li>
+                    <li>Galeri görünümü</li>
+                    <li>Medya yönetimi ve silme</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🔔</span>
+                <h3>Akıllı Bildirimler</h3>
+                <p>Gezi planlarınızı ve hatıralarınızı asla kaçırmayın.</p>
+                <ul class="feature-list">
+                    <li>Günlük gezi hatırlatıcıları</li>
+                    <li>Haftalık istatistik bildirimleri</li>
+                    <li>Seyahat planı uyarıları</li>
+                    <li>Başarı kilitleri açıldığında bildirim</li>
+                    <li>Özelleştirilebilir bildirim ayarları</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🎯</span>
+                <h3>Gezi Planlama</h3>
+                <p>Gelecek seyahatlerinizi profesyonelce planlayın.</p>
+                <ul class="feature-list">
+                    <li>Detaylı seyahat planları oluşturma</li>
+                    <li>Bütçe belirleme ve takibi</li>
+                    <li>Yapılacaklar listesi</li>
+                    <li>Ulaşım ve konaklama bilgileri</li>
+                    <li>Plan hatırlatıcıları</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">💾</span>
+                <h3>Yedekleme & Paylaşım</h3>
+                <p>Verileriniz güvende. İstediğiniz zaman yedekleyin ve paylaşın.</p>
+                <ul class="feature-list">
+                    <li>Otomatik yedekleme (Android)</li>
+                    <li>Manuel yedekleme (ZIP formatı)</li>
+                    <li>Gezi kayıtlarını paylaşma</li>
+                    <li>PDF export özelliği</li>
+                    <li>QR kod ile hızlı paylaşım</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🔒</span>
+                <h3>Gizlilik Odaklı</h3>
+                <p>Verileriniz yalnızca size ait. Hiçbir sunucuya gönderilmez.</p>
+                <ul class="feature-list">
+                    <li>100% yerel veri depolama</li>
+                    <li>Sunucu kullanımı yok</li>
+                    <li>Üçüncü taraf paylaşımı yok</li>
+                    <li>Reklamsız deneyim</li>
+                    <li>KVKK ve GDPR uyumlu</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="highlight-box">
+        <h2>🎁 Tamamen Ücretsiz!</h2>
+        <p>Rotanot, hiçbir ücret ödemeden tüm özellikleriyle kullanılabilir. Reklam yok, abonelik yok, gizli ücret yok.</p>
+        <div class="cta-buttons">
+            <a href="#" class="btn btn-secondary">Şimdi İndir</a>
+        </div>
+    </div>
+
+    <section id="about" class="section">
+        <div class="section-header">
+            <span class="section-label">HAKKINDA</span>
+            <h2 class="section-title">Rotanot Nedir?</h2>
         </div>
 
-        <h2>7. Fikri Mülkiyet</h2>
-        <p>Rotanot tasarımı, logosu ve kodu telif haklarıyla korunmaktadır. İzinsiz kullanımı yasaktır.</p>
+        <div style="background: var(--card-bg); padding: 50px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);">
+            <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-dim); margin-bottom: 25px;">
+                <strong style="color: var(--text-main);">Rotanot</strong>, seyahat severlerin tüm gezilerini bir arada toplayabileceği,
+                GPS destekli akıllı bir seyahat günlüğü uygulamasıdır. Flutter teknolojisi ile geliştirilmiş olup
+                iOS ve Android platformlarında sorunsuz çalışır.
+            </p>
 
-        <h2>12. Uygulanacak Hukuk</h2>
-        <p>Bu şartlar Türkiye Cumhuriyeti yasalarına tabidir. Uyuşmazlıklar Türkiye mahkemelerinde çözümlenecektir.</p>
-    </div>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-dim); margin-bottom: 25px;">
+                Klasik gezi günlüklerinden farklı olarak, Rotanot <strong style="color: var(--primary-light);">oyunlaştırma (gamification)</strong>
+                sistemi ile kullanıcılarını motive eder. Her gezi için XP kazanır, seviye atlarsınız ve başarı rozetleri kilidi açarsınız.
+                Bu sayede sadece hatıra kaydetmek değil, aynı zamanda eğlenceli bir deneyim yaşarsınız.
+            </p>
+
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-dim); margin-bottom: 25px;">
+                <strong style="color: var(--primary-light);">Harcama yönetimi</strong> özelliği ile gezilerinizin maliyetini kategorilere
+                ayırarak takip edebilir, bütçenizi kontrol altında tutabilirsiniz. Yemek, konaklama, ulaşım gibi kategorilerdeki
+                harcamalarınızı görselleştirerek bir sonraki gezinizi daha iyi planlayabilirsiniz.
+            </p>
+
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-dim); margin-bottom: 25px;">
+                Uygulama, <strong style="color: var(--primary-light);">gizlilik odaklı</strong> olarak tasarlanmıştır.
+                Tüm verileriniz yalnızca cihazınızda yerel olarak saklanır, hiçbir sunucuya gönderilmez.
+                Verileriniz tamamen size aittir ve istediğiniz zaman yedekleyebilir veya silebilirsiniz.
+            </p>
+
+            <h3 style="font-size: 1.8rem; margin-top: 40px; margin-bottom: 20px; color: var(--text-main);">
+                Kimler İçin?
+            </h3>
+            <ul style="font-size: 1.1rem; line-height: 2; color: var(--text-dim); list-style: none; padding-left: 0;">
+                <li style="padding: 10px 0; padding-left: 30px; position: relative;">
+                    <span style="position: absolute; left: 0; color: var(--primary-light);">✈️</span>
+                    Sık seyahat eden ve anılarını dijital olarak saklamak isteyenler
+                </li>
+                <li style="padding: 10px 0; padding-left: 30px; position: relative;">
+                    <span style="position: absolute; left: 0; color: var(--primary-light);">💰</span>
+                    Gezi bütçelerini takip etmek isteyen planlı gezginler
+                </li>
+                <li style="padding: 10px 0; padding-left: 30px; position: relative;">
+                    <span style="position: absolute; left: 0; color: var(--primary-light);">📸</span>
+                    Fotoğraf ve anılarını organize bir şekilde tutmak isteyenler
+                </li>
+                <li style="padding: 10px 0; padding-left: 30px; position: relative;">
+                    <span style="position: absolute; left: 0; color: var(--primary-light);">🎮</span>
+                    Gezi deneyimini oyunlaştırarak daha eğlenceli hale getirmek isteyenler
+                </li>
+                <li style="padding: 10px 0; padding-left: 30px; position: relative;">
+                    <span style="position: absolute; left: 0; color: var(--primary-light);">🔒</span>
+                    Gizliliğine önem veren ve verilerinin güvende olmasını isteyen kullanıcılar
+                </li>
+            </ul>
+
+            <h3 style="font-size: 1.8rem; margin-top: 40px; margin-bottom: 20px; color: var(--text-main);">
+                Teknik Özellikler
+            </h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px;">
+                    <strong style="color: var(--primary-light);">Platform:</strong><br>
+                    iOS 12.0+ ve Android 5.0+
+                </div>
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px;">
+                    <strong style="color: var(--primary-light);">Teknoloji:</strong><br>
+                    Flutter & Dart
+                </div>
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px;">
+                    <strong style="color: var(--primary-light);">Veritabanı:</strong><br>
+                    SQLite (Yerel)
+                </div>
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px;">
+                    <strong style="color: var(--primary-light);">Harita:</strong><br>
+                    OpenStreetMap
+                </div>
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px;">
+                    <strong style="color: var(--primary-light);">Boyut:</strong><br>
+                    ~25 MB
+                </div>
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px;">
+                    <strong style="color: var(--primary-light);">Dil:</strong><br>
+                    Türkçe
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-header">
+            <span class="section-label">DESTEK</span>
+            <h2 class="section-title">Yardıma mı İhtiyacınız Var?</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            <div style="background: var(--card-bg); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 15px;">📧</div>
+                <h3 style="margin-bottom: 15px;">E-posta Desteği</h3>
+                <p style="color: var(--text-dim); margin-bottom: 20px;">Sorularınız için bize ulaşın</p>
+                <a href="mailto:alicelik1980@gmail.com" style="color: var(--primary-light); text-decoration: none; font-weight: 600;">alicelik1980@gmail.com</a>
+            </div>
+
+            <div style="background: var(--card-bg); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 15px;">📄</div>
+                <h3 style="margin-bottom: 15px;">Yasal Belgeler</h3>
+                <p style="color: var(--text-dim); margin-bottom: 20px;">Gizlilik ve kullanım şartları</p>
+                <a href="rotanot-legal.html" style="color: var(--primary-light); text-decoration: none; font-weight: 600;">Belgeleri Görüntüle →</a>
+            </div>
+
+            <div style="background: var(--card-bg); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 15px;">⭐</div>
+                <h3 style="margin-bottom: 15px;">Geri Bildirim</h3>
+                <p style="color: var(--text-dim); margin-bottom: 20px;">Fikirlerinizi bizimle paylaşın</p>
+                <a href="mailto:alicelik1980@gmail.com?subject=Rotanot%20Geri%20Bildirim" style="color: var(--primary-light); text-decoration: none; font-weight: 600;">Geri Bildirim Gönder</a>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <p>© 2024 Rotanot. Tüm hakları saklıdır.</p>
+        <div class="footer-content">
+            <div class="footer-copyright">
+                © 2024 Rotanot - Ali Çelik Games. Ankara, Türkiye.
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Ana Sayfa</a>
+                <a href="rotanot-legal.html">Gizlilik Politikası</a>
+                <a href="rotanot-legal.html#terms">Kullanım Şartları</a>
+                <a href="mailto:alicelik1980@gmail.com">İletişim</a>
+            </div>
+        </div>
     </footer>
 </div>
-
-<script>
-    function switchTab(tabId) {
-        document.querySelectorAll('.content-box').forEach(box => box.classList.remove('active'));
-        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-        
-        document.getElementById(tabId).classList.add('active');
-        event.currentTarget.classList.add('active');
-    }
-</script>
 
 </body>
 </html>
