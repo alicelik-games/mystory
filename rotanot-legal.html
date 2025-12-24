@@ -3,1192 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rotanot - Gizlilik Politikası ve Kullanım Şartları</title>
-    <meta name="description" content="Rotanot uygulaması gizlilik politikası, kullanım şartları ve yasal bilgiler">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <title>Rotanot - Gizlilik ve Şartlar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #2E7D32;
-            --primary-light: #4CAF50;
-            --accent: #FF6B35;
-            --bg: #f5f7fa;
-            --card: #ffffff;
-            --text: #1a202c;
-            --text-secondary: #4a5568;
-            --border: #e2e8f0;
-            --warning: #ff9800;
-            --danger: #e74c3c;
-            --info: #3498db;
+        :root { 
+            --primary: #00f2ff; 
+            --bg: #0a0b10; 
+            --card: #16181d; 
+            --text-main: #ffffff;
+            --text-dim: #94a3b8; 
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        
+        body { 
+            background: var(--bg); 
+            color: var(--text-main); 
+            line-height: 1.7; 
+            overflow-x: hidden;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+        /* Ana sayfa ile aynı arka plan efekti */
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0a0b10 100%); z-index: -1;
         }
 
-        body {
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
+        .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+        
+        .back-btn { color: var(--primary); text-decoration: none; font-weight: 600; display: inline-block; margin-bottom: 30px; transition: 0.3s; }
+        .back-btn:hover { opacity: 0.7; }
+        
+        /* Rotanot temasına uygun gradyan başlık */
+        .hero-header { 
+            background: linear-gradient(45deg, #00DBDE, #FC00FF); 
+            height: 180px; 
+            border-radius: 24px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 4rem; 
+            margin-bottom: 40px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
+        
+        h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 10px; text-align: center; }
+        .update-date { color: var(--text-dim); font-size: 0.9rem; text-align: center; margin-bottom: 40px; font-style: italic; }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
+        .tabs { display: flex; gap: 15px; margin-bottom: 30px; border-bottom: 1px solid #222; padding-bottom: 15px; justify-content: center; }
+        .tab-btn { background: none; border: none; color: var(--text-dim); font-size: 1.1rem; font-weight: 600; cursor: pointer; padding: 5px 15px; transition: 0.3s; }
+        .tab-btn.active { color: var(--primary); border-bottom: 2px solid var(--primary); }
+
+        .content-box { 
+            background: var(--card); 
+            padding: 40px; 
+            border-radius: 24px; 
+            border: 1px solid rgba(255,255,255,0.05); 
+            display: none; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
         }
+        .content-box.active { display: block; }
 
-        .back-btn {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 30px;
-            padding: 10px 20px;
-            background: white;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            transition: all 0.3s;
-        }
+        h2 { color: #fff; font-size: 1.6rem; margin: 35px 0 15px; border-left: 4px solid var(--primary); padding-left: 15px; }
+        h3 { color: var(--primary); font-size: 1.2rem; margin: 25px 0 10px; }
+        p, li { color: var(--text-dim); margin-bottom: 12px; font-size: 0.95rem; }
+        strong { color: #fff; }
+        ul { margin-left: 20px; margin-bottom: 20px; }
+        
+        /* Vurgu kutuları - Karanlık tema uyumlu */
+        .highlight-box { background: rgba(0, 242, 255, 0.05); padding: 20px; border-radius: 12px; border: 1px dashed var(--primary); margin-bottom: 30px; }
+        .important-box { background: rgba(231, 76, 60, 0.1); padding: 20px; border-radius: 12px; border: 1px dashed #e74c3c; margin-bottom: 30px; }
 
-        .back-btn:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateX(-5px);
-        }
-
-        .main-card {
-            background: var(--card);
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            margin-bottom: 40px;
-        }
-
-        .header-box {
-            border-bottom: 3px solid var(--primary);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-
-        h1 {
-            color: var(--text);
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-
-        .app-name {
-            color: var(--primary);
-        }
-
-        .update-date {
-            color: var(--text-secondary);
-            font-style: italic;
-            font-size: 0.95rem;
-            margin-bottom: 30px;
-            display: block;
-        }
-
-        .tabs {
-            display: flex;
-            gap: 0;
-            margin-bottom: 40px;
-            border-bottom: 2px solid var(--border);
-            overflow-x: auto;
-        }
-
-        .tab-btn {
-            background: none;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            color: var(--text-secondary);
-            transition: all 0.3s;
-            position: relative;
-            white-space: nowrap;
-        }
-
-        .tab-btn:hover {
-            color: var(--primary);
-            background: rgba(46, 125, 50, 0.05);
-        }
-
-        .tab-btn.active {
-            color: var(--primary);
-        }
-
-        .tab-btn.active::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--primary);
-        }
-
-        .content-box {
-            display: none;
-            animation: fadeIn 0.4s ease-in-out;
-        }
-
-        .content-box.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .highlight {
-            background: linear-gradient(135deg, #fff9e6 0%, #fff4d6 100%);
-            padding: 25px;
-            border-left: 5px solid var(--warning);
-            margin: 30px 0;
-            border-radius: 8px;
-        }
-
-        .important-box {
-            background: linear-gradient(135deg, #ffe6e6 0%, #ffd6d6 100%);
-            padding: 25px;
-            border-left: 5px solid var(--danger);
-            margin: 30px 0;
-            border-radius: 8px;
-        }
-
-        .info-box {
-            background: linear-gradient(135deg, #e6f4ff 0%, #d6ecff 100%);
-            padding: 25px;
-            border-left: 5px solid var(--info);
-            margin: 30px 0;
-            border-radius: 8px;
-        }
-
-        .contact-box {
-            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-            padding: 30px;
-            border-radius: 12px;
-            margin: 40px 0;
-            border: 2px solid var(--primary-light);
-        }
-
-        h2 {
-            color: var(--text);
-            margin-top: 45px;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            font-weight: 700;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--border);
-        }
-
-        h3 {
-            color: var(--text);
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-            font-weight: 600;
-        }
-
-        p {
-            margin-bottom: 15px;
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        ul, ol {
-            padding-left: 30px;
-            margin-bottom: 20px;
-        }
-
-        li {
-            margin-bottom: 12px;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        li strong {
-            color: var(--text);
-        }
-
-        strong {
-            color: var(--text);
-            font-weight: 600;
-        }
-
-        a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .section-intro {
-            background: rgba(46, 125, 50, 0.05);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            font-size: 1.05rem;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding: 40px 0;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border);
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-left: 10px;
-        }
-
-        .badge-privacy {
-            background: #e8f5e9;
-            color: #2E7D32;
-        }
-
-        .badge-required {
-            background: #ffe6e6;
-            color: #e74c3c;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-            background: white;
-        }
-
-        table th {
-            background: var(--primary);
-            color: white;
-            padding: 15px;
-            text-align: left;
-            font-weight: 600;
-        }
-
-        table td {
-            padding: 15px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        table tr:hover {
-            background: rgba(46, 125, 50, 0.03);
-        }
-
-        @media (max-width: 768px) {
-            .main-card {
-                padding: 30px 20px;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            h2 {
-                font-size: 1.4rem;
-            }
-
-            .tabs {
-                flex-wrap: wrap;
-            }
-
-            .tab-btn {
-                flex: 1;
-                min-width: 150px;
-            }
-        }
+        footer { text-align: center; padding: 60px 0; color: var(--text-dim); font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 40px; }
+        .contact-link { color: var(--primary); text-decoration: none; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <a href="rotanot.html" class="back-btn">
-        <span>←</span> Rotanot Ana Sayfası
-    </a>
+    <a href="index.html" class="back-btn">← Projelere Dön</a>
+    <div class="hero-header">📍</div>
+    <h1>Rotanot</h1>
+    <p class="update-date">Son Güncelleme: 20 Aralık 2024</p>
 
-    <div class="main-card">
-        <div class="header-box">
-            <h1><span class="app-name">Rotanot</span> - Yasal Bilgiler</h1>
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('privacy')">Gizlilik Politikası</button>
+        <button class="tab-btn" onclick="switchTab('terms')">Kullanım Şartları</button>
+    </div>
+
+    <div id="privacy" class="content-box active">
+        <div class="highlight-box">
+            <strong>Önemli:</strong> Rotanot uygulaması, gizliliğinize saygı duyar ve verilerinizi korumayı taahhüt eder. Bu politika, uygulamanın hangi verileri topladığını ve nasıl kullandığını açıklar.
         </div>
 
-        <span class="update-date">Son Güncelleme: 22 Aralık 2024</span>
+        <h2>1. Toplanan Veriler</h2>
+        <h3>1.1. Konum Verileri</h3>
+        <ul>
+            <li><strong>Amaç:</strong> Seyahat girişlerinizde konum bilgisi eklemek ve harita üzerinde göstermek için kullanılır.</li>
+            <li><strong>Nasıl Toplanır:</strong> Uygulama içinde "Konum Ekle" özelliğini kullandığınızda GPS konumunuz alınır.</li>
+            <li><strong>Depolama:</strong> Konum bilgileri yalnızca cihazınızda yerel olarak saklanır.</li>
+            <li><strong>Paylaşım:</strong> Verileriniz hiçbir üçüncü taraf ile paylaşılmaz.</li>
+        </ul>
 
-        <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab('privacy')">
-                Gizlilik Politikası
-            </button>
-            <button class="tab-btn" onclick="switchTab('terms')">
-                Kullanım Şartları
-            </button>
-            <button class="tab-btn" onclick="switchTab('data')">
-                Veri Yönetimi
-            </button>
+        <h3>1.2. Fotoğraf ve Video</h3>
+        <ul>
+            <li><strong>Amaç:</strong> Seyahat anılarınızı görsel olarak kaydetmek için kullanılır.</li>
+            <li><strong>Depolama:</strong> Medya dosyaları yerel depolama alanında saklanır.</li>
+            <li><strong>Paylaşım:</strong> Sadece yedekleme yaptığınızda cihazdan çıkar, hiçbir sunucuya yüklenmez.</li>
+        </ul>
+
+        <h3>1.3. Ses Kayıtları</h3>
+        <ul>
+            <li><strong>Amaç:</strong> Seyahat notlarınıza sesli açıklamalar eklemenizi sağlar.</li>
+            <li><strong>Depolama:</strong> Ses dosyaları cihazınızda yerel olarak saklanır ve dışarıya aktarılmaz.</li>
+        </ul>
+
+        <h3>1.4. Kişisel Notlar</h3>
+        <p>Başlık, açıklama, bütçe gibi seyahat bilgileriniz cihazınızın SQLite veritabanında saklanır ve üçüncü taraflarla paylaşılmaz.</p>
+
+        <h2>2. Verilerin Kullanım Amacı</h2>
+        <ul>
+            <li>Seyahat günlüğü oluşturmak ve planlama yapmak.</li>
+            <li>Harita üzerinde rotalarınızı görüntülemek.</li>
+            <li>Hatırlatma bildirimleri göndermek (izin verdiğinizde).</li>
+        </ul>
+
+        <h2>3. Veri Depolama ve Güvenlik</h2>
+        <p>Uygulama hiçbir merkezi sunucu kullanmaz; tüm verileriniz çevrimdışı (offline) olarak cihazınızda saklanır.</p>
+
+        <h2>4. Kullanıcı Hakları</h2>
+        <p>KVKK ve GDPR kapsamında erişim, silme, taşıma ve düzeltme haklarına sahipsiniz.</p>
+        
+        <h2>10. İletişim</h2>
+        <p>E-posta: <a href="mailto:alicelik1980@gmail.com" class="contact-link">alicelik1980@gmail.com</a></p>
+    </div>
+
+    <div id="terms" class="content-box">
+        <div class="highlight-box">
+            <strong>Önemli:</strong> Bu Kullanım Şartları, Rotanot mobil uygulamasını kullanımınızı düzenler. Uygulamayı kullanarak bu şartları kabul etmiş sayılırsınız.
         </div>
 
-        <!-- GİZLİLİK POLİTİKASI -->
-        <div id="privacy" class="content-box active">
-            <div class="highlight">
-                <strong>🔒 Gizlilik Taahhüdümüz:</strong> Rotanot uygulaması, gizliliğinize saygı duyar ve verilerinizi korumayı en üst öncelik olarak kabul eder. Bu politika, uygulamanın hangi verileri topladığını, nasıl kullandığını ve nasıl koruduğunu detaylıca açıklar.
-            </div>
+        <h2>1. Genel Hükümler</h2>
+        <p>Uygulamayı indirerek bu şartları okuduğunuzu ve kabul ettiğinizi onaylamış olursunuz. Kullanmak için en az 13 yaşında olmalısınız.</p>
 
-            <div class="section-intro">
-                <p><strong>Rotanot</strong>, kullanıcı gizliliğini ön planda tutan bir seyahat günlüğü uygulamasıdır. Tüm verileriniz <strong>yalnızca cihazınızda</strong> saklanır ve hiçbir merkezi sunucuya gönderilmez.</p>
-            </div>
+        <h2>2. Lisans ve Kullanım</h2>
+        <p>Size kişisel, ticari olmayan kullanım için sınırlı bir lisans veriyoruz. Ters mühendislik veya uygulamanın kopyalanması yasaktır.</p>
 
-            <h2>1. Toplanan Veriler ve Kullanım Amaçları</h2>
+        <h2>3. Kullanıcı İçeriği</h2>
+        <p>Yüklediğiniz tüm fotoğraflar, videolar ve notlar tamamen size aittir. İçeriklerin yedeklenmesi kullanıcının sorumluluğundadır.</p>
 
-            <h3>1.1. Konum Verileri <span class="badge badge-privacy">Yerel Depolama</span></h3>
-            <table>
-                <tr>
-                    <th>Özellik</th>
-                    <th>Detay</th>
-                </tr>
-                <tr>
-                    <td><strong>Toplama Amacı</strong></td>
-                    <td>Seyahat girişlerinizde konum bilgisi eklemek ve harita üzerinde göstermek</td>
-                </tr>
-                <tr>
-                    <td><strong>Nasıl Toplanır</strong></td>
-                    <td>Sadece siz "Konum Ekle" butonuna tıkladığınızda GPS aracılığıyla alınır</td>
-                </tr>
-                <tr>
-                    <td><strong>Depolama</strong></td>
-                    <td>Cihazınızın SQLite veritabanında yerel olarak saklanır</td>
-                </tr>
-                <tr>
-                    <td><strong>Paylaşım</strong></td>
-                    <td>❌ Hiçbir üçüncü taraf, reklam ağı veya sunucu ile paylaşılmaz</td>
-                </tr>
-                <tr>
-                    <td><strong>İzin Gerekliliği</strong></td>
-                    <td>Konum izni gereklidir (iOS: "Kullanım sırasında", Android: "Hassas konum")</td>
-                </tr>
-            </table>
-
-            <h3>1.2. Fotoğraf ve Video <span class="badge badge-privacy">Yerel Depolama</span></h3>
-            <ul>
-                <li><strong>Amaç:</strong> Seyahat anılarınızı görsel olarak kaydetmek</li>
-                <li><strong>Toplama Yöntemi:</strong>
-                    <ul>
-                        <li>Galeriden fotoğraf/video seçme</li>
-                        <li>Kamera ile fotoğraf çekme veya video kaydetme</li>
-                    </ul>
-                </li>
-                <li><strong>Depolama:</strong> Cihazınızın yerel depolama alanında (Documents/Media klasörü)</li>
-                <li><strong>İşleme:</strong> Medya dosyalarınız yalnızca uygulamada görüntüleme için kullanılır</li>
-                <li><strong>Paylaşım:</strong> Sadece SIZ paylaşım özelliğini kullandığınızda, SEÇTİĞİNİZ platforma aktarılır</li>
-                <li><strong>Silme:</strong> Uygulama içinden istediğiniz zaman silebilirsiniz</li>
-            </ul>
-
-            <h3>1.3. Ses Kayıtları <span class="badge badge-privacy">Yerel Depolama</span></h3>
-            <ul>
-                <li><strong>Amaç:</strong> Seyahat notlarınıza sesli açıklamalar ekleme</li>
-                <li><strong>Toplama:</strong> Uygulama içi ses kaydetme özelliği ile (mikrofon izni gerekir)</li>
-                <li><strong>Format:</strong> AAC/M4A formatında sıkıştırılmış olarak saklanır</li>
-                <li><strong>Depolama:</strong> Cihazınızda yerel olarak, şifrelenmemiş formatta</li>
-                <li><strong>Paylaşım:</strong> ❌ Hiçbir şekilde dışarıya aktarılmaz</li>
-            </ul>
-
-            <h3>1.4. Kişisel Notlar ve Seyahat Bilgileri <span class="badge badge-privacy">Yerel Depolama</span></h3>
-            <p>Aşağıdaki bilgiler uygulama içinde saklanır:</p>
-            <ul>
-                <li>📝 Gezi başlığı ve açıklaması</li>
-                <li>📅 Tarih ve saat bilgileri</li>
-                <li>💰 Bütçe ve harcama kayıtları</li>
-                <li>🚗 Ulaşım ve konaklama bilgileri</li>
-                <li>✅ Yapılacaklar listesi</li>
-                <li>🏆 Kullanıcı seviyeleri ve başarı rozetleri</li>
-            </ul>
-            <p><strong>Önemli:</strong> Tüm bu bilgiler cihazınızın SQLite veritabanında saklanır ve hiçbir sunucuya gönderilmez.</p>
-
-            <h3>1.5. Harcama Kayıtları <span class="badge badge-privacy">Yerel Depolama</span></h3>
-            <ul>
-                <li><strong>İçerik:</strong> Harcama miktarı, kategorisi (yemek, konaklama, ulaşım vb.), para birimi, tarih ve açıklama</li>
-                <li><strong>Depolama:</strong> Yalnızca cihazınızda yerel olarak saklanır</li>
-                <li><strong>İşleme:</strong> Sadece istatistik ve grafik oluşturmak için kullanılır</li>
-                <li><strong>Paylaşım:</strong> ❌ Mali bilgileriniz hiçbir şekilde paylaşılmaz</li>
-            </ul>
-
-            <h2>2. Verilerin Kullanım Amacı</h2>
-            <p>Toplanan tüm veriler <strong>yalnızca</strong> şu amaçlarla kullanılır:</p>
-            <ol>
-                <li>✅ Seyahat günlüğü oluşturmanızı sağlamak</li>
-                <li>✅ Gelecek seyahatlerinizi planlamanıza yardımcı olmak</li>
-                <li>✅ Fotoğraf, video ve ses kayıtlarını organize etmek</li>
-                <li>✅ Harita üzerinde seyahat rotalarınızı görüntülemek</li>
-                <li>✅ İstatistik ve başarı rozetleri sunmak (gamification)</li>
-                <li>✅ Hatırlatma bildirimleri göndermek (izin verdiğinizde)</li>
-                <li>✅ Harcama takibi ve bütçe yönetimi sağlamak</li>
-            </ol>
-
-            <div class="important-box">
-                <strong>⚠️ ÖNEMLİ:</strong> Rotanot, verilerinizi asla şu amaçlarla KULLANMAZ:
-                <ul style="margin-top: 15px;">
-                    <li>❌ Reklam gösterimi veya hedefleme</li>
-                    <li>❌ Üçüncü taraflara satış veya paylaşım</li>
-                    <li>❌ Kullanıcı profilleme veya takip</li>
-                    <li>❌ Pazar araştırması veya analitik</li>
-                    <li>❌ Gelir elde etme</li>
-                </ul>
-            </div>
-
-            <h2>3. Veri Depolama ve Güvenlik</h2>
-
-            <h3>3.1. Yerel Depolama Yapısı</h3>
-            <div class="info-box">
-                <p><strong>📱 Tüm Verileriniz Cihazınızdadır</strong></p>
-                <p>Rotanot, bulut tabanlı değildir. Verileriniz yalnızca telefonunuz veya tabletinizde saklanır.</p>
-                <ul style="margin-top: 15px;">
-                    <li><strong>Veritabanı:</strong> SQLite (şifrelenmemiş, cihaz güvenliği ile korunur)</li>
-                    <li><strong>Medya Dosyaları:</strong> Uygulama klasöründe (iOS: Documents, Android: App Data)</li>
-                    <li><strong>Yedekleme:</strong> ZIP formatında, kullanıcı kontrolünde</li>
-                </ul>
-            </div>
-
-            <h3>3.2. Sunucu Kullanımı</h3>
-            <ul>
-                <li>❌ <strong>Merkezi Sunucu Yok:</strong> Rotanot hiçbir merkezi sunucu kullanmaz</li>
-                <li>❌ <strong>Cloud Depolama Yok:</strong> Verileriniz buluta yüklenmez</li>
-                <li>❌ <strong>API Çağrıları Yok:</strong> Konum ve medya verileri için API kullanılmaz</li>
-                <li>✅ <strong>Tek İstisna:</strong> OpenStreetMap harita görüntüleri internet üzerinden yüklenir (sadece görsel harita, konum veriniz gönderilmez)</li>
-            </ul>
-
-            <h3>3.3. Şifreleme ve Koruma</h3>
-            <ul>
-                <li>🔒 SQLite veritabanı cihazınızın işletim sistemi güvenliği ile korunur</li>
-                <li>🔒 iOS cihazlarda: App Sandbox ve FileVault ile koruma</li>
-                <li>🔒 Android cihazlarda: App Private Storage ile koruma</li>
-                <li>🔒 Yedekleme dosyaları standart ZIP formatında (şifreleme opsiyonel)</li>
-            </ul>
-
-            <h2>4. Üçüncü Taraf Hizmetler</h2>
-
-            <h3>4.1. OpenStreetMap</h3>
-            <table>
-                <tr>
-                    <th>Özellik</th>
-                    <th>Açıklama</th>
-                </tr>
-                <tr>
-                    <td><strong>Kullanım Amacı</strong></td>
-                    <td>Harita görüntüleme ve konum seçimi</td>
-                </tr>
-                <tr>
-                    <td><strong>Paylaşılan Veri</strong></td>
-                    <td>Yalnızca harita görüntüleme için gerekli tile koordinatları (IP adresiniz görülebilir)</td>
-                </tr>
-                <tr>
-                    <td><strong>Konum Bilgisi</strong></td>
-                    <td>❌ Konum verileriniz OpenStreetMap'e GÖNDERİLMEZ</td>
-                </tr>
-                <tr>
-                    <td><strong>Gizlilik Politikası</strong></td>
-                    <td><a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank">OpenStreetMap Privacy Policy</a></td>
-                </tr>
-            </table>
-
-            <h3>4.2. Firebase Analytics (Anonim)</h3>
-            <ul>
-                <li><strong>Kullanım:</strong> Sadece anonim kullanım istatistikleri (hangi ekranların açıldığı, çökme raporları)</li>
-                <li><strong>Kişisel Veri:</strong> ❌ Ad, e-posta, konum gibi kişisel veriler GÖNDERİLMEZ</li>
-                <li><strong>Amaç:</strong> Uygulamayı geliştirmek ve hataları tespit etmek</li>
-                <li><strong>Devre Dışı Bırakma:</strong> Uygulama ayarlarından analytics'i kapatabilirsiniz</li>
-            </ul>
-
-            <h2>5. Kullanıcı Hakları (KVKK & GDPR Uyumlu)</h2>
-
-            <p>Türkiye KVKK (Kişisel Verilerin Korunması Kanunu) ve AB GDPR kapsamında aşağıdaki haklara sahipsiniz:</p>
-
-            <table>
-                <tr>
-                    <th>Hak</th>
-                    <th>Açıklama</th>
-                    <th>Nasıl Kullanılır</th>
-                </tr>
-                <tr>
-                    <td><strong>Erişim Hakkı</strong></td>
-                    <td>Hangi verilerinizin toplandığını öğrenme</td>
-                    <td>Tüm verilerinize uygulama içinden erişebilirsiniz</td>
-                </tr>
-                <tr>
-                    <td><strong>Silme Hakkı</strong></td>
-                    <td>Verilerinizi tamamen silme</td>
-                    <td>Ayarlar → Tüm Verileri Sil veya uygulamayı kaldırın</td>
-                </tr>
-                <tr>
-                    <td><strong>Taşıma Hakkı</strong></td>
-                    <td>Verilerinizi dışarı aktarma</td>
-                    <td>Ayarlar → Yedekleme → ZIP oluştur</td>
-                </tr>
-                <tr>
-                    <td><strong>Düzeltme Hakkı</strong></td>
-                    <td>Yanlış verileri düzeltme</td>
-                    <td>Kayıtlarınızı uygulama içinden düzenleyebilirsiniz</td>
-                </tr>
-                <tr>
-                    <td><strong>İtiraz Hakkı</strong></td>
-                    <td>Veri işlemeye itiraz etme</td>
-                    <td>İzinleri cihaz ayarlarından kapatabilirsiniz</td>
-                </tr>
-            </table>
-
-            <h2>6. Çocukların Gizliliği</h2>
-            <div class="important-box">
-                <p><strong>⚠️ Yaş Sınırı:</strong> Rotanot uygulaması 13 yaşın altındaki çocuklardan bilerek veri toplamaz.</p>
-                <ul style="margin-top: 15px;">
-                    <li>Ebeveyn izni olmadan 13 yaş altı kullanıcıların uygulamayı kullanmaması önerilir</li>
-                    <li>13 yaş altı bir çocuğun veri girdiğini fark ederseniz, lütfen bizimle iletişime geçin</li>
-                    <li>COPPA (Children's Online Privacy Protection Act) uyumludur</li>
-                </ul>
-            </div>
-
-            <h2>7. Bildirimler ve İzinler</h2>
-
-            <h3>7.1. Bildirim İzni <span class="badge badge-privacy">Opsiyonel</span></h3>
-            <p>Uygulama, izin vermeniz durumunda aşağıdaki bildirimleri gönderebilir:</p>
-            <ul>
-                <li>📅 Günlük gezi hatırlatmaları</li>
-                <li>📊 Haftalık istatistik özetleri</li>
-                <li>✈️ Seyahat planı uyarıları</li>
-                <li>🏆 Başarı rozeti kazanma duyuruları</li>
-            </ul>
-            <p><strong>Önemli:</strong> Tüm bildirimler yerel olarak (cihazınızda) oluşturulur, hiçbir sunucu kullanılmaz.</p>
-            <p><strong>Kapatma:</strong> Cihaz ayarları → Bildirimler → Rotanot</p>
-
-            <h3>7.2. Gerekli İzinler</h3>
-            <table>
-                <tr>
-                    <th>İzin</th>
-                    <th>Platform</th>
-                    <th>Amaç</th>
-                    <th>Zorunlu mu?</th>
-                </tr>
-                <tr>
-                    <td>📍 Konum</td>
-                    <td>iOS, Android</td>
-                    <td>GPS koordinatlarını almak</td>
-                    <td>❌ Hayır (sadece konum eklerken)</td>
-                </tr>
-                <tr>
-                    <td>📷 Kamera</td>
-                    <td>iOS, Android</td>
-                    <td>Fotoğraf çekmek</td>
-                    <td>❌ Hayır (sadece kamera kullanımında)</td>
-                </tr>
-                <tr>
-                    <td>🖼️ Fotoğraf Galerisi</td>
-                    <td>iOS, Android</td>
-                    <td>Mevcut fotoğrafları seçmek</td>
-                    <td>❌ Hayır (sadece galeri kullanımında)</td>
-                </tr>
-                <tr>
-                    <td>🎤 Mikrofon</td>
-                    <td>iOS, Android</td>
-                    <td>Sesli not kaydetmek</td>
-                    <td>❌ Hayır (sadece ses kaydında)</td>
-                </tr>
-                <tr>
-                    <td>💾 Depolama</td>
-                    <td>Android</td>
-                    <td>Yedekleme dosyası oluşturmak</td>
-                    <td>❌ Hayır (sadece yedeklemede)</td>
-                </tr>
-                <tr>
-                    <td>🔔 Bildirimler</td>
-                    <td>iOS, Android</td>
-                    <td>Hatırlatma göndermek</td>
-                    <td>❌ Hayır (tamamen opsiyonel)</td>
-                </tr>
-            </table>
-
-            <h2>8. Veri Paylaşımı ve Aktarımı</h2>
-
-            <div class="highlight">
-                <strong>🔐 NET İFADE:</strong> Rotanot uygulaması, kullanıcı verilerini hiçbir üçüncü taraf, reklam ağı, analitik servisi, veri aracısı veya başka bir kuruluş ile paylaşmaz, satmaz veya kiralamaz.
-            </div>
-
-            <p><strong>İstisnalar:</strong></p>
-            <ol>
-                <li><strong>Kullanıcı İsteği:</strong> Siz paylaşım özelliğini kullandığınızda (örn: gezi notunu WhatsApp'ta paylaşma)</li>
-                <li><strong>Yasal Zorunluluk:</strong> Mahkeme kararı veya yasal düzenleme gerektirdiğinde (ancak yerel depolama nedeniyle bize erişim yok)</li>
-            </ol>
-
-            <h2>9. Uluslararası Veri Aktarımı</h2>
-            <p>❌ <strong>Veri aktarımı yapılmaz.</strong> Tüm verileriniz cihazınızda kalır, hiçbir ülkeye veya sunucuya aktarılmaz.</p>
-
-            <h2>10. Veri Saklama Süresi</h2>
-            <ul>
-                <li>📅 <strong>Süre:</strong> Verileriniz siz silene kadar veya uygulamayı kaldırana kadar cihazınızda saklanır</li>
-                <li>🗑️ <strong>Otomatik Silme:</strong> Verileriniz otomatik olarak silinmez</li>
-                <li>♻️ <strong>Yedekleme:</strong> Yedek dosyalarınızı istediğiniz zaman silebilirsiniz</li>
-            </ul>
-
-            <h2>11. Gizlilik Politikası Değişiklikleri</h2>
-            <ul>
-                <li>📝 Bu gizlilik politikası gerektiğinde güncellenebilir</li>
-                <li>🔔 Önemli değişiklikler olduğunda uygulama içi bildirim ile bilgilendirileceksiniz</li>
-                <li>📅 Güncel politika her zaman bu sayfada yayınlanacaktır</li>
-                <li>✅ Politika değişiklikleri yayınlandığında yürürlüğe girer</li>
-            </ul>
-
-            <h2>12. İletişim ve Başvuru</h2>
-            <div class="contact-box">
-                <h3 style="margin-top: 0; color: var(--primary);">📧 Bizimle İletişime Geçin</h3>
-                <p><strong>Geliştirici:</strong> Ali Çelik (Ali Çelik Games)</p>
-                <p><strong>E-posta:</strong> <a href="mailto:alicelik1980@gmail.com">alicelik1980@gmail.com</a></p>
-                <p><strong>Adres:</strong> Ankara, Türkiye</p>
-                <p><strong>Yanıt Süresi:</strong> 3 iş günü içinde</p>
-                <hr style="margin: 20px 0; border: none; border-top: 1px solid rgba(46, 125, 50, 0.3);">
-                <p><strong>Başvuru Konuları:</strong></p>
-                <ul style="margin-top: 10px;">
-                    <li>Gizlilik politikası hakkında sorular</li>
-                    <li>Veri silme talepleri</li>
-                    <li>KVKK/GDPR haklarınızı kullanma</li>
-                    <li>Veri güvenliği endişeleri</li>
-                </ul>
-            </div>
+        <div class="important-box">
+            <strong>Sorumluluk Reddi:</strong> Uygulama "olduğu gibi" sunulmaktadır. Veri kaybı veya cihaz hasarı durumlarında geliştirici sorumlu tutulamaz.
         </div>
 
-        <!-- KULLANIM ŞARTLARI -->
-        <div id="terms" class="content-box">
-            <div class="highlight">
-                <strong>📜 Önemli:</strong> Bu Kullanım Şartları, Rotanot mobil uygulamasını kullanımınızı düzenler. Uygulamayı indirerek veya kullanarak bu şartları kabul etmiş sayılırsınız.
-            </div>
-
-            <h2>1. Genel Hükümler</h2>
-
-            <h3>1.1. Şartların Kabulü</h3>
-            <p>Rotanot uygulamasını indirerek, yükleyerek veya kullanarak, bu Kullanım Şartlarını okuduğunuzu, anladığınızı ve kabul ettiğinizi onaylamış olursunuz.</p>
-
-            <h3>1.2. Şartlarda Değişiklik Hakkı</h3>
-            <ul>
-                <li>Şartları önceden bildirimde bulunarak güncelleme hakkımızı saklı tutarız</li>
-                <li>Değişiklikler bu sayfada yayınlandığında yürürlüğe girer</li>
-                <li>Önemli değişikliklerde uygulama içi bildirim yapılacaktır</li>
-                <li>Değişikliklerden sonra uygulamayı kullanmaya devam ederseniz, yeni şartları kabul etmiş sayılırsınız</li>
-            </ul>
-
-            <h3>1.3. Yaş Sınırı ve Uygunluk</h3>
-            <div class="important-box">
-                <strong>⚠️ Minimum Yaş:</strong> Rotanot'u kullanmak için en az <strong>13 yaşında</strong> olmalısınız.
-                <ul style="margin-top: 15px;">
-                    <li>13 yaş altı kullanıcılar ebeveyn/vasi izni ile kullanabilir</li>
-                    <li>18 yaş altı kullanıcılar bazı özelliklerden kısıtlanabilir</li>
-                </ul>
-            </div>
-
-            <h2>2. Lisans ve Kullanım Hakları</h2>
-
-            <h3>2.1. Kullanım Lisansı</h3>
-            <p>Size, Rotanot uygulamasını aşağıdaki şartlarla kullanmak için <strong>sınırlı, devredilemez, münhasır olmayan, kişisel ve ticari olmayan</strong> bir lisans veriyoruz:</p>
-
-            <table>
-                <tr>
-                    <th>İzin Verilen Kullanımlar</th>
-                    <th>Yasak Kullanımlar</th>
-                </tr>
-                <tr>
-                    <td>✅ Kişisel seyahat günlüğü oluşturma</td>
-                    <td>❌ Ters mühendislik, decompile etme</td>
-                </tr>
-                <tr>
-                    <td>✅ Fotoğraf, video ve not ekleme</td>
-                    <td>❌ Uygulamayı kopyalama veya dağıtma</td>
-                </tr>
-                <tr>
-                    <td>✅ Gezi planları oluşturma</td>
-                    <td>❌ Kaynak kodunu değiştirme</td>
-                </tr>
-                <tr>
-                    <td>✅ Harcama takibi yapma</td>
-                    <td>❌ Ticari amaçla kullanma</td>
-                </tr>
-                <tr>
-                    <td>✅ Verilerinizi yedekleme ve dışa aktarma</td>
-                    <td>❌ Güvenlik özelliklerini aşma</td>
-                </tr>
-            </table>
-
-            <h3>2.2. Yasak Faaliyetler</h3>
-            <p>Uygulamayı kullanırken aşağıdaki faaliyetler <strong>kesinlikle yasaktır</strong>:</p>
-            <ol>
-                <li>❌ Uygulamayı yasadışı faaliyetler için kullanmak</li>
-                <li>❌ Başkalarının haklarını ihlal eden içerik eklemek</li>
-                <li>❌ Zararlı yazılım, virüs veya kod enjekte etmek</li>
-                <li>❌ Uygulamanın güvenlik sistemlerini atlatmaya çalışmak</li>
-                <li>❌ Otomatik sistemler, botlar veya scraper'lar kullanmak</li>
-                <li>❌ Başka kullanıcıların uygulamayı kullanmasını engellemek</li>
-                <li>❌ Uygulama kaynak kodunu çalmak veya tersine mühendislik yapmak</li>
-            </ol>
-
-            <h2>3. Kullanıcı İçeriği</h2>
-
-            <h3>3.1. İçerik Sahipliği</h3>
-            <div class="info-box">
-                <strong>🎨 Sizin İçeriğiniz, Sizin Mülkiyetiniz</strong>
-                <p>Rotanot'ta oluşturduğunuz tüm içerikler (fotoğraf, video, ses, not, gezi kaydı) <strong>tamamen size aittir</strong>.</p>
-                <p>Biz bu içeriklere erişemez, göremez veya kullanamayız çünkü sadece CİHAZINIZDA saklanır.</p>
-            </div>
-
-            <h3>3.2. İçerik Sorumluluğu</h3>
-            <ul>
-                <li>Eklediğiniz içeriklerden tamamen siz sorumlusunuz</li>
-                <li>Telif hakkı, gizlilik ve diğer yasal haklara saygı göstermelisiniz</li>
-                <li>Başkalarının fotoğraflarını veya videolarını izinsiz kullanmayın</li>
-                <li>Yasadışı, müstehcen, nefret söylemi içeren içerik eklemeyin</li>
-            </ul>
-
-            <h3>3.3. Veri Yedekleme Sorumluluğu</h3>
-            <div class="important-box">
-                <strong>⚠️ ÖNEMLİ:</strong> İçeriklerinizi düzenli olarak yedeklemek <strong>sizin sorumluluğunuzdadır</strong>.
-                <ul style="margin-top: 15px;">
-                    <li>Cihaz kaybı, arıza veya silinmesi durumunda veri kaybından sorumlu değiliz</li>
-                    <li>Uygulama güncellemeleri sırasında veri kaybı yaşanırsa sorumluluk kabul etmeyiz</li>
-                    <li>Düzenli yedekleme yapmanızı şiddetle tavsiye ederiz (Ayarlar → Yedekleme)</li>
-                </ul>
-            </div>
-
-            <h2>4. Uygulama Özellikleri ve Hizmetler</h2>
-
-            <h3>4.1. Sunulan Özellikler</h3>
-            <p>Rotanot aşağıdaki temel özellikleri sunar:</p>
-            <ul>
-                <li>🗺️ GPS destekli konum kaydı ve harita görüntüleme</li>
-                <li>📸 Fotoğraf, video ve ses kaydı ekleme</li>
-                <li>💰 Harcama takibi ve kategorilendirilmiş gider yönetimi</li>
-                <li>🎮 Gamification sistemi (XP, seviye, başarı rozetleri)</li>
-                <li>📊 Detaylı istatistikler ve grafikler</li>
-                <li>🎯 Gezi planlama ve yapılacaklar listesi</li>
-                <li>💾 Yedekleme ve geri yükleme</li>
-                <li>🔔 Akıllı bildirimler ve hatırlatıcılar</li>
-            </ul>
-
-            <h3>4.2. Özellik Değişiklikleri</h3>
-            <ul>
-                <li>Yeni özellikler ekleyebilir veya mevcut özellikleri kaldırabiliriz</li>
-                <li>Önemli özellik değişikliklerinde bildirim yapılacaktır</li>
-                <li>Özellik iyileştirmeleri düzenli olarak yapılabilir</li>
-            </ul>
-
-            <h2>5. Ücretlendirme</h2>
-
-            <div class="info-box">
-                <strong>💎 Tamamen Ücretsiz</strong>
-                <p>Rotanot şu anda <strong>%100 ücretsizdir</strong> ve hiçbir gizli ücret yoktur.</p>
-                <ul style="margin-top: 15px;">
-                    <li>✅ Tüm özellikler ücretsiz</li>
-                    <li>✅ Reklam yok</li>
-                    <li>✅ Uygulama içi satın alma yok</li>
-                    <li>✅ Abonelik yok</li>
-                </ul>
-            </div>
-
-            <p><strong>Gelecek Değişiklikler:</strong></p>
-            <ul>
-                <li>Gelecekte premium özellikler eklenebilir (opsiyonel, temel özellikler hep ücretsiz kalacak)</li>
-                <li>Fiyatlandırma değişikliği yapılırsa önceden duyuru yapılacaktır</li>
-            </ul>
-
-            <h2>6. Gizlilik ve Veri Koruma</h2>
-            <p>Veri toplama, kullanma ve koruma uygulamalarımız hakkında detaylı bilgi için lütfen <a href="#privacy" onclick="switchTab('privacy')">Gizlilik Politikası</a> bölümünü okuyun.</p>
-
-            <h2>7. Fikri Mülkiyet Hakları</h2>
-
-            <h3>7.1. Uygulama Mülkiyeti</h3>
-            <p>Rotanot uygulaması, tasarımı, logosu, kaynak kodu ve tüm içeriği <strong>Ali Çelik (Ali Çelik Games)</strong>'e aittir ve telif hakkı yasaları ile korunmaktadır.</p>
-
-            <h3>7.2. Ticari Markalar</h3>
-            <ul>
-                <li>"Rotanot" adı ve logosu tescilli/tescil edilebilir ticari markalardır</li>
-                <li>İzinsiz kullanım yasaktır</li>
-            </ul>
-
-            <h2>8. Garanti ve Sorumluluk Reddi</h2>
-
-            <h3>8.1. "Olduğu Gibi" Sunumu</h3>
-            <div class="important-box">
-                <strong>⚠️ SORUMLULUK REDDİ</strong>
-                <p>Rotanot uygulaması <strong>"OLDUĞU GİBİ" (AS IS)</strong> ve <strong>"MEVCUT HALIYLE" (AS AVAILABLE)</strong> sunulmaktadır.</p>
-                <p>Aşağıdaki konularda hiçbir garanti vermemekteyiz:</p>
-                <ul>
-                    <li>❌ Kesintisiz çalışma garantisi</li>
-                    <li>❌ Hatasız çalışma garantisi</li>
-                    <li>❌ Veri kaybı olmayacağı garantisi</li>
-                    <li>❌ Belirli bir amaca uygunluk garantisi</li>
-                    <li>❌ Güvenlik açığı olmayacağı garantisi</li>
-                </ul>
-            </div>
-
-            <h3>8.2. Sorumluluk Sınırlamaları</h3>
-            <p>Yasal olarak izin verilen azami ölçüde, aşağıdaki durumlardan sorumlu DEĞİLİZ:</p>
-            <ol>
-                <li>Veri kaybı (yedekleme sorumluluğu kullanıcıya aittir)</li>
-                <li>Cihaz arızası veya bozulması</li>
-                <li>GPS/konum hataları</li>
-                <li>Harita verilerindeki yanlışlıklar (OpenStreetMap kaynaklı)</li>
-                <li>Uygulama çökmeleri veya hatalar</li>
-                <li>İnternet bağlantısı sorunları</li>
-                <li>İşletim sistemi uyumsuzlukları</li>
-                <li>Dolaylı, arızi veya sonuç olarak ortaya çıkan zararlar</li>
-            </ol>
-
-            <h2>9. Kullanıcı Yükümlülükleri</h2>
-
-            <h3>9.1. Hesap Güvenliği</h3>
-            <ul>
-                <li>Cihazınızı güvenli tutmak sizin sorumluluğunuzdadır</li>
-                <li>Cihaz kilidi veya şifre kullanmanızı öneririz</li>
-                <li>Cihaz kaybı durumunda verileriniz başkaları tarafından görülebilir</li>
-            </ul>
-
-            <h3>9.2. Yasal Uyum</h3>
-            <ul>
-                <li>Uygulamayı yürürlükteki yasalara uygun kullanmalısınız</li>
-                <li>Konum verilerini toplamanın yasak olduğu yerlerde uygulama kullanımından siz sorumlusunuz</li>
-                <li>Başkalarının rızası olmadan fotoğraf veya ses kaydı yapmayın</li>
-            </ul>
-
-            <h2>10. Fesih ve Sonlandırma</h2>
-
-            <h3>10.1. Kullanıcı Tarafından Sonlandırma</h3>
-            <ul>
-                <li>Uygulamayı istediğiniz zaman silebilirsiniz</li>
-                <li>Verilerinizi silmek için: Ayarlar → Tüm Verileri Sil</li>
-            </ul>
-
-            <h3>10.2. Geliştirici Tarafından Sonlandırma</h3>
-            <p>Aşağıdaki durumlarda kullanım hakkınızı sonlandırabiliriz:</p>
-            <ul>
-                <li>Bu şartları ihlal ederseniz</li>
-                <li>Yasadışı faaliyetler tespit edilirse</li>
-                <li>Uygulama güvenliğini tehdit ederseniz</li>
-            </ul>
-            <p><strong>Not:</strong> Rotanot hesap sistemi kullanmadığı için, sonlandırma sadece yasal süreçler ile mümkündür.</p>
-
-            <h2>11. Yedekleme ve Veri Kaybı</h2>
-
-            <div class="important-box">
-                <strong>⚠️ YEDEKLEME SORUMLULUĞU</strong>
-                <p>Verilerinizi düzenli olarak yedeklemek <strong>tamamen sizin sorumluluğunuzdadır</strong>.</p>
-                <p><strong>Şu durumlarda veri kaybı yaşanabilir:</strong></p>
-                <ul>
-                    <li>Cihaz kaybı veya çalınması</li>
-                    <li>Uygulama silme veya yeniden yükleme</li>
-                    <li>İşletim sistemi güncellemeleri</li>
-                    <li>Cihaz fabrika ayarlarına dönme</li>
-                    <li>Depolama alanı dolu olması</li>
-                </ul>
-                <p><strong>Çözüm:</strong> Ayarlar → Yedekleme → Manuel Yedek Oluştur</p>
-            </div>
-
-            <h2>12. Uygulanacak Hukuk ve Yargı Yetkisi</h2>
-            <ul>
-                <li><strong>Hukuk:</strong> Bu şartlar <strong>Türkiye Cumhuriyeti yasalarına</strong> tabidir</li>
-                <li><strong>Yargı Yeri:</strong> Ankara mahkemeleri ve icra daireleri yetkilidir</li>
-                <li><strong>Uyuşmazlık Çözümü:</strong> Öncelikle dostane çözüm için iletişime geçiniz: <a href="mailto:alicelik1980@gmail.com">alicelik1980@gmail.com</a></li>
-            </ul>
-
-            <h2>13. Diğer Hükümler</h2>
-
-            <h3>13.1. Bölünebilirlik</h3>
-            <p>Bu şartların herhangi bir hükmü geçersiz sayılırsa, diğer hükümler geçerliliğini korur.</p>
-
-            <h3>13.2. Feragat</h3>
-            <p>Herhangi bir hakkımızı kullanmamamız, o haktan feragat ettiğimiz anlamına gelmez.</p>
-
-            <h3>13.3. Tam Anlaşma</h3>
-            <p>Bu şartlar ve Gizlilik Politikası, aramızdaki tam anlaşmayı oluşturur.</p>
-
-            <h2>14. İletişim</h2>
-            <div class="contact-box">
-                <h3 style="margin-top: 0; color: var(--primary);">📧 Sorularınız mı Var?</h3>
-                <p>Kullanım şartları hakkında sorularınız için:</p>
-                <p><strong>E-posta:</strong> <a href="mailto:alicelik1980@gmail.com">alicelik1980@gmail.com</a></p>
-                <p><strong>Geliştirici:</strong> Ali Çelik - Ali Çelik Games</p>
-                <p><strong>Adres:</strong> Ankara, Türkiye</p>
-            </div>
-
-            <hr style="margin: 40px 0; border: none; border-top: 2px solid var(--border);">
-            <p style="text-align: center; color: var(--text-secondary); font-size: 0.95rem;">
-                <strong>Kabul Beyanı:</strong> Rotanot uygulamasını kullanarak, bu Kullanım Şartlarını okuduğunuzu, anladığınızı ve kabul ettiğinizi beyan etmiş olursunuz.
-            </p>
-        </div>
-
-        <!-- VERİ YÖNETİMİ -->
-        <div id="data" class="content-box">
-            <div class="info-box">
-                <strong>📊 Veri Yönetimi Rehberi:</strong> Bu bölümde verilerinizi nasıl yöneteceğinizi, yedekleyeceğinizi ve sileceğinizi öğrenebilirsiniz.
-            </div>
-
-            <h2>1. Verilerinize Erişim</h2>
-            <p>Rotanot'ta saklanan tüm verilerinize erişmek için:</p>
-            <ol>
-                <li>Uygulamayı açın</li>
-                <li>İstediğiniz bölümü (Geziler, Fotoğraflar, Harcamalar, İstatistikler) görüntüleyin</li>
-                <li>Tüm verileriniz cihazınızda saklanır ve erişilebilirdir</li>
-            </ol>
-
-            <h2>2. Veri Yedekleme</h2>
-
-            <h3>2.1. Manuel Yedekleme (Önerilen)</h3>
-            <table>
-                <tr>
-                    <th>Adım</th>
-                    <th>İşlem</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Ana Menü → Ayarlar → Yedekleme Ayarları</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>"Manuel Yedek Oluştur" butonuna tıklayın</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Yedekleme işlemi tamamlanacak (ZIP dosyası oluşturulur)</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>ZIP dosyasını güvenli bir yere kaydedin (Google Drive, iCloud, bilgisayar)</td>
-                </tr>
-            </table>
-
-            <h3>2.2. Otomatik Yedekleme (Sadece Android)</h3>
-            <ul>
-                <li><strong>Ayarlama:</strong> Ayarlar → Yedekleme → Otomatik Yedekleme (Aktif/Pasif)</li>
-                <li><strong>Periyot:</strong> Günlük, Haftalık veya Aylık</li>
-                <li><strong>Depolama:</strong> Yedekler cihaz depolama alanına kaydedilir</li>
-                <li><strong>Not:</strong> iOS cihazlarda otomatik yedekleme desteklenmez (manuel yedekleme kullanın)</li>
-            </ul>
-
-            <h3>2.3. Yedekleme İçeriği</h3>
-            <p>Yedekleme ZIP dosyası şunları içerir:</p>
-            <ul>
-                <li>✅ Tüm gezi kayıtları (başlık, açıklama, tarih, konum)</li>
-                <li>✅ Fotoğraflar ve videolar</li>
-                <li>✅ Ses kayıtları</li>
-                <li>✅ Harcama kayıtları</li>
-                <li>✅ Gezi planları</li>
-                <li>✅ Başarı rozetleri ve seviye bilgileri</li>
-                <li>✅ Kullanıcı istatistikleri</li>
-            </ul>
-
-            <h2>3. Veri Geri Yükleme</h2>
-
-            <h3>3.1. Yedekten Geri Yükleme</h3>
-            <ol>
-                <li>Ayarlar → Yedekleme → "Yedekten Geri Yükle"</li>
-                <li>ZIP dosyasını seçin</li>
-                <li>Geri yükleme işlemini onaylayın</li>
-                <li>Uygulama yeniden başlatılacak ve verileriniz geri yüklenecek</li>
-            </ol>
-
-            <div class="important-box">
-                <strong>⚠️ DİKKAT:</strong> Geri yükleme işlemi mevcut verilerin üzerine yazacaktır. İşlemden önce mevcut verilerinizi yedeklemenizi öneririz.
-            </div>
-
-            <h2>4. Veri Silme</h2>
-
-            <h3>4.1. Tek Bir Kaydı Silme</h3>
-            <ul>
-                <li>Silmek istediğiniz gezi kaydına gidin</li>
-                <li>Sağ üstteki menüden "Sil" seçeneğini seçin</li>
-                <li>Silme işlemini onaylayın</li>
-            </ul>
-
-            <h3>4.2. Tüm Verileri Silme</h3>
-            <div class="important-box">
-                <strong>⚠️ GERİ DÖNDÜRÜLEMEZ:</strong> Bu işlem tüm verilerinizi kalıcı olarak siler!
-            </div>
-            <ol>
-                <li>Ayarlar → Veri Yönetimi → "Tüm Verileri Sil"</li>
-                <li>Uyarıyı okuyun</li>
-                <li>"EVET, TÜM VERİLERİ SİL" yazarak onaylayın</li>
-                <li>Tüm gezi kayıtları, fotoğraflar, sesler ve harcamalar silinir</li>
-            </ol>
-
-            <h3>4.3. Uygulamayı Kaldırarak Silme</h3>
-            <ul>
-                <li><strong>iOS:</strong> Uygulama simgesine uzun basın → "Uygulamayı Sil" → "Uygulamayı ve Verileri Sil"</li>
-                <li><strong>Android:</strong> Ayarlar → Uygulamalar → Rotanot → Kaldır (veya "Depolama" → "Verileri Temizle")</li>
-                <li><strong>Sonuç:</strong> Tüm yerel veriler kalıcı olarak silinir</li>
-            </ul>
-
-            <h2>5. Veri Aktarma (Taşınabilirlik Hakkı)</h2>
-
-            <h3>5.1. Verileri Dışa Aktarma</h3>
-            <p>KVKK ve GDPR kapsamında verilerinizi başka bir hizmete taşıyabilirsiniz:</p>
-            <ol>
-                <li>Manuel yedekleme oluşturun (ZIP formatı)</li>
-                <li>ZIP dosyasını indirin</li>
-                <li>İçeriği başka bir uygulamaya veya servise aktarabilirsiniz</li>
-            </ol>
-
-            <h3>5.2. Veri Formatı</h3>
-            <ul>
-                <li><strong>Veritabanı:</strong> SQLite (.db formatı)</li>
-                <li><strong>Medya:</strong> JPEG, PNG, MP4, M4A formatlarında</li>
-                <li><strong>Erişim:</strong> ZIP açıldığında tüm dosyalara erişebilirsiniz</li>
-            </ul>
-
-            <h2>6. Depolama Yönetimi</h2>
-
-            <h3>6.1. Depolama Kullanımını Görüntüleme</h3>
-            <ul>
-                <li>Ayarlar → Depolama → "Depolama Kullanımı"</li>
-                <li>Toplam kullanılan alan gösterilir</li>
-                <li>Fotoğraf, video, ses ve veritabanı boyutları ayrı ayrı listelenir</li>
-            </ul>
-
-            <h3>6.2. Depolama Alanı Temizleme</h3>
-            <p>Depolama alanı doluysa şu adımları takip edin:</p>
-            <ol>
-                <li>Gereksiz gezileri silin</li>
-                <li>Büyük video dosyalarını silin</li>
-                <li>Kullanılmayan fotoğrafları temizleyin</li>
-                <li>Eski yedekleme dosyalarını silin</li>
-            </ol>
-
-            <h2>7. Gizlilik Ayarları</h2>
-
-            <h3>7.1. İzinleri Yönetme</h3>
-            <p><strong>iOS:</strong></p>
-            <ul>
-                <li>Ayarlar (iOS) → Rotanot → İzinler</li>
-                <li>Konum, Kamera, Mikrofon, Fotoğraflar izinlerini yönetin</li>
-            </ul>
-
-            <p><strong>Android:</strong></p>
-            <ul>
-                <li>Ayarlar (Android) → Uygulamalar → Rotanot → İzinler</li>
-                <li>Her izni ayrı ayrı açıp kapatabilirsiniz</li>
-            </ul>
-
-            <h3>7.2. Bildirim Ayarları</h3>
-            <ul>
-                <li>Rotanot Ayarlar → Bildirimler</li>
-                <li>Günlük hatırlatıcılar, haftalık özetler, başarı bildirimleri</li>
-                <li>Her birini ayrı ayrı açıp kapatabilirsiniz</li>
-            </ul>
-
-            <h2>8. Sık Sorulan Sorular (SSS)</h2>
-
-            <h3>❓ Verilerim sunucuda mı saklanıyor?</h3>
-            <p><strong>Cevap:</strong> ❌ Hayır. Tüm verileriniz yalnızca cihazınızda yerel olarak saklanır. Hiçbir sunucu kullanmıyoruz.</p>
-
-            <h3>❓ Yedekleme dosyam güvenli mi?</h3>
-            <p><strong>Cevap:</strong> Yedekleme ZIP dosyası şifrelenmemiş formattadır. Güvenlik için ZIP'i kendi şifrenizle koruyabilirsiniz.</p>
-
-            <h3>❓ Verilerimi başka bir cihaza taşıyabilir miyim?</h3>
-            <p><strong>Cevap:</strong> ✅ Evet. Manuel yedekleme ile ZIP dosyası oluşturun, yeni cihazda geri yükleyin.</p>
-
-            <h3>❓ Uygulamayı silersem verilerim kaybolur mu?</h3>
-            <p><strong>Cevap:</strong> ✅ Evet. Uygulamayı silmeden önce mutlaka yedekleme yapın.</p>
-
-            <h3>❓ Verilerimi silemeyene kadar ne kadar saklanır?</h3>
-            <p><strong>Cevap:</strong> Verileriniz siz silene kadar veya uygulamayı kaldırana kadar cihazınızda kalır. Otomatik silme yoktur.</p>
-
-            <h2>9. KVKK/GDPR Veri Sahibi Hakları</h2>
-
-            <table>
-                <tr>
-                    <th>Hak</th>
-                    <th>Nasıl Kullanılır</th>
-                    <th>Süre</th>
-                </tr>
-                <tr>
-                    <td><strong>Bilgi Alma</strong></td>
-                    <td>Bu belgeyi okuyun veya alicelik1980@gmail.com adresine yazın</td>
-                    <td>Anında</td>
-                </tr>
-                <tr>
-                    <td><strong>Erişim</strong></td>
-                    <td>Uygulamada tüm verilerinizi görüntüleyin</td>
-                    <td>Anında</td>
-                </tr>
-                <tr>
-                    <td><strong>Düzeltme</strong></td>
-                    <td>Kayıtlarınızı uygulamadan düzenleyin</td>
-                    <td>Anında</td>
-                </tr>
-                <tr>
-                    <td><strong>Silme</strong></td>
-                    <td>Ayarlar → Tüm Verileri Sil</td>
-                    <td>Anında</td>
-                </tr>
-                <tr>
-                    <td><strong>Taşıma</strong></td>
-                    <td>Manuel yedekleme ile ZIP oluşturun</td>
-                    <td>5 dakika</td>
-                </tr>
-                <tr>
-                    <td><strong>İtiraz</strong></td>
-                    <td>İzinleri cihaz ayarlarından kapatın</td>
-                    <td>Anında</td>
-                </tr>
-            </table>
-
-            <h2>10. İletişim ve Destek</h2>
-            <div class="contact-box">
-                <h3 style="margin-top: 0; color: var(--primary);">💬 Veri Yönetimi Desteği</h3>
-                <p>Veri yönetimi, yedekleme veya geri yükleme konusunda yardıma mı ihtiyacınız var?</p>
-                <p><strong>E-posta:</strong> <a href="mailto:alicelik1980@gmail.com">alicelik1980@gmail.com</a></p>
-                <p><strong>Yanıt Süresi:</strong> 3 iş günü</p>
-                <p><strong>Destek Saatleri:</strong> Pazartesi-Cuma, 09:00-18:00</p>
-            </div>
-        </div>
+        <h2>7. Fikri Mülkiyet</h2>
+        <p>Rotanot tasarımı, logosu ve kodu telif haklarıyla korunmaktadır. İzinsiz kullanımı yasaktır.</p>
+
+        <h2>12. Uygulanacak Hukuk</h2>
+        <p>Bu şartlar Türkiye Cumhuriyeti yasalarına tabidir. Uyuşmazlıklar Türkiye mahkemelerinde çözümlenecektir.</p>
     </div>
 
     <footer>
-        <p>© 2024 Rotanot - Ali Çelik Games. Tüm hakları saklıdır.</p>
-        <p style="margin-top: 10px;">
-            <a href="rotanot.html">Ana Sayfa</a> |
-            <a href="index.html">Tüm Projeler</a> |
-            <a href="mailto:alicelik1980@gmail.com">İletişim</a>
-        </p>
+        <p>© 2024 Rotanot. Tüm hakları saklıdır.</p>
     </footer>
 </div>
 
 <script>
     function switchTab(tabId) {
-        // Tüm içerikleri gizle
-        document.querySelectorAll('.content-box').forEach(box => {
-            box.classList.remove('active');
-        });
-
-        // Tüm butonlardan active class'ını kaldır
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.classList.remove('active');
-        });
-
-        // İlgili içeriği göster
+        document.querySelectorAll('.content-box').forEach(box => box.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        
         document.getElementById(tabId).classList.add('active');
-
-        // İlgili butonu aktif yap
         event.currentTarget.classList.add('active');
-
-        // Sayfayı yukarı kaydır
-        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 </script>
 
