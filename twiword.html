@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TwiWord | Ali Çelik Games</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00f2ff;
+            --bg: #0a0b10;
+            --card: #16181d;
+            --text: #94a3b8;
+            --accent: #fbbf24;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: var(--bg); color: #fff; line-height: 1.7; }
+        .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+        .back-btn {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 30px;
+            transition: 0.3s;
+        }
+        .back-btn:hover { opacity: 0.7; }
+
+        .hero-header {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            height: 200px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0, 242, 255, 0.2);
+            overflow: hidden;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #00f2ff, #0099ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -2px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tagline {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 8px 20px;
+            transition: 0.3s;
+            border-radius: 8px;
+        }
+        .tab-btn:hover { background: rgba(0, 242, 255, 0.1); }
+        .tab-btn.active {
+            color: var(--primary);
+            background: rgba(0, 242, 255, 0.15);
+        }
+
+        .content-box {
+            background: var(--card);
+            padding: 45px;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.05);
+            display: none;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        .content-box.active { display: block; }
+
+        h2 {
+            color: #fff;
+            font-size: 1.6rem;
+            margin: 35px 0 18px;
+            border-left: 4px solid var(--primary);
+            padding-left: 15px;
+        }
+        h3 {
+            color: #fff;
+            font-size: 1.3rem;
+            margin: 25px 0 12px;
+            font-weight: 700;
+        }
+        p, li {
+            color: var(--text);
+            margin-bottom: 14px;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+        strong { color: #fff; }
+        ul { margin-left: 25px; margin-bottom: 20px; }
+        li { margin-bottom: 10px; }
+
+        .feature-box {
+            background: rgba(0, 242, 255, 0.06);
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 242, 255, 0.15);
+            margin-bottom: 25px;
+        }
+        .feature-box p {
+            margin-bottom: 12px;
+        }
+
+        .highlight-box {
+            background: rgba(0, 242, 255, 0.08);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            margin: 20px 0;
+        }
+
+        .app-stores {
+            display: flex;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .store-badge {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--primary);
+            color: #000;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .store-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 242, 255, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 0 40px;
+            color: var(--text);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 60px;
+        }
+
+        .contact-email {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        a { color: var(--primary); text-decoration: none; }
+        a:hover { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .hero-header { height: 160px; }
+            .hero-title { font-size: 2.5rem; }
+            h1 { font-size: 2rem; }
+            .content-box { padding: 30px 25px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="back-btn">← Back to Projects</a>
+
+    <div class="hero-header">
+        <span class="hero-title">TwiWord</span>
+    </div>
+
+    <h1>TwiWord</h1>
+    <p class="tagline">Guess the Word. Master the Game. — Turkish & English Word Puzzle</p>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('about', event)">About</button>
+        <button class="tab-btn" onclick="switchTab('features', event)">Features</button>
+        <button class="tab-btn" onclick="switchTab('privacy', event)">Privacy Policy</button>
+        <button class="tab-btn" onclick="switchTab('terms', event)">Terms of Use</button>
+    </div>
+
+    <!-- ABOUT -->
+    <div id="about" class="content-box active">
+        <h2>About the Game</h2>
+        <p><strong>TwiWord</strong> is a daily word puzzle game where you guess hidden 5-letter words in Turkish and English. Challenge yourself every day, compete with friends on the leaderboard, and expand your vocabulary.</p>
+
+        <div class="feature-box">
+            <p><strong>Daily Challenges:</strong> A brand new word puzzle every single day</p>
+            <p><strong>Bilingual:</strong> Play in Turkish or English based on your device language</p>
+            <p><strong>Social:</strong> Friends leaderboard, online status, and global rankings</p>
+            <p><strong>Rewards:</strong> Daily free chests, crystals, gold, and special offer bundles</p>
+        </div>
+
+        <h2>How to Play</h2>
+        <div class="highlight-box">
+            <p><strong>1.</strong> A secret 5-letter word is hidden</p>
+            <p><strong>2.</strong> Type your guess and submit</p>
+            <p><strong>3.</strong> Green tile: correct letter, correct position</p>
+            <p><strong>4.</strong> Yellow tile: correct letter, wrong position</p>
+            <p><strong>5.</strong> Gray tile: letter not in the word</p>
+            <p><strong>6.</strong> Solve it within 6 tries!</p>
+        </div>
+
+        <h2>Download</h2>
+        <div class="app-stores">
+            <a href="#" class="store-badge">App Store</a>
+            <a href="https://play.google.com/store/apps/details?id=com.alicelik.twiword" class="store-badge">Google Play</a>
+        </div>
+    </div>
+
+    <!-- FEATURES -->
+    <div id="features" class="content-box">
+        <h2>Features</h2>
+
+        <h3>Gameplay</h3>
+        <ul>
+            <li>5-letter word guessing with color-coded feedback</li>
+            <li>Turkish and English word lists</li>
+            <li>6 attempts per puzzle</li>
+            <li>Words never repeat until all are played</li>
+        </ul>
+
+        <h3>Social & Competitive</h3>
+        <ul>
+            <li>Global leaderboard</li>
+            <li>Friends leaderboard with online/offline status</li>
+            <li>Add friends and compete directly</li>
+            <li>Player profiles and statistics</li>
+        </ul>
+
+        <h3>Progression & Rewards</h3>
+        <ul>
+            <li>Daily free chest with crystals and gold</li>
+            <li>Daily quests and achievements</li>
+            <li>Level up system</li>
+            <li>Skills and power-ups</li>
+            <li>Bronze, Silver, Gold, and Legendary chests</li>
+            <li>Special offer bundles</li>
+        </ul>
+
+        <h3>In-App Purchases</h3>
+        <ul>
+            <li>Crystal packs (80 to 14,000 crystals)</li>
+            <li>Gold packs (80 to 14,000 gold)</li>
+            <li>Chest bundles</li>
+            <li>Special combo offers</li>
+            <li>All purchases are one-time consumable items</li>
+        </ul>
+
+        <h3>Customization</h3>
+        <ul>
+            <li>Multiple visual themes</li>
+            <li>Sound and haptic feedback settings</li>
+            <li>Push notification preferences</li>
+        </ul>
+    </div>
+
+    <!-- PRIVACY POLICY -->
+    <div id="privacy" class="content-box">
+        <h2>Privacy Policy</h2>
+        <p><strong>Last Updated:</strong> March 3, 2026</p>
+        <p>Ali Celik ("we," "us" or "our") takes your privacy seriously. This Privacy Policy explains our data practices for TwiWord.</p>
+
+        <h3>1. Information We Collect</h3>
+        <p><strong>Account Information:</strong> Username, email address (via Google or Apple Sign-In), authentication tokens managed by Firebase.</p>
+        <p><strong>Gameplay Data:</strong> Scores, achievements, in-game currency balances, friends list, daily quest progress, leaderboard rankings, online/offline presence.</p>
+        <p><strong>Technical Information:</strong> Device type, OS version, app version, crash reports, push notification tokens.</p>
+        <p><strong>Purchase History:</strong> Transaction IDs and items purchased. Payment processing is handled by Apple or Google — we do not store payment card information.</p>
+
+        <h3>2. How We Use Your Information</h3>
+        <ul>
+            <li>Operate and sync game progress via Firebase</li>
+            <li>Provide leaderboard and social features</li>
+            <li>Process and deliver in-app purchases</li>
+            <li>Send push notifications for daily challenges</li>
+            <li>Fix bugs and improve the game</li>
+        </ul>
+
+        <h3>3. Third-Party Services</h3>
+        <ul>
+            <li><strong>Firebase (Google):</strong> Authentication, database, push notifications — <a href="https://firebase.google.com/support/privacy" target="_blank">Privacy Policy</a></li>
+            <li><strong>Google Sign-In:</strong> User authentication — <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a></li>
+            <li><strong>Apple Sign-In (iOS):</strong> User authentication — <a href="https://www.apple.com/legal/privacy/" target="_blank">Privacy Policy</a></li>
+        </ul>
+
+        <h3>4. Data Storage & Security</h3>
+        <p>Your game data is stored on Firebase servers (Google). All transmissions use HTTPS encryption. No payment card data is stored on our servers.</p>
+
+        <h3>5. Children's Privacy</h3>
+        <p>We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, contact us at <a href="mailto:alicelik1980@gmail.com">alicelik1980@gmail.com</a>.</p>
+
+        <h3>6. Your Rights</h3>
+        <p>You may request access, correction, or deletion of your data by contacting us. To delete your account, email us with "Delete My Account" in the subject line.</p>
+
+        <h3>7. Contact</h3>
+        <p><strong>Email:</strong> <a href="mailto:alicelik1980@gmail.com" class="contact-email">alicelik1980@gmail.com</a><br>
+        <strong>Developer:</strong> Ali Celik — Ankara, Turkey</p>
+    </div>
+
+    <!-- TERMS OF USE -->
+    <div id="terms" class="content-box">
+        <h2>Terms of Use</h2>
+        <p><strong>Last Updated:</strong> March 3, 2026</p>
+        <p>By downloading or using TwiWord, you agree to these terms.</p>
+
+        <h3>1. License</h3>
+        <p>Ali Celik grants you a limited, personal, non-transferable license to use TwiWord for personal, non-commercial purposes.</p>
+
+        <h3>2. Restrictions</h3>
+        <ul>
+            <li>Do not reverse engineer, copy, or distribute the game</li>
+            <li>Do not cheat, hack, or manipulate game data</li>
+            <li>Do not use the game for commercial purposes</li>
+            <li>Do not use automated systems or bots</li>
+        </ul>
+
+        <h3>3. In-App Purchases</h3>
+        <ul>
+            <li>All purchases are processed by Apple App Store or Google Play</li>
+            <li>Purchased items are non-transferable and cannot be exchanged for cash</li>
+            <li>Refund requests are subject to Apple's or Google's policies</li>
+        </ul>
+
+        <h3>4. Account</h3>
+        <ul>
+            <li>You are responsible for your account credentials</li>
+            <li>Game data is synced to Firebase — deleting your account removes all data</li>
+        </ul>
+
+        <h3>5. Disclaimer</h3>
+        <p>TwiWord is provided "as is." Ali Celik does not guarantee uninterrupted or error-free operation. We reserve the right to update or discontinue the game at any time.</p>
+
+        <h3>6. Governing Law</h3>
+        <p>These terms are governed by the laws of Turkey. Disputes will be resolved in Ankara courts.</p>
+
+        <h3>7. Contact</h3>
+        <p><strong>Email:</strong> <a href="mailto:alicelik1980@gmail.com" class="contact-email">alicelik1980@gmail.com</a><br>
+        <strong>Developer:</strong> Ali Celik — Ankara, Turkey</p>
+    </div>
+
+    <footer>
+        <p>© 2026 TwiWord - Ali Celik Games. All rights reserved.</p>
+        <p>Made with passion in Ankara, Turkey</p>
+        <a href="mailto:alicelik1980@gmail.com" class="contact-email">alicelik1980@gmail.com</a>
+    </footer>
+</div>
+
+<script>
+    function switchTab(tabId, event) {
+        document.querySelectorAll('.content-box').forEach(box => {
+            box.classList.remove('active');
+        });
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.getElementById(tabId).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+</script>
+
+</body>
+</html>
