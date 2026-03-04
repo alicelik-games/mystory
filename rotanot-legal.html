@@ -351,7 +351,7 @@
             </div>
 
             <div class="section-intro">
-                <p><strong>Rotanot</strong>, kullanıcı gizliliğini ön planda tutan bir seyahat günlüğü uygulamasıdır. Tüm verileriniz <strong>yalnızca cihazınızda</strong> saklanır ve hiçbir merkezi sunucuya gönderilmez.</p>
+                <p><strong>Rotanot</strong>, kullanıcı gizliliğini ön planda tutan bir seyahat günlüğü uygulamasıdır. Uygulama; kişisel gezileri yerel olarak saklar, isteğe bağlı hesap oluşturma ve sosyal paylaşım özellikleri sunar. Hesap oluşturmayı tercih eden kullanıcıların bazı verileri Google Firebase altyapısında güvenli biçimde saklanır.</p>
             </div>
 
             <h2>1. Toplanan Veriler ve Kullanım Amaçları</h2>
@@ -418,7 +418,19 @@
                 <li>✅ Yapılacaklar listesi</li>
                 <li>🏆 Kullanıcı seviyeleri ve başarı rozetleri</li>
             </ul>
-            <p><strong>Önemli:</strong> Tüm bu bilgiler cihazınızın SQLite veritabanında saklanır ve hiçbir sunucuya gönderilmez.</p>
+            <p><strong>Önemli:</strong> Giriş yapmayan kullanıcıların tüm verileri cihazda yerel olarak saklanır. Giriş yapan kullanıcıların paylaştığı geziler ve profil bilgileri Firebase Firestore'da saklanır.</p>
+
+            <h3>1.6. Hesap ve Sosyal Özellikler <span class="badge badge-privacy">Firebase (Bulut)</span></h3>
+            <p>Giriş yapan kullanıcılar için aşağıdaki veriler Firebase altyapısında saklanır:</p>
+            <ul>
+                <li>👤 Kullanıcı adı, görünen ad, profil fotoğrafı</li>
+                <li>📧 E-posta adresi (Google veya Apple hesabından alınır, uygulamada gösterilmez)</li>
+                <li>🗺️ Akışta paylaşmayı tercih ettiğiniz gezi bilgileri</li>
+                <li>❤️ Beğeni ve yorum verileri</li>
+                <li>👥 Arkadaşlık ilişkileri (kullanıcı adı bazlı)</li>
+                <li>🔔 Push bildirim token'ı (FCM — bildirim göndermek için)</li>
+            </ul>
+            <p><strong>Önemli:</strong> Giriş yapmak isteğe bağlıdır. Giriş yapmadan tüm kişisel gezi kayıtlarınızı kullanabilirsiniz.</p>
 
             <h3>1.5. Harcama Kayıtları <span class="badge badge-privacy">Yerel Depolama</span></h3>
             <ul>
@@ -438,6 +450,8 @@
                 <li>✅ İstatistik ve başarı rozetleri sunmak (gamification)</li>
                 <li>✅ Hatırlatma bildirimleri göndermek (izin verdiğinizde)</li>
                 <li>✅ Harcama takibi ve bütçe yönetimi sağlamak</li>
+                <li>✅ İsteğe bağlı sosyal özellikler (gezi paylaşımı, arkadaşlık, beğeni, yorum)</li>
+                <li>✅ Push bildirimleri göndermek (beğeni, yorum, arkadaşlık isteği)</li>
             </ol>
 
             <div class="important-box">
@@ -453,24 +467,27 @@
 
             <h2>3. Veri Depolama ve Güvenlik</h2>
 
-            <h3>3.1. Yerel Depolama Yapısı</h3>
+            <h3>3.1. Yerel Depolama (Giriş Yapmayan Kullanıcılar)</h3>
             <div class="info-box">
-                <p><strong>📱 Tüm Verileriniz Cihazınızdadır</strong></p>
-                <p>Rotanot, bulut tabanlı değildir. Verileriniz yalnızca telefonunuz veya tabletinizde saklanır.</p>
+                <p><strong>📱 Giriş yapmadan tüm verileriniz cihazınızdadır</strong></p>
                 <ul style="margin-top: 15px;">
-                    <li><strong>Veritabanı:</strong> SQLite (şifrelenmemiş, cihaz güvenliği ile korunur)</li>
+                    <li><strong>Veritabanı:</strong> SQLite (cihaz güvenliği ile korunur)</li>
                     <li><strong>Medya Dosyaları:</strong> Uygulama klasöründe (iOS: Documents, Android: App Data)</li>
                     <li><strong>Yedekleme:</strong> ZIP formatında, kullanıcı kontrolünde</li>
                 </ul>
             </div>
 
-            <h3>3.2. Sunucu Kullanımı</h3>
-            <ul>
-                <li>❌ <strong>Merkezi Sunucu Yok:</strong> Rotanot hiçbir merkezi sunucu kullanmaz</li>
-                <li>❌ <strong>Cloud Depolama Yok:</strong> Verileriniz buluta yüklenmez</li>
-                <li>❌ <strong>API Çağrıları Yok:</strong> Konum ve medya verileri için API kullanılmaz</li>
-                <li>✅ <strong>Tek İstisna:</strong> OpenStreetMap harita görüntüleri internet üzerinden yüklenir (sadece görsel harita, konum veriniz gönderilmez)</li>
-            </ul>
+            <h3>3.2. Bulut Depolama (Giriş Yapan Kullanıcılar)</h3>
+            <div class="info-box">
+                <p><strong>☁️ Firebase (Google) altyapısı kullanılmaktadır</strong></p>
+                <ul style="margin-top: 15px;">
+                    <li><strong>Firebase Authentication:</strong> Kimlik doğrulama (Google/Apple hesabı)</li>
+                    <li><strong>Firebase Firestore:</strong> Kullanıcı profili, paylaşılan geziler, beğeniler, yorumlar, arkadaşlık verileri</li>
+                    <li><strong>Firebase Cloud Messaging:</strong> Push bildirim token'ı</li>
+                    <li><strong>Sunucu Konumu:</strong> Google'ın Avrupa bölgesi (eur3)</li>
+                </ul>
+                <p style="margin-top: 10px;">Firebase'in gizlilik politikasına <a href="https://firebase.google.com/support/privacy" target="_blank">buradan</a> ulaşabilirsiniz.</p>
+            </div>
 
             <h3>3.3. Şifreleme ve Koruma</h3>
             <ul>
@@ -506,12 +523,14 @@
                 </tr>
             </table>
 
-            <h3>4.2. Firebase Analytics (Anonim)</h3>
+            <h3>4.2. Firebase (Google)</h3>
             <ul>
-                <li><strong>Kullanım:</strong> Sadece anonim kullanım istatistikleri (hangi ekranların açıldığı, çökme raporları)</li>
-                <li><strong>Kişisel Veri:</strong> ❌ Ad, e-posta, konum gibi kişisel veriler GÖNDERİLMEZ</li>
-                <li><strong>Amaç:</strong> Uygulamayı geliştirmek ve hataları tespit etmek</li>
+                <li><strong>Firebase Authentication:</strong> Google/Apple ile güvenli giriş</li>
+                <li><strong>Firebase Firestore:</strong> Kullanıcı profili ve sosyal veriler (giriş yapan kullanıcılar)</li>
+                <li><strong>Firebase Cloud Messaging:</strong> Push bildirimleri (beğeni, yorum, arkadaşlık)</li>
+                <li><strong>Firebase Analytics:</strong> Anonim kullanım istatistikleri (uygulama geliştirme amaçlı)</li>
                 <li><strong>Devre Dışı Bırakma:</strong> Uygulama ayarlarından analytics'i kapatabilirsiniz</li>
+                <li><strong>Gizlilik Politikası:</strong> <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy Policy</a></li>
             </ul>
 
             <h2>5. Kullanıcı Hakları (KVKK & GDPR Uyumlu)</h2>
@@ -571,7 +590,7 @@
                 <li>✈️ Seyahat planı uyarıları</li>
                 <li>🏆 Başarı rozeti kazanma duyuruları</li>
             </ul>
-            <p><strong>Önemli:</strong> Tüm bildirimler yerel olarak (cihazınızda) oluşturulur, hiçbir sunucu kullanılmaz.</p>
+            <p><strong>Önemli:</strong> Yerel hatırlatmalar cihazınızda oluşturulur. Giriş yapan kullanıcılara gönderilen beğeni, yorum ve arkadaşlık bildirimleri Firebase Cloud Messaging (FCM) altyapısı üzerinden iletilir.</p>
             <p><strong>Kapatma:</strong> Cihaz ayarları → Bildirimler → Rotanot</p>
 
             <h3>7.2. Gerekli İzinler</h3>
@@ -629,11 +648,12 @@
             <p><strong>İstisnalar:</strong></p>
             <ol>
                 <li><strong>Kullanıcı İsteği:</strong> Siz paylaşım özelliğini kullandığınızda (örn: gezi notunu WhatsApp'ta paylaşma)</li>
-                <li><strong>Yasal Zorunluluk:</strong> Mahkeme kararı veya yasal düzenleme gerektirdiğinde (ancak yerel depolama nedeniyle bize erişim yok)</li>
+                <li><strong>Yasal Zorunluluk:</strong> Mahkeme kararı veya yasal düzenleme gerektirdiğinde</li>
+                <li><strong>Firebase/Google:</strong> Google'ın kendi gizlilik politikası kapsamında (Firebase altyapısı kullanıldığı için)</li>
             </ol>
 
             <h2>9. Uluslararası Veri Aktarımı</h2>
-            <p>❌ <strong>Veri aktarımı yapılmaz.</strong> Tüm verileriniz cihazınızda kalır, hiçbir ülkeye veya sunucuya aktarılmaz.</p>
+            <p>Giriş yapmayan kullanıcıların verileri yalnızca cihazlarında kalır. Giriş yapan kullanıcıların profil ve sosyal verileri Firebase'in Avrupa sunucularında (eur3) saklanır. Firebase, GDPR uyumlu bir altyapı sağlamaktadır.</p>
 
             <h2>10. Veri Saklama Süresi</h2>
             <ul>
@@ -1094,7 +1114,7 @@
             <h2>8. Sık Sorulan Sorular (SSS)</h2>
 
             <h3>❓ Verilerim sunucuda mı saklanıyor?</h3>
-            <p><strong>Cevap:</strong> ❌ Hayır. Tüm verileriniz yalnızca cihazınızda yerel olarak saklanır. Hiçbir sunucu kullanmıyoruz.</p>
+            <p><strong>Cevap:</strong> Giriş yapmadan kullandığınızda tüm verileriniz yalnızca cihazınızda saklanır. Giriş yaparsanız profil bilgileriniz ve paylaştığınız geziler Firebase (Google) sunucularında güvenli biçimde saklanır. Giriş tamamen isteğe bağlıdır.</p>
 
             <h3>❓ Yedekleme dosyam güvenli mi?</h3>
             <p><strong>Cevap:</strong> Yedekleme ZIP dosyası şifrelenmemiş formattadır. Güvenlik için ZIP'i kendi şifrenizle koruyabilirsiniz.</p>
