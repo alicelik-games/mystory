@@ -43,9 +43,9 @@
     <p class="tagline">3 Boyutlu Kelime Bulmaca Deneyimi</p>
 
     <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab('about')">Hakkında</button>
-        <button class="tab-btn" onclick="switchTab('privacy')">Gizlilik Politikası</button>
-        <button class="tab-btn" onclick="switchTab('terms')">Kullanım Şartları</button>
+        <button id="tab-about" class="tab-btn active" onclick="switchTab('about')">Hakkında</button>
+        <button id="tab-privacy" class="tab-btn" onclick="switchTab('privacy')">Gizlilik Politikası</button>
+        <button id="tab-terms" class="tab-btn" onclick="switchTab('terms')">Kullanım Şartları</button>
     </div>
 
     <div id="about" class="content-box active">
@@ -117,9 +117,16 @@
     function switchTab(tabId) {
         document.querySelectorAll('.content-box').forEach(box => box.classList.remove('active'));
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-        
+
         document.getElementById(tabId).classList.add('active');
-        event.currentTarget.classList.add('active');
+        document.getElementById('tab-' + tabId).classList.add('active');
+    }
+
+    // Deep-link support: wordpuzzles3d.html#privacy / #terms opens straight to that tab —
+    // used by the in-game "Privacy Policy" / "Terms of Service" links.
+    var initialTab = (location.hash || '').replace('#', '');
+    if (initialTab === 'privacy' || initialTab === 'terms') {
+        switchTab(initialTab);
     }
 </script>
 
