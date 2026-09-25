@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Snap 3D | Details & Legal Information</title>
+    <meta name="description" content="Word Snap 3D — a 3D word puzzle game by Ali Çelik Games. Game details, Privacy Policy and Terms of Service.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #00f2ff; --bg: #0a0b10; --card: #16181d; --text: #94a3b8; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: var(--bg); color: #fff; line-height: 1.7; }
+        .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+        .back-btn { color: var(--primary); text-decoration: none; font-weight: 600; display: inline-block; margin-bottom: 30px; }
+
+        .hero-header { background: linear-gradient(45deg, #4facfe, #00f2fe); border-radius: 24px; display: flex; align-items: center; justify-content: center; margin-bottom: 40px; padding: 30px; }
+        .hero-header img { width: 160px; height: 160px; border-radius: 34px; box-shadow: 0 20px 40px rgba(0,0,0,0.35); }
+
+        h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 10px; }
+        .tagline { color: var(--primary); font-weight: 600; margin-bottom: 30px; }
+
+        .tabs { display: flex; gap: 15px; margin-bottom: 30px; border-bottom: 1px solid #222; padding-bottom: 15px; flex-wrap: wrap; }
+        .tab-btn { background: none; border: none; color: var(--text); font-size: 1.1rem; font-weight: 600; cursor: pointer; padding: 5px 15px; transition: 0.3s; }
+        .tab-btn.active { color: var(--primary); border-bottom: 2px solid var(--primary); }
+
+        .content-box { background: var(--card); padding: 40px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); display: none; }
+        .content-box.active { display: block; }
+
+        h2 { color: #fff; font-size: 1.5rem; margin: 30px 0 15px; border-left: 4px solid var(--primary); padding-left: 15px; }
+        h3 { color: #fff; font-size: 1.1rem; margin: 26px 0 10px; }
+        h4 { color: #e2e8f0; font-size: 1rem; margin: 18px 0 8px; }
+        p, li { color: var(--text); margin-bottom: 12px; font-size: 0.95rem; }
+        strong { color: #fff; }
+        ul, ol { margin-left: 22px; margin-bottom: 20px; }
+        a { color: var(--primary); }
+
+        .feature-box { background: rgba(0, 242, 255, 0.05); padding: 20px; border-radius: 12px; border: 1px solid #222; margin-bottom: 30px; }
+        .notice { background: rgba(250, 204, 21, 0.07); border: 1px solid rgba(250, 204, 21, 0.25); border-radius: 12px; padding: 18px 20px; margin: 20px 0; }
+        .notice p:last-child { margin-bottom: 0; }
+        .meta { color: #64748b; font-size: 0.85rem; }
+
+        table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.9rem; }
+        th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #222; vertical-align: top; color: var(--text); }
+        th { color: #fff; font-weight: 600; background: rgba(255,255,255,0.02); }
+
+        footer { text-align: center; padding: 60px 0; color: var(--text); font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="back-btn">← Back to Projects</a>
+    <div class="hero-header"><img src="WordSnap3D.png" alt="Word Snap 3D icon"></div>
+    <h1>Word Snap 3D</h1>
+    <p class="tagline">Find Words, Snap in 3D!</p>
+
+    <div class="tabs">
+        <button id="tab-about" class="tab-btn active" onclick="switchTab('about')">About</button>
+        <button id="tab-privacy" class="tab-btn" onclick="switchTab('privacy')">Privacy Policy</button>
+        <button id="tab-terms" class="tab-btn" onclick="switchTab('terms')">Terms of Service</button>
+    </div>
+
+    <!-- ================= ABOUT ================= -->
+    <div id="about" class="content-box active">
+        <h2>A Word Puzzle With Depth</h2>
+        <p><strong>Word Snap 3D</strong> takes classic word-search gameplay into three dimensions. Letters are scattered across a physical 3D space — rotate the scene, pick letters from any angle, drag them into the word tray and snap them together to reveal the hidden words.</p>
+
+        <div class="feature-box">
+            <p>🎯 <strong>Endless Levels:</strong> Rounds are generated continuously and scale in difficulty as you progress — word length, decoy letters and masking all ramp up with your level.</p>
+            <p>🧠 <strong>Target Words &amp; Bonuses:</strong> Complete the level's target words, then keep going to find bonus words for extra rewards.</p>
+            <p>⚡ <strong>Skill Boosts:</strong> Five skills — including Magnet — that can be charged with gold or by watching an optional ad.</p>
+            <p>🎁 <strong>Daily Rewards &amp; Challenges:</strong> A 7-day login streak, plus daily and weekly quests to keep the run going.</p>
+            <p>🧰 <strong>Chests &amp; Currency:</strong> Earn coins and gems, open chests with fixed, fully transparent rewards.</p>
+            <p>👥 <strong>Friends &amp; Leaderboards:</strong> Add friends by nickname, compare scores, and challenge them to daily, weekly or monthly word duels.</p>
+            <p>🏆 <strong>Achievements:</strong> Long-term goals that track your lifetime progress.</p>
+            <p>☁️ <strong>Optional Cloud Sync:</strong> Sign in with Apple or Google to carry your progress across devices — or play entirely offline without an account.</p>
+        </div>
+
+        <h3>Relaxed by Design</h3>
+        <p>There is no fail state and no timer pressure. You cannot lose a round — you can only find more words. Ads are never forced on you: every ad in the game is an optional, opt-in rewarded video that you choose to watch in exchange for a specific benefit.</p>
+
+        <h3>Availability</h3>
+        <p>Word Snap 3D is published by <strong>Ali Çelik Games</strong> for iOS and Android. The game is not offered in every country; see the store listing for your region for availability.</p>
+
+        <p class="meta">Developer: Ali Çelik · Ankara, Türkiye · <a href="mailto:alicelik1980@gmail.com">alicelik1980@gmail.com</a></p>
+    </div>
+
+    <!-- ================= PRIVACY ================= -->
+    <div id="privacy" class="content-box">
+        <h2>Privacy Policy</h2>
+        <p class="meta">Last Updated: September 25, 2026 · Effective as of the date of publication</p>
+
+        <p>This Privacy Policy explains what information the <strong>Word Snap 3D</strong> mobile game ("the App", "the Game") collects, why it is collected, how it is used and stored, and the choices and rights you have. It applies only to Word Snap 3D and not to any other app or website.</p>
+
+        <p><strong>Data Controller:</strong> Ali Çelik (sole developer, trading as Ali Çelik Games), Ankara, Türkiye. Contact: <a href="mailto:alicelik1980@gmail.com">alicelik1980@gmail.com</a>.</p>
+
+        <div class="notice">
+            <p><strong>Summary in one paragraph:</strong> You can play the entire game without an account and without giving us any personal information. If you choose to sign in, we store a small profile (nickname, game progress, currency, achievements, friends and challenge records) so it can sync across your devices. We use Google Firebase for accounts and cloud storage, Google AdMob for optional rewarded ads, and the Apple App Store / Google Play for purchases. <strong>We never sell your data.</strong> You can delete your account and all of its cloud data from inside the app at any time.</p>
+        </div>
+
+        <h3>1. Playing Without an Account</h3>
+        <p>Signing in is entirely optional. If you never sign in, your progress — level, coins, gems, skills, achievements, daily-reward streak and settings — is stored <strong>only on your device</strong> using the operating system's standard local storage. It is not transmitted to us, and we cannot see it. Uninstalling the app deletes that local data permanently, and it cannot be recovered.</p>
+
+        <h3>2. Account and Sign-In</h3>
+        <p>The App optionally offers <strong>Sign in with Apple</strong> and <strong>Google Sign-In</strong>, handled by Firebase Authentication. When you sign in, we receive from your chosen provider:</p>
+        <ul>
+            <li>a unique account identifier (Firebase UID),</li>
+            <li>an email address, and</li>
+            <li>a display name, where the provider supplies one.</li>
+        </ul>
+        <p>With Sign in with Apple you may use Apple's <strong>"Hide My Email"</strong> option, in which case we only ever receive an anonymous private-relay address and never your real one. We do not receive, see or store your Apple or Google password.</p>
+
+        <h3>3. What We Store in the Cloud</h3>
+        <p>Once you are signed in, the following is stored in Google Cloud Firestore under your account identifier:</p>
+        <table>
+            <tr><th>Data</th><th>Why</th></tr>
+            <tr><td>Nickname</td><td>To identify you to friends and on leaderboards, and to keep the same name after a reinstall</td></tr>
+            <tr><td>Game progress (lifetime words found, level, high score, per-day/week/month word tallies)</td><td>Cross-device sync, leaderboards, and resolving friend challenges</td></tr>
+            <tr><td>Friends list and pending friend requests</td><td>To operate the friends feature</td></tr>
+            <tr><td>Challenge invitations, active challenges and results</td><td>To operate friend-vs-friend word duels</td></tr>
+            <tr><td>Push notification token</td><td>To deliver the notifications described in Section 5</td></tr>
+        </table>
+        <p>Coin and gem balances, purchased content and achievement progress are also associated with your account so they survive a device change.</p>
+
+        <h3>4. What Other Players Can See</h3>
+        <p>If you use the friends, challenge or leaderboard features, your <strong>nickname and score</strong> may be visible to players who add you as a friend, to players you challenge, and to other players viewing the leaderboard. Nothing else from your profile — not your email address, not your account identifier — is shown to other players. Choose a nickname you are comfortable making public.</p>
+
+        <h3>5. Push Notifications</h3>
+        <p>If you allow notifications, a device notification token is stored so we can send messages such as a friend challenging you, the result of a challenge that has ended, and daily-reward reminders. Notifications are sent server-side through Firebase Cloud Messaging. You can turn notifications off at any time in your device settings, or from the in-game Settings panel.</p>
+
+        <h3>6. Advertising</h3>
+        <p>The App shows <strong>rewarded video ads only</strong>, supplied by Google AdMob. There are no banners, no interstitials and no ads that interrupt play. Every ad is optional: you choose to watch one in exchange for a stated reward (for example, doubling a level reward or refilling a skill). Declining an ad never blocks progress.</p>
+
+        <h4>6.1 iOS — App Tracking Transparency</h4>
+        <p>On iOS, the system <strong>App Tracking Transparency</strong> prompt is shown before any advertising identifier is used. If you decline, you can still play and still earn rewards by watching ads — the ads shown will simply be less personalised.</p>
+
+        <h4>6.2 Regions with consent requirements</h4>
+        <p>Where required — including the European Economic Area, the United Kingdom and Switzerland — the App presents a consent form supplied by Google's User Messaging Platform before requesting any ad, and honours your choice between personalised and non-personalised advertising. Where this applies, you can revisit and change that choice at any time from <strong>Settings → Ad Privacy Choices</strong> inside the app.</p>
+
+        <h3>7. Purchases</h3>
+        <p>In-app purchases (coin and gem packs) are processed entirely by the <strong>Apple App Store</strong> or <strong>Google Play</strong>. Your card number, billing address and payment credentials are handled by those stores and are <strong>never seen, received or stored by the developer</strong>. We receive only a purchase receipt, which is validated so the purchased content can be credited to your account. We do not offer subscriptions.</p>
+
+        <h3>8. Analytics and Diagnostics</h3>
+        <p>We use Google Analytics for Firebase to understand aggregate, anonymised usage — for example how many rounds are played or where players stop progressing — and to receive crash and performance diagnostics. This helps us fix bugs and balance the game. We do not use this data to identify you personally.</p>
+
+        <h3>9. Service Providers</h3>
+        <p>We use the following providers, which act as processors on our behalf and are bound by their own privacy commitments:</p>
+        <ul>
+            <li><strong>Google Firebase</strong> — authentication, cloud database, push notifications, analytics, server functions</li>
+            <li><strong>Google AdMob</strong> and <strong>Google User Messaging Platform</strong> — rewarded advertising and ad consent</li>
+            <li><strong>Apple</strong> and <strong>Google Play</strong> — sign-in providers, app distribution and payment processing</li>
+        </ul>
+        <p><strong>We do not sell your personal data, and we do not share it with data brokers or advertisers for their own independent purposes.</strong></p>
+
+        <h3>10. Security</h3>
+        <p>Data is transmitted over encrypted connections (HTTPS/TLS) and stored on Google Firebase infrastructure. Access to the cloud database is restricted by server-side security rules so that each account can write only its own data. No method of transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
+
+        <h3>11. Data Retention</h3>
+        <p>Cloud account data is retained for as long as your account exists. If you delete your account, the associated data is removed from our active systems as described in Section 12; residual copies may persist briefly in routine backups maintained by our infrastructure provider before being overwritten. On-device data exists only for as long as the app remains installed.</p>
+
+        <h3>12. Deleting Your Account and Data</h3>
+        <p>You can delete your account from inside the App: open <strong>Profile → Delete Account</strong>. This permanently removes your cloud profile, nickname reservation, friends, friend requests, challenge records and challenge results. Deletion cannot be undone, and purchased virtual items are not restored or refunded. You may alternatively request deletion by writing to <a href="mailto:alicelik1980@gmail.com">alicelik1980@gmail.com</a> from the email address associated with your account.</p>
+
+        <h3>13. International Data Transfers</h3>
+        <p>Our service providers may process and store data on servers located outside your country of residence, including in the European Union and the United States, under the safeguards those providers maintain for international transfers.</p>
+
+        <h3>14. Children's Privacy</h3>
+        <p>Word Snap 3D is a general-audience game. It is <strong>not directed to children under 13</strong> (or the equivalent minimum age in your country), and we do not knowingly collect personal information from them. If you believe a child has provided us with personal information, contact us and we will delete it promptly.</p>
+
+        <h3>15. Your Rights Under Turkish Law (KVKK)</h3>
+        <p>The developer is established in Türkiye, so processing is subject to Turkish Law No. 6698 on the Protection of Personal Data ("KVKK").</p>
+        <p><strong>Legal grounds (KVKK Art. 5–6):</strong> processing is based on your explicit consent (optional sign-in, ad personalisation, notifications) and, where applicable, on the necessity of processing to perform the service you requested (for example, syncing your progress once you sign in).</p>
+        <p><strong>Cross-border transfer (KVKK Art. 9):</strong> transfers to our providers outside Türkiye rely on your explicit consent and/or the safeguards recognised under Art. 9.</p>
+        <p><strong>Your rights (KVKK Art. 11):</strong> to learn whether your data is processed and request information about it; to learn the purpose of processing and whether it is used accordingly; to know the third parties, in Türkiye or abroad, to whom your data is transferred; to request correction of incomplete or inaccurate data; to request deletion or destruction where the grounds for processing no longer apply, and to have any correction or deletion notified to third parties; to object to a result reached solely by automated analysis that is to your detriment; and to claim compensation for damage caused by unlawful processing.</p>
+        <p><strong>How to apply:</strong> send your request in writing to the contact address below, in line with the Communiqué on the Procedures and Principles of Application to the Data Controller. We will respond within 30 days as required by KVKK Art. 13. If you are not satisfied with the response, you may complain to the Turkish Personal Data Protection Authority (<em>Kişisel Verileri Koruma Kurumu</em>).</p>
+
+        <h3>16. Other Regional Rights</h3>
+        <p>Where another data-protection law applies to you, you have the corresponding rights of <strong>access, correction, deletion, portability, objection and restriction</strong>, and the right to <strong>withdraw consent</strong> for advertising personalisation at any time (see Section 6.2). To exercise any of these, contact us at the address below; we will respond within a reasonable time and free of charge. You may also complain to your local supervisory authority.</p>
+
+        <h3>17. Changes to This Policy</h3>
+        <p>We may update this Policy as the game evolves or the law changes. The current version is always published on this page with the "Last Updated" date above. Material changes will be signalled in the app or through the store listing. Continuing to use the App after an update means you accept the revised Policy.</p>
+
+        <h3>18. Contact</h3>
+        <p>Questions, data requests or complaints: <strong><a href="mailto:alicelik1980@gmail.com">alicelik1980@gmail.com</a></strong> — Ali Çelik, Ankara, Türkiye.</p>
+    </div>
+
+    <!-- ================= TERMS ================= -->
+    <div id="terms" class="content-box">
+        <h2>Terms of Service</h2>
+        <p class="meta">Last Updated: September 25, 2026</p>
+
+        <p>These Terms of Service ("Terms") form a binding agreement between you and <strong>Ali Çelik</strong> (trading as Ali Çelik Games), Ankara, Türkiye ("we", "us", "the developer"), governing your use of the <strong>Word Snap 3D</strong> mobile game and any related services ("the App").</p>
+
+        <h3>1. Acceptance and Changes</h3>
+        <p><strong>1.1.</strong> By downloading, installing or using the App you accept these Terms. If you do not accept them, do not use the App.</p>
+        <p><strong>1.2.</strong> We may revise these Terms from time to time. The current version is always published on this page with the date above. Continued use after a revision constitutes acceptance. If you do not accept a revision, stop using the App and you may delete your account.</p>
+        <p><strong>1.3.</strong> You must be at least <strong>13 years old</strong> (or the minimum age required in your country) to use the App. If you are a minor under your local law, you may use the App only with the consent and supervision of a parent or legal guardian, who accepts these Terms on your behalf.</p>
+
+        <h3>2. Licence</h3>
+        <p><strong>2.1.</strong> We grant you a limited, personal, non-exclusive, non-transferable, revocable licence to install and use the App on devices you own or control, for your own non-commercial entertainment.</p>
+        <p><strong>2.2. You may not:</strong> copy, modify, translate, reverse-engineer, decompile or disassemble the App except to the extent this restriction is prohibited by applicable law; distribute, sell, rent, sub-licence or commercially exploit the App or its content; use cheats, bots, automation, memory editors, modified clients or any other method to gain an unfair advantage or to manipulate scores, currency, rewards or leaderboards; interfere with, overload or attempt to gain unauthorised access to our servers or another player's account; or use the friends, nickname or challenge features to harass, impersonate, defraud or abuse other players, or to display offensive, hateful or unlawful content.</p>
+
+        <h3>3. Accounts</h3>
+        <p><strong>3.1.</strong> An account is optional. If you create one, you are responsible for all activity carried out through it and for maintaining the security of the Apple or Google account used to sign in.</p>
+        <p><strong>3.2.</strong> Your nickname must not infringe anyone's rights or be offensive, misleading or impersonating. We may reclaim or reset a nickname that breaches this.</p>
+        <p><strong>3.3.</strong> You may delete your account at any time from <strong>Profile → Delete Account</strong>. Deletion is permanent and irreversible, and forfeits any remaining virtual items and unspent balances without refund.</p>
+
+        <h3>4. Virtual Items and In-App Purchases</h3>
+        <p><strong>4.1.</strong> The App offers optional in-app purchases of virtual currency (coins and gems). All purchases are processed by the Apple App Store or Google Play under their own terms; we are not a party to that payment transaction and never handle your payment details.</p>
+        <p><strong>4.2.</strong> Coins, gems, skills, chests and any other in-game item are <strong>licensed, not sold</strong>. They are virtual content with <strong>no monetary value</strong>, cannot be exchanged, transferred, sold or redeemed for real money or anything of real-world value, and confer no ownership or property right of any kind.</p>
+        <p><strong>4.3.</strong> Purchases are, to the maximum extent permitted by applicable law, <strong>final and non-refundable</strong>. Any refund is governed exclusively by the policies of the store where the purchase was made; requests must be directed to that store, not to us. Statutory withdrawal or consumer rights that cannot be excluded by law remain unaffected.</p>
+        <p><strong>4.4.</strong> We may add, change, rebalance, reprice, suspend or discontinue any virtual item, reward, price or game mechanic at any time, including for reasons of game balance. This may reduce the usefulness of items you have already obtained, and does not entitle you to compensation.</p>
+        <p><strong>4.5.</strong> Chest rewards in the App are <strong>fixed and deterministic</strong> — a chest of a given tier always grants exactly the same reward. The App contains no randomised paid reward mechanics ("loot boxes").</p>
+
+        <h3>5. Advertising</h3>
+        <p>The App shows optional rewarded video advertisements. Advertising content is supplied by third-party networks and is not created, reviewed or endorsed by us. We are not responsible for the content of advertisements or for the products, services or websites they promote. Interacting with an advertisement is at your own risk and may be subject to the advertiser's own terms and privacy policy.</p>
+
+        <h3>6. Service Availability and Changes</h3>
+        <p><strong>6.1.</strong> The App relies on third-party services (including Google Firebase and app stores) and on your internet connection. Online features — cloud sync, leaderboards, friends, challenges and notifications — may be unavailable, delayed or interrupted, and we do not guarantee uninterrupted or error-free operation.</p>
+        <p><strong>6.2.</strong> We may modify, suspend, limit or discontinue the App or any of its features, in whole or in part, at any time, with or without notice. We may also cease supporting particular devices or operating-system versions.</p>
+
+        <h3>7. Intellectual Property</h3>
+        <p><strong>7.1.</strong> The App and all of its content — source code, graphics, 3D models, artwork, user interface, sound, music, text and the "Word Snap 3D" and "Ali Çelik Games" names and logos — are owned by Ali Çelik and protected by copyright and other intellectual-property laws. All rights not expressly granted are reserved.</p>
+        <p><strong>7.2.</strong> Third-party trademarks (Apple, Google, and others) belong to their respective owners and are used for identification only.</p>
+
+        <h3>8. Data, Backups and Loss</h3>
+        <p><strong>8.1.</strong> If you play without signing in, your progress exists <strong>only on your device</strong>. Uninstalling the app, clearing its data, losing the device or a device failure will permanently destroy that progress. Signing in is the only way to protect progress against device loss.</p>
+        <p><strong>8.2.</strong> While we take reasonable care, we do not warrant that cloud data will never be lost or corrupted, and <strong>we are not liable for any loss of game progress, virtual currency, virtual items or account data</strong>, however caused.</p>
+
+        <h3>9. Disclaimer of Warranties</h3>
+        <p>To the maximum extent permitted by applicable law, the App is provided <strong>"AS IS" and "AS AVAILABLE", without warranties of any kind</strong>, whether express, implied or statutory, including but not limited to implied warranties of merchantability, fitness for a particular purpose, accuracy, quiet enjoyment and non-infringement. We do not warrant that the App will meet your requirements, operate without interruption, be secure, or be free of errors, bugs or harmful components.</p>
+
+        <h3>10. Limitation of Liability</h3>
+        <p><strong>10.1.</strong> To the maximum extent permitted by applicable law, we shall not be liable for any indirect, incidental, special, consequential, punitive or exemplary damages, nor for any loss of profit, revenue, data, goodwill, progress or virtual items, arising out of or in connection with your use of or inability to use the App, even if advised of the possibility of such damages.</p>
+        <p><strong>10.2.</strong> To the maximum extent permitted by applicable law, our total aggregate liability arising out of or relating to the App shall not exceed the greater of (a) the total amount you actually paid to the applicable app store for in-app purchases in Word Snap 3D during the <strong>twelve (12) months</strong> preceding the event giving rise to the claim, or (b) <strong>ten US dollars (USD 10)</strong>.</p>
+        <p><strong>10.3.</strong> Nothing in these Terms excludes or limits liability that cannot lawfully be excluded or limited, including liability for death or personal injury caused by negligence, for fraud, or under mandatory consumer-protection law. Some jurisdictions do not allow certain exclusions or limitations, so some of the above may not apply to you; in that case our liability is limited to the smallest extent permitted by law.</p>
+
+        <h3>11. Indemnity</h3>
+        <p>You agree to indemnify and hold harmless the developer from any claim, demand, loss or expense (including reasonable legal fees) arising out of your breach of these Terms, your misuse of the App, or your violation of any law or of the rights of a third party.</p>
+
+        <h3>12. Suspension and Termination</h3>
+        <p><strong>12.1.</strong> You may stop using the App at any time and may delete your account as described in Section 3.3.</p>
+        <p><strong>12.2.</strong> We may suspend or terminate your access to online features or to the App, in whole or in part, with immediate effect and without refund, if we reasonably believe you have breached these Terms — including cheating, exploiting bugs, manipulating leaderboards or currency, or abusing other players.</p>
+        <p><strong>12.3.</strong> Sections which by their nature should survive termination (including Sections 4.2, 7, 8, 9, 10, 11 and 13) survive.</p>
+
+        <h3>13. Governing Law and Jurisdiction</h3>
+        <p>These Terms are governed by the laws of the <strong>Republic of Türkiye</strong>, without regard to conflict-of-law rules. The <strong>Courts and Enforcement Offices of Ankara, Türkiye</strong> shall have jurisdiction over any dispute arising out of or in connection with these Terms. If you are a consumer resident elsewhere, this does not deprive you of the protection of mandatory consumer-law provisions, or of the right to bring proceedings in the courts of your country of residence, where such rights cannot be excluded by agreement.</p>
+
+        <h3>14. General</h3>
+        <p><strong>14.1.</strong> If any provision of these Terms is held invalid or unenforceable, the remaining provisions remain in full force and the invalid provision shall be replaced by a valid one that most closely reflects the original intent.</p>
+        <p><strong>14.2.</strong> Our failure to enforce any provision is not a waiver of it.</p>
+        <p><strong>14.3.</strong> You may not assign your rights under these Terms. We may assign them in connection with a transfer of the App.</p>
+        <p><strong>14.4.</strong> These Terms, together with the Privacy Policy, constitute the entire agreement between you and us regarding the App and supersede any prior understanding.</p>
+        <p><strong>14.5.</strong> The App is not sponsored, endorsed or administered by Apple or Google. Those companies are not responsible for the App and provide no warranty for it.</p>
+
+        <h3>15. Contact</h3>
+        <p>For support, questions, account deletion or any other request: <strong><a href="mailto:alicelik1980@gmail.com">alicelik1980@gmail.com</a></strong> — Ali Çelik, Ankara, Türkiye.</p>
+    </div>
+
+    <footer>
+        © 2026 Word Snap 3D — Ali Çelik Games. All rights reserved.
+    </footer>
+</div>
+
+<script>
+    function switchTab(tabId) {
+        document.querySelectorAll('.content-box').forEach(box => box.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        document.getElementById('tab-' + tabId).classList.add('active');
+    }
+
+    // Deep-link support: wordsnap3d.html#privacy / #terms opens straight to that tab —
+    // used by the in-game "Privacy Policy" / "Terms of Service" links and by the store listings.
+    var initialTab = (location.hash || '').replace('#', '');
+    if (initialTab === 'privacy' || initialTab === 'terms') {
+        switchTab(initialTab);
+    }
+</script>
+
+</body>
+</html>
