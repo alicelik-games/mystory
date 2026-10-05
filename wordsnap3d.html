@@ -44,12 +44,28 @@
         th { color: #fff; font-weight: 600; background: rgba(255,255,255,0.02); }
 
         footer { text-align: center; padding: 60px 0; color: var(--text); font-size: 0.8rem; }
+
+        .top-bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; }
+        .top-bar .back-btn { margin-bottom: 0; }
+        .lang-switch { display: flex; flex-wrap: wrap; gap: 6px; }
+        .lang-switch a { color: var(--text); text-decoration: none; font-size: 0.85rem; font-weight: 600; padding: 4px 10px; border: 1px solid #222; border-radius: 999px; }
+        .lang-switch a.current { color: var(--bg); background: var(--primary); border-color: var(--primary); }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <a href="index.html" class="back-btn">← Back to Projects</a>
+    <div class="top-bar">
+        <a href="index.html" class="back-btn">← Back to Projects</a>
+        <nav class="lang-switch" aria-label="Language">
+            <a href="wordsnap3d.html" class="current" lang="en">English</a>
+            <a href="wordsnap3d-tr.html" lang="tr">Türkçe</a>
+            <a href="wordsnap3d-es.html" lang="es">Español</a>
+            <a href="wordsnap3d-fr.html" lang="fr">Français</a>
+            <a href="wordsnap3d-de.html" lang="de">Deutsch</a>
+            <a href="wordsnap3d-it.html" lang="it">Italiano</a>
+        </nav>
+    </div>
     <div class="hero-header"><img src="WordSnap3D.png" alt="Word Snap 3D icon"></div>
     <h1>Word Snap 3D</h1>
     <p class="tagline">Find Words, Snap in 3D!</p>
@@ -74,6 +90,7 @@
             <p>👥 <strong>Friends &amp; Leaderboards:</strong> Add friends by nickname, compare scores, and challenge them to daily, weekly or monthly word duels.</p>
             <p>🏆 <strong>Achievements:</strong> Long-term goals that track your lifetime progress.</p>
             <p>☁️ <strong>Optional Cloud Sync:</strong> Sign in with Apple or Google to carry your progress across devices — or play entirely offline without an account.</p>
+            <p>🌍 <strong>Six Languages:</strong> Play in English, Turkish, Spanish, French, German or Italian — the menus and the word pool switch together.</p>
         </div>
 
         <h3>Relaxed by Design</h3>
@@ -88,9 +105,9 @@
     <!-- ================= PRIVACY ================= -->
     <div id="privacy" class="content-box">
         <h2>Privacy Policy</h2>
-        <p class="meta">Last Updated: September 25, 2026 · Effective as of the date of publication</p>
+        <p class="meta">Last Updated: October 5, 2026 · Effective as of the date of publication</p>
 
-        <p>This Privacy Policy explains what information the <strong>Word Snap 3D</strong> mobile game ("the App", "the Game") collects, why it is collected, how it is used and stored, and the choices and rights you have. It applies only to Word Snap 3D and not to any other app or website.</p>
+        <p>This Privacy Policy explains what information the <strong>Word Snap 3D</strong> mobile game ("the App", "the Game") collects, why it is collected, how it is used and stored, and the choices and rights you have. It also serves as the information notice (<em>aydınlatma metni</em>) required by Turkish Law No. 6698 ("KVKK"). It applies only to Word Snap 3D and not to any other app or website.</p>
 
         <p><strong>Data Controller:</strong> Ali Çelik (sole developer, trading as Ali Çelik Games), Ankara, Türkiye. Contact: <a href="mailto:alicelik1980@gmail.com">alicelik1980@gmail.com</a>.</p>
 
@@ -119,6 +136,7 @@
             <tr><td>Friends list and pending friend requests</td><td>To operate the friends feature</td></tr>
             <tr><td>Challenge invitations, active challenges and results</td><td>To operate friend-vs-friend word duels</td></tr>
             <tr><td>Push notification token</td><td>To deliver the notifications described in Section 5</td></tr>
+            <tr><td>Selected game language</td><td>To send those notifications in the language you play in</td></tr>
         </table>
         <p>Coin and gem balances, purchased content and achievement progress are also associated with your account so they survive a device change.</p>
 
@@ -126,7 +144,7 @@
         <p>If you use the friends, challenge or leaderboard features, your <strong>nickname and score</strong> may be visible to players who add you as a friend, to players you challenge, and to other players viewing the leaderboard. Nothing else from your profile — not your email address, not your account identifier — is shown to other players. Choose a nickname you are comfortable making public.</p>
 
         <h3>5. Push Notifications</h3>
-        <p>If you allow notifications, a device notification token is stored so we can send messages such as a friend challenging you, the result of a challenge that has ended, and daily-reward reminders. Notifications are sent server-side through Firebase Cloud Messaging. You can turn notifications off at any time in your device settings, or from the in-game Settings panel.</p>
+        <p>If you allow notifications, a device notification token is stored so we can send messages such as a friend challenging you, the result of a challenge that has ended, and daily-reward reminders. Notifications are sent server-side through Firebase Cloud Messaging, in the game language you have selected. You can turn notifications off at any time in your device settings, or from the in-game Settings panel.</p>
 
         <h3>6. Advertising</h3>
         <p>The App shows <strong>rewarded video ads only</strong>, supplied by Google AdMob. There are no banners, no interstitials and no ads that interrupt play. Every ad is optional: you choose to watch one in exchange for a stated reward (for example, doubling a level reward or refilling a skill). Declining an ad never blocks progress.</p>
@@ -180,14 +198,17 @@
         <h3>17. Changes to This Policy</h3>
         <p>We may update this Policy as the game evolves or the law changes. The current version is always published on this page with the "Last Updated" date above. Material changes will be signalled in the app or through the store listing. Continuing to use the App after an update means you accept the revised Policy.</p>
 
-        <h3>18. Contact</h3>
+        <h3>18. Language Versions</h3>
+        <p>This Policy is published in English, Turkish, Spanish, French, German and Italian; use the language selector at the top of this page. All versions describe the same practices. If they differ, the version described in Section 14.6 of the Terms of Service prevails.</p>
+
+        <h3>19. Contact</h3>
         <p>Questions, data requests or complaints: <strong><a href="mailto:alicelik1980@gmail.com">alicelik1980@gmail.com</a></strong> — Ali Çelik, Ankara, Türkiye.</p>
     </div>
 
     <!-- ================= TERMS ================= -->
     <div id="terms" class="content-box">
         <h2>Terms of Service</h2>
-        <p class="meta">Last Updated: September 25, 2026</p>
+        <p class="meta">Last Updated: October 5, 2026</p>
 
         <p>These Terms of Service ("Terms") form a binding agreement between you and <strong>Ali Çelik</strong> (trading as Ali Çelik Games), Ankara, Türkiye ("we", "us", "the developer"), governing your use of the <strong>Word Snap 3D</strong> mobile game and any related services ("the App").</p>
 
@@ -244,7 +265,7 @@
         <p><strong>12.3.</strong> Sections which by their nature should survive termination (including Sections 4.2, 7, 8, 9, 10, 11 and 13) survive.</p>
 
         <h3>13. Governing Law and Jurisdiction</h3>
-        <p>These Terms are governed by the laws of the <strong>Republic of Türkiye</strong>, without regard to conflict-of-law rules. The <strong>Courts and Enforcement Offices of Ankara, Türkiye</strong> shall have jurisdiction over any dispute arising out of or in connection with these Terms. If you are a consumer resident elsewhere, this does not deprive you of the protection of mandatory consumer-law provisions, or of the right to bring proceedings in the courts of your country of residence, where such rights cannot be excluded by agreement.</p>
+        <p>These Terms are governed by the laws of the <strong>Republic of Türkiye</strong>, without regard to conflict-of-law rules. The <strong>Courts and Enforcement Offices of Ankara, Türkiye</strong> shall have jurisdiction over any dispute arising out of or in connection with these Terms. If you are a consumer resident elsewhere, this does not deprive you of the protection of mandatory consumer-law provisions, or of the right to bring proceedings in the courts of your country of residence, where such rights cannot be excluded by agreement. Consumers resident in Türkiye may also apply to the Consumer Arbitration Committees or Consumer Courts within the statutory monetary limits.</p>
 
         <h3>14. General</h3>
         <p><strong>14.1.</strong> If any provision of these Terms is held invalid or unenforceable, the remaining provisions remain in full force and the invalid provision shall be replaced by a valid one that most closely reflects the original intent.</p>
@@ -252,6 +273,7 @@
         <p><strong>14.3.</strong> You may not assign your rights under these Terms. We may assign them in connection with a transfer of the App.</p>
         <p><strong>14.4.</strong> These Terms, together with the Privacy Policy, constitute the entire agreement between you and us regarding the App and supersede any prior understanding.</p>
         <p><strong>14.5.</strong> The App is not sponsored, endorsed or administered by Apple or Google. Those companies are not responsible for the App and provide no warranty for it.</p>
+        <p><strong>14.6. Language.</strong> These Terms and the Privacy Policy are made available in English, Turkish, Spanish, French, German and Italian, and you may read and accept them in the language of your choice. In the event of any inconsistency between language versions, the Turkish version prevails, except where the mandatory law of your country of residence requires the version in your language to prevail.</p>
 
         <h3>15. Contact</h3>
         <p>For support, questions, account deletion or any other request: <strong><a href="mailto:alicelik1980@gmail.com">alicelik1980@gmail.com</a></strong> — Ali Çelik, Ankara, Türkiye.</p>
@@ -263,12 +285,48 @@
 </div>
 
 <script>
+    // First visit to the English page from a browser set to another supported language
+    // (e.g. a French-Canadian visitor following the store's single privacy-policy link) is sent
+    // to that language's page. Picking a language in the switcher is remembered, so choosing
+    // English afterwards sticks. Only the English page redirects; translated pages never do.
+    (function () {
+        var KEY = 'ws3dLangChosen';
+        document.querySelectorAll('.lang-switch a').forEach(function (a) {
+            a.addEventListener('click', function () {
+                try { localStorage.setItem(KEY, a.getAttribute('lang')); } catch (e) {}
+            });
+        });
+        if (document.documentElement.lang !== 'en') return;
+        var chosen = null;
+        try { chosen = localStorage.getItem(KEY); } catch (e) {}
+        if (chosen || /[?&]lang=en\b/.test(location.search)) return;
+        var supported = ['en', 'tr', 'es', 'fr', 'de', 'it'];
+        var prefs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en'];
+        for (var i = 0; i < prefs.length; i++) {
+            var code = String(prefs[i]).toLowerCase().split('-')[0];
+            if (supported.indexOf(code) === -1) continue;
+            if (code === 'en') return;
+            var page = location.pathname.split('/').pop() || 'wordsnap3d.html';
+            location.replace(page.replace(/\.html$/, '-' + code + '.html') + location.hash);
+            return;
+        }
+    })();
+
     function switchTab(tabId) {
         document.querySelectorAll('.content-box').forEach(box => box.classList.remove('active'));
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
         document.getElementById(tabId).classList.add('active');
         document.getElementById('tab-' + tabId).classList.add('active');
     }
+
+    // Language links keep the open tab, so switching language on the Privacy tab lands on
+    // the translated Privacy tab instead of jumping back to About.
+    document.querySelectorAll('.lang-switch a').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+            var open = document.querySelector('.content-box.active');
+            if (open && open.id !== 'about') { e.preventDefault(); location.href = a.getAttribute('href') + '#' + open.id; }
+        });
+    });
 
     // Deep-link support: wordsnap3d.html#privacy / #terms opens straight to that tab —
     // used by the in-game "Privacy Policy" / "Terms of Service" links and by the store listings.

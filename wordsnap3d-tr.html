@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Snap 3D | Ayrıntılar ve Yasal Bilgiler</title>
+    <meta name="description" content="Word Snap 3D — Ali Çelik Games tarafından geliştirilen 3D kelime bulmaca oyunu. Oyun ayrıntıları, Gizlilik Politikası ve Kullanım Koşulları.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #00f2ff; --bg: #0a0b10; --card: #16181d; --text: #94a3b8; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: var(--bg); color: #fff; line-height: 1.7; }
+        .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+        .back-btn { color: var(--primary); text-decoration: none; font-weight: 600; display: inline-block; margin-bottom: 30px; }
+
+        .hero-header { background: linear-gradient(45deg, #4facfe, #00f2fe); border-radius: 24px; display: flex; align-items: center; justify-content: center; margin-bottom: 40px; padding: 30px; }
+        .hero-header img { width: 160px; height: 160px; border-radius: 34px; box-shadow: 0 20px 40px rgba(0,0,0,0.35); }
+
+        h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 10px; }
+        .tagline { color: var(--primary); font-weight: 600; margin-bottom: 30px; }
+
+        .tabs { display: flex; gap: 15px; margin-bottom: 30px; border-bottom: 1px solid #222; padding-bottom: 15px; flex-wrap: wrap; }
+        .tab-btn { background: none; border: none; color: var(--text); font-size: 1.1rem; font-weight: 600; cursor: pointer; padding: 5px 15px; transition: 0.3s; }
+        .tab-btn.active { color: var(--primary); border-bottom: 2px solid var(--primary); }
+
+        .content-box { background: var(--card); padding: 40px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); display: none; }
+        .content-box.active { display: block; }
+
+        h2 { color: #fff; font-size: 1.5rem; margin: 30px 0 15px; border-left: 4px solid var(--primary); padding-left: 15px; }
+        h3 { color: #fff; font-size: 1.1rem; margin: 26px 0 10px; }
+        h4 { color: #e2e8f0; font-size: 1rem; margin: 18px 0 8px; }
+        p, li { color: var(--text); margin-bottom: 12px; font-size: 0.95rem; }
+        strong { color: #fff; }
+        ul, ol { margin-left: 22px; margin-bottom: 20px; }
+        a { color: var(--primary); }
+
+        .feature-box { background: rgba(0, 242, 255, 0.05); padding: 20px; border-radius: 12px; border: 1px solid #222; margin-bottom: 30px; }
+        .notice { background: rgba(250, 204, 21, 0.07); border: 1px solid rgba(250, 204, 21, 0.25); border-radius: 12px; padding: 18px 20px; margin: 20px 0; }
+        .notice p:last-child { margin-bottom: 0; }
+        .meta { color: #64748b; font-size: 0.85rem; }
+
+        table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.9rem; }
+        th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #222; vertical-align: top; color: var(--text); }
+        th { color: #fff; font-weight: 600; background: rgba(255,255,255,0.02); }
+
+        footer { text-align: center; padding: 60px 0; color: var(--text); font-size: 0.8rem; }
+
+        .top-bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; }
+        .top-bar .back-btn { margin-bottom: 0; }
+        .lang-switch { display: flex; flex-wrap: wrap; gap: 6px; }
+        .lang-switch a { color: var(--text); text-decoration: none; font-size: 0.85rem; font-weight: 600; padding: 4px 10px; border: 1px solid #222; border-radius: 999px; }
+        .lang-switch a.current { color: var(--bg); background: var(--primary); border-color: var(--primary); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="top-bar">
+        <a href="index.html" class="back-btn">← Projelere Dön</a>
+        <nav class="lang-switch" aria-label="Dil">
+            <a href="wordsnap3d.html" lang="en">English</a>
+            <a href="wordsnap3d-tr.html" class="current" lang="tr">Türkçe</a>
+            <a href="wordsnap3d-es.html" lang="es">Español</a>
+            <a href="wordsnap3d-fr.html" lang="fr">Français</a>
+            <a href="wordsnap3d-de.html" lang="de">Deutsch</a>
+            <a href="wordsnap3d-it.html" lang="it">Italiano</a>
+        </nav>
+    </div>
+    <div class="hero-header"><img src="WordSnap3D.png" alt="Word Snap 3D simgesi"></div>
+    <h1>Word Snap 3D</h1>
+    <p class="tagline">Kelimeleri Bul, 3D'de Birleştir!</p>
+
+    <div class="tabs">
+        <button id="tab-about" class="tab-btn active" onclick="switchTab('about')">Hakkında</button>
+        <button id="tab-privacy" class="tab-btn" onclick="switchTab('privacy')">Gizlilik Politikası</button>
+        <button id="tab-terms" class="tab-btn" onclick="switchTab('terms')">Kullanım Koşulları</button>
+    </div>
+
+    <!-- ================= HAKKINDA ================= -->
+    <div id="about" class="content-box active">
+        <h2>Derinliği Olan Bir Kelime Bulmacası</h2>
+        <p><strong>Word Snap 3D</strong>, klasik kelime avı oyununu üç boyuta taşır. Harfler fiziksel bir 3D alana dağılmıştır — sahneyi döndürün, harfleri her açıdan seçin, kelime tepsisine sürükleyin ve birleştirerek gizli kelimeleri ortaya çıkarın.</p>
+
+        <div class="feature-box">
+            <p>🎯 <strong>Sonsuz Seviyeler:</strong> Turlar sürekli olarak üretilir ve ilerledikçe zorlaşır — kelime uzunluğu, şaşırtmaca harfler ve gizleme seviyenizle birlikte artar.</p>
+            <p>🧠 <strong>Hedef Kelimeler ve Bonuslar:</strong> Seviyenin hedef kelimelerini tamamlayın, ardından ekstra ödüller için bonus kelimeler bulmaya devam edin.</p>
+            <p>⚡ <strong>Yetenekler:</strong> Mıknatıs dahil beş yetenek; altınla ya da isteğe bağlı bir reklam izleyerek doldurulabilir.</p>
+            <p>🎁 <strong>Günlük Ödüller ve Görevler:</strong> 7 günlük giriş serisi ile oyunu canlı tutan günlük ve haftalık görevler.</p>
+            <p>🧰 <strong>Sandıklar ve Para Birimleri:</strong> Altın ve değerli taş kazanın; içeriği sabit ve tamamen şeffaf sandıklar açın.</p>
+            <p>👥 <strong>Arkadaşlar ve Liderlik Tabloları:</strong> Takma adla arkadaş ekleyin, skorları karşılaştırın ve onlara günlük, haftalık ya da aylık kelime düellolarında meydan okuyun.</p>
+            <p>🏆 <strong>Başarımlar:</strong> Tüm oyun boyunca ilerlemenizi takip eden uzun vadeli hedefler.</p>
+            <p>☁️ <strong>İsteğe Bağlı Bulut Senkronizasyonu:</strong> İlerlemenizi cihazlar arasında taşımak için Apple veya Google ile giriş yapın — ya da hesap olmadan tamamen çevrimdışı oynayın.</p>
+            <p>🌍 <strong>Altı Dil:</strong> İngilizce, Türkçe, İspanyolca, Fransızca, Almanca veya İtalyanca oynayın — menüler ve kelime havuzu birlikte değişir.</p>
+        </div>
+
+        <h3>Rahat Bir Oyun Deneyimi</h3>
+        <p>Kaybetme durumu ve süre baskısı yoktur. Bir turu kaybedemezsiniz — yalnızca daha fazla kelime bulabilirsiniz. Reklamlar asla size zorla gösterilmez: oyundaki her reklam, belirli bir fayda karşılığında izlemeyi sizin seçtiğiniz, isteğe bağlı ödüllü bir videodur.</p>
+
+        <h3>Erişilebilirlik</h3>
+        <p>Word Snap 3D, <strong>Ali Çelik Games</strong> tarafından iOS ve Android için yayımlanır. Oyun her ülkede sunulmamaktadır; bulunduğunuz bölgedeki erişilebilirlik için mağaza sayfasına bakın.</p>
+
+        <p class="meta">Geliştirici: Ali Çelik · Ankara, Türkiye · <a href="mailto:alicelik1980@gmail.com">alicelik1980@gmail.com</a></p>
+    </div>
+
+    <!-- ================= GİZLİLİK ================= -->
+    <div id="privacy" class="content-box">
+        <h2>Gizlilik Politikası ve Aydınlatma Metni</h2>
+        <p class="meta">Son Güncelleme: 5 Ekim 2026 · Yayımlandığı tarihten itibaren geçerlidir</p>
+
+        <p>Bu Gizlilik Politikası, <strong>Word Snap 3D</strong> mobil oyununun ("Uygulama", "Oyun") hangi bilgileri topladığını, neden topladığını, bunları nasıl kullandığını ve sakladığını, ayrıca sahip olduğunuz seçenekleri ve hakları açıklar. Aynı zamanda 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") kapsamındaki aydınlatma metni niteliğindedir. Yalnızca Word Snap 3D için geçerlidir; başka bir uygulama veya web sitesi için geçerli değildir.</p>
+
+        <p><strong>Veri Sorumlusu:</strong> Ali Çelik (tek geliştirici, Ali Çelik Games adı altında faaliyet gösterir), Ankara, Türkiye. İletişim: <a href="mailto:alicelik1980@gmail.com">alicelik1980@gmail.com</a>.</p>
+
+        <div class="notice">
+            <p><strong>Tek paragrafta özet:</strong> Oyunun tamamını hesap açmadan ve bize hiçbir kişisel bilgi vermeden oynayabilirsiniz. Giriş yapmayı seçerseniz, cihazlarınız arasında senkronize edilebilmesi için küçük bir profil (takma ad, oyun ilerlemesi, para birimleri, başarımlar, arkadaşlar ve düello kayıtları) saklarız. Hesaplar ve bulut depolama için Google Firebase'i, isteğe bağlı ödüllü reklamlar için Google AdMob'u, satın almalar için Apple App Store / Google Play'i kullanırız. <strong>Verilerinizi asla satmayız.</strong> Hesabınızı ve tüm bulut verilerinizi istediğiniz zaman uygulama içinden silebilirsiniz.</p>
+        </div>
+
+        <h3>1. Hesap Olmadan Oynamak</h3>
+        <p>Giriş yapmak tamamen isteğe bağlıdır. Hiç giriş yapmazsanız ilerlemeniz — seviye, altın, değerli taşlar, yetenekler, başarımlar, günlük ödül serisi ve ayarlar — işletim sisteminin standart yerel depolaması kullanılarak <strong>yalnızca cihazınızda</strong> saklanır. Bize iletilmez ve biz bunu göremeyiz. Uygulamayı kaldırmak bu yerel verileri kalıcı olarak siler ve geri getirilemez.</p>
+
+        <h3>2. Hesap ve Giriş</h3>
+        <p>Uygulama isteğe bağlı olarak Firebase Authentication üzerinden <strong>Apple ile Giriş</strong> ve <strong>Google ile Giriş</strong> seçeneklerini sunar. Giriş yaptığınızda, seçtiğiniz sağlayıcıdan şunları alırız:</p>
+        <ul>
+            <li>benzersiz bir hesap kimliği (Firebase UID),</li>
+            <li>bir e-posta adresi ve</li>
+            <li>sağlayıcı iletiyorsa bir görünen ad.</li>
+        </ul>
+        <p>Apple ile Giriş'te Apple'ın <strong>"E-postamı Gizle"</strong> seçeneğini kullanabilirsiniz; bu durumda yalnızca anonim bir aktarma adresi alırız, gerçek adresinizi asla almayız. Apple veya Google şifrenizi almayız, görmeyiz ve saklamayız.</p>
+
+        <h3>3. Bulutta Sakladıklarımız</h3>
+        <p>Giriş yaptıktan sonra aşağıdakiler, hesap kimliğiniz altında Google Cloud Firestore'da saklanır:</p>
+        <table>
+            <tr><th>Veri</th><th>Amaç</th></tr>
+            <tr><td>Takma ad</td><td>Sizi arkadaşlarınıza ve liderlik tablolarında tanıtmak, uygulamayı yeniden yüklediğinizde aynı adı korumak</td></tr>
+            <tr><td>Oyun ilerlemesi (toplam bulunan kelime, seviye, en yüksek skor, günlük/haftalık/aylık kelime sayıları)</td><td>Cihazlar arası senkronizasyon, liderlik tabloları ve arkadaş düellolarının sonuçlandırılması</td></tr>
+            <tr><td>Arkadaş listesi ve bekleyen arkadaşlık istekleri</td><td>Arkadaşlar özelliğini çalıştırmak</td></tr>
+            <tr><td>Düello davetleri, aktif düellolar ve sonuçları</td><td>Arkadaşlar arası kelime düellolarını çalıştırmak</td></tr>
+            <tr><td>Anlık bildirim belirteci (token)</td><td>5. Bölüm'de açıklanan bildirimleri iletmek</td></tr>
+            <tr><td>Seçili oyun dili</td><td>Bu bildirimleri oynadığınız dilde göndermek</td></tr>
+        </table>
+        <p>Altın ve değerli taş bakiyeleri, satın alınan içerikler ve başarım ilerlemesi de cihaz değiştirdiğinizde kaybolmaması için hesabınızla ilişkilendirilir.</p>
+
+        <h3>4. Diğer Oyuncuların Görebildikleri</h3>
+        <p>Arkadaşlar, düello veya liderlik tablosu özelliklerini kullanırsanız <strong>takma adınız ve skorunuz</strong>, sizi arkadaş olarak ekleyen oyunculara, meydan okuduğunuz oyunculara ve liderlik tablosunu görüntüleyen diğer oyunculara görünebilir. Profilinizdeki başka hiçbir şey — ne e-posta adresiniz ne de hesap kimliğiniz — diğer oyunculara gösterilmez. Herkese açık olmasından rahatsız olmayacağınız bir takma ad seçin.</p>
+
+        <h3>5. Anlık Bildirimler</h3>
+        <p>Bildirimlere izin verirseniz, bir arkadaşınızın size meydan okuması, sona eren bir düellonun sonucu ve günlük ödül hatırlatmaları gibi mesajlar gönderebilmemiz için bir cihaz bildirim belirteci saklanır. Bildirimler, seçtiğiniz oyun dilinde, Firebase Cloud Messaging aracılığıyla sunucu tarafından gönderilir. Bildirimleri istediğiniz zaman cihaz ayarlarınızdan veya oyun içi Ayarlar panelinden kapatabilirsiniz.</p>
+
+        <h3>6. Reklamlar</h3>
+        <p>Uygulama, Google AdMob tarafından sağlanan <strong>yalnızca ödüllü video reklamlar</strong> gösterir. Banner, geçiş reklamı veya oyunu bölen reklam yoktur. Her reklam isteğe bağlıdır: belirtilen bir ödül karşılığında (örneğin seviye ödülünü ikiye katlamak veya bir yeteneği doldurmak) izlemeyi siz seçersiniz. Bir reklamı reddetmek ilerlemenizi asla engellemez.</p>
+
+        <h4>6.1 iOS — Uygulama İzleme Şeffaflığı</h4>
+        <p>iOS'ta herhangi bir reklam kimliği kullanılmadan önce sistemin <strong>Uygulama İzleme Şeffaflığı (App Tracking Transparency)</strong> izni sorulur. Reddederseniz yine oynayabilir ve reklam izleyerek ödül kazanabilirsiniz — yalnızca gösterilen reklamlar daha az kişiselleştirilmiş olur.</p>
+
+        <h4>6.2 Onay gerektiren bölgeler</h4>
+        <p>Gerekli olduğu yerlerde — Avrupa Ekonomik Alanı, Birleşik Krallık ve İsviçre dahil — Uygulama herhangi bir reklam istemeden önce Google'ın Kullanıcı Mesajlaşma Platformu tarafından sağlanan bir onay formu gösterir ve kişiselleştirilmiş ile kişiselleştirilmemiş reklamlar arasındaki tercihinize uyar. Bunun geçerli olduğu yerlerde bu tercihi istediğiniz zaman uygulama içinden <strong>Ayarlar → Reklam Gizlilik Seçenekleri</strong> bölümünden değiştirebilirsiniz.</p>
+
+        <h3>7. Satın Almalar</h3>
+        <p>Uygulama içi satın almalar (altın ve değerli taş paketleri) tamamen <strong>Apple App Store</strong> veya <strong>Google Play</strong> tarafından işlenir. Kart numaranız, fatura adresiniz ve ödeme bilgileriniz bu mağazalar tarafından işlenir ve <strong>geliştirici tarafından asla görülmez, alınmaz veya saklanmaz</strong>. Yalnızca, satın alınan içeriğin hesabınıza tanımlanabilmesi için doğrulanan bir satın alma makbuzu alırız. Abonelik sunmuyoruz.</p>
+
+        <h3>8. Analiz ve Tanılama</h3>
+        <p>Toplu ve anonimleştirilmiş kullanımı anlamak — örneğin kaç tur oynandığını veya oyuncuların nerede ilerlemeyi bıraktığını görmek — ve çökme ile performans tanılamalarını almak için Google Analytics for Firebase'i kullanırız. Bu, hataları düzeltmemize ve oyunu dengelememize yardımcı olur. Bu verileri sizi kişisel olarak tanımlamak için kullanmayız.</p>
+
+        <h3>9. Hizmet Sağlayıcılar</h3>
+        <p>Adımıza veri işleyen ve kendi gizlilik taahhütleriyle bağlı olan aşağıdaki sağlayıcıları kullanırız:</p>
+        <ul>
+            <li><strong>Google Firebase</strong> — kimlik doğrulama, bulut veritabanı, anlık bildirimler, analiz, sunucu fonksiyonları</li>
+            <li><strong>Google AdMob</strong> ve <strong>Google Kullanıcı Mesajlaşma Platformu</strong> — ödüllü reklamlar ve reklam onayı</li>
+            <li><strong>Apple</strong> ve <strong>Google Play</strong> — giriş sağlayıcıları, uygulama dağıtımı ve ödeme işlemleri</li>
+        </ul>
+        <p><strong>Kişisel verilerinizi satmayız; veri simsarlarıyla veya kendi bağımsız amaçları için reklamverenlerle paylaşmayız.</strong></p>
+
+        <h3>10. Güvenlik</h3>
+        <p>Veriler şifreli bağlantılar (HTTPS/TLS) üzerinden iletilir ve Google Firebase altyapısında saklanır. Bulut veritabanına erişim, her hesabın yalnızca kendi verisini yazabilmesini sağlayan sunucu tarafı güvenlik kurallarıyla kısıtlanmıştır. Hiçbir iletim veya depolama yöntemi tamamen güvenli değildir ve mutlak güvenliği garanti edemeyiz.</p>
+
+        <h3>11. Verilerin Saklanma Süresi</h3>
+        <p>Bulut hesap verileri hesabınız var olduğu sürece saklanır. Hesabınızı silerseniz ilgili veriler 12. Bölüm'de açıklandığı şekilde aktif sistemlerimizden kaldırılır; artık kopyalar, üzerine yazılmadan önce altyapı sağlayıcımızın rutin yedeklerinde kısa bir süre kalabilir. Cihazdaki veriler yalnızca uygulama yüklü kaldığı sürece mevcuttur.</p>
+
+        <h3>12. Hesabınızı ve Verilerinizi Silmek</h3>
+        <p>Hesabınızı uygulama içinden silebilirsiniz: <strong>Profil → Hesabı Sil</strong> bölümünü açın. Bu işlem bulut profilinizi, takma ad rezervasyonunuzu, arkadaşlarınızı, arkadaşlık isteklerinizi, düello kayıtlarınızı ve düello sonuçlarınızı kalıcı olarak kaldırır. Silme işlemi geri alınamaz; satın alınmış sanal öğeler geri yüklenmez veya iade edilmez. Alternatif olarak, hesabınızla ilişkili e-posta adresinden <a href="mailto:alicelik1980@gmail.com">alicelik1980@gmail.com</a> adresine yazarak silme talep edebilirsiniz. Adım adım talimatlar ve nelerin silinip nelerin saklandığının tam listesi özel <a href="wordsnap3d-delete-account-tr.html">Hesabınızı ve Verilerinizi Silin</a> sayfasındadır.</p>
+
+        <h3>13. Yurt Dışına Veri Aktarımı</h3>
+        <p>Hizmet sağlayıcılarımız verileri, ikamet ettiğiniz ülkenin dışında — Avrupa Birliği ve Amerika Birleşik Devletleri dahil — bulunan sunucularda, bu sağlayıcıların uluslararası aktarımlar için uyguladığı güvenceler çerçevesinde işleyebilir ve saklayabilir.</p>
+
+        <h3>14. Çocukların Gizliliği</h3>
+        <p>Word Snap 3D genel kitleye yönelik bir oyundur. <strong>13 yaşın altındaki çocuklara</strong> (veya ülkenizdeki eşdeğer asgari yaşın altındakilere) <strong>yönelik değildir</strong> ve onlardan bilerek kişisel bilgi toplamayız. Bir çocuğun bize kişisel bilgi verdiğini düşünüyorsanız bizimle iletişime geçin; bu bilgileri derhal sileriz.</p>
+
+        <h3>15. KVKK Kapsamındaki Haklarınız</h3>
+        <p>Geliştirici Türkiye'de yerleşik olduğundan, veri işleme faaliyetleri 6698 sayılı Kişisel Verilerin Korunması Kanunu'na ("KVKK") tabidir.</p>
+        <p><strong>Hukuki sebepler (KVKK md. 5–6):</strong> işleme, açık rızanıza (isteğe bağlı giriş, reklam kişiselleştirme, bildirimler) ve uygulanabildiği ölçüde talep ettiğiniz hizmetin ifası için işlemenin gerekli olmasına (örneğin giriş yaptıktan sonra ilerlemenizin senkronize edilmesi) dayanır.</p>
+        <p><strong>Yurt dışına aktarım (KVKK md. 9):</strong> Türkiye dışındaki sağlayıcılarımıza yapılan aktarımlar açık rızanıza ve/veya md. 9 kapsamında tanınan güvencelere dayanır.</p>
+        <p><strong>Haklarınız (KVKK md. 11):</strong> kişisel verilerinizin işlenip işlenmediğini öğrenme ve buna ilişkin bilgi talep etme; işlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme; yurt içinde veya yurt dışında verilerinizin aktarıldığı üçüncü kişileri bilme; eksik veya yanlış işlenmiş verilerin düzeltilmesini isteme; işlenmesini gerektiren sebeplerin ortadan kalkması hâlinde silinmesini veya yok edilmesini isteme ve yapılan düzeltme veya silme işlemlerinin üçüncü kişilere bildirilmesini isteme; münhasıran otomatik sistemler vasıtasıyla analiz edilmesi suretiyle aleyhinize bir sonucun ortaya çıkmasına itiraz etme; ve kanuna aykırı işleme sebebiyle zarara uğramanız hâlinde zararın giderilmesini talep etme.</p>
+        <p><strong>Başvuru yöntemi:</strong> talebinizi, Veri Sorumlusuna Başvuru Usul ve Esasları Hakkında Tebliğ'e uygun olarak aşağıdaki iletişim adresine yazılı olarak gönderin. KVKK md. 13 uyarınca en geç 30 gün içinde yanıt veririz. Yanıttan memnun kalmazsanız <em>Kişisel Verileri Koruma Kurumu</em>'na şikâyette bulunabilirsiniz.</p>
+
+        <h3>16. Diğer Bölgesel Haklar</h3>
+        <p>Size başka bir veri koruma kanunu uygulanıyorsa, buna karşılık gelen <strong>erişim, düzeltme, silme, taşınabilirlik, itiraz ve kısıtlama</strong> haklarına ve reklam kişiselleştirme için verdiğiniz <strong>onayı istediğiniz zaman geri çekme</strong> hakkına sahipsiniz (bkz. Bölüm 6.2). Bu haklardan herhangi birini kullanmak için aşağıdaki adresten bize ulaşın; makul bir süre içinde ve ücretsiz olarak yanıt veririz. Yerel denetim makamınıza da şikâyette bulunabilirsiniz.</p>
+
+        <h3>17. Bu Politikadaki Değişiklikler</h3>
+        <p>Oyun geliştikçe veya mevzuat değiştikçe bu Politikayı güncelleyebiliriz. Güncel sürüm her zaman yukarıdaki "Son Güncelleme" tarihiyle bu sayfada yayımlanır. Önemli değişiklikler uygulama içinde veya mağaza sayfası aracılığıyla duyurulur. Bir güncellemeden sonra Uygulamayı kullanmaya devam etmeniz, güncellenmiş Politikayı kabul ettiğiniz anlamına gelir.</p>
+
+        <h3>18. Dil Sürümleri</h3>
+        <p>Bu Politika İngilizce, Türkçe, İspanyolca, Fransızca, Almanca ve İtalyanca olarak yayımlanır; sayfanın üst kısmındaki dil seçiciyi kullanabilirsiniz. Tüm sürümler aynı uygulamaları açıklar. Aralarında farklılık olması hâlinde, Kullanım Koşulları'nın 14.6. maddesinde belirtilen sürüm esas alınır.</p>
+
+        <h3>19. İletişim</h3>
+        <p>Sorular, veri talepleri veya şikâyetler: <strong><a href="mailto:alicelik1980@gmail.com">alicelik1980@gmail.com</a></strong> — Ali Çelik, Ankara, Türkiye.</p>
+    </div>
+
+    <!-- ================= KULLANIM KOŞULLARI ================= -->
+    <div id="terms" class="content-box">
+        <h2>Kullanım Koşulları</h2>
+        <p class="meta">Son Güncelleme: 5 Ekim 2026</p>
+
+        <p>Bu Kullanım Koşulları ("Koşullar"), <strong>Word Snap 3D</strong> mobil oyununu ve ilgili hizmetleri ("Uygulama") kullanımınızı düzenleyen, sizinle <strong>Ali Çelik</strong> (Ali Çelik Games adı altında faaliyet gösterir), Ankara, Türkiye ("biz", "geliştirici") arasında bağlayıcı bir sözleşmedir.</p>
+
+        <h3>1. Kabul ve Değişiklikler</h3>
+        <p><strong>1.1.</strong> Uygulamayı indirerek, yükleyerek veya kullanarak bu Koşulları kabul etmiş olursunuz. Kabul etmiyorsanız Uygulamayı kullanmayın.</p>
+        <p><strong>1.2.</strong> Bu Koşulları zaman zaman değiştirebiliriz. Güncel sürüm her zaman yukarıdaki tarihle bu sayfada yayımlanır. Bir değişiklikten sonra kullanmaya devam etmeniz kabul anlamına gelir. Bir değişikliği kabul etmiyorsanız Uygulamayı kullanmayı bırakın; hesabınızı silebilirsiniz.</p>
+        <p><strong>1.3.</strong> Uygulamayı kullanmak için en az <strong>13 yaşında</strong> (veya ülkenizde öngörülen asgari yaşta) olmalısınız. Yerel mevzuatınıza göre reşit değilseniz Uygulamayı yalnızca, bu Koşulları sizin adınıza kabul eden bir ebeveynin veya yasal vasinin onayı ve gözetimi altında kullanabilirsiniz.</p>
+
+        <h3>2. Lisans</h3>
+        <p><strong>2.1.</strong> Size, Uygulamayı sahip olduğunuz veya kontrol ettiğiniz cihazlara yüklemeniz ve kendi ticari olmayan eğlenceniz için kullanmanız amacıyla sınırlı, kişisel, münhasır olmayan, devredilemez ve geri alınabilir bir lisans veriyoruz.</p>
+        <p><strong>2.2. Şunları yapamazsınız:</strong> bu kısıtlamanın yürürlükteki mevzuatça yasaklandığı durumlar dışında Uygulamayı kopyalamak, değiştirmek, çevirmek, tersine mühendislik uygulamak, kaynak koda dönüştürmek veya parçalarına ayırmak; Uygulamayı veya içeriğini dağıtmak, satmak, kiralamak, alt lisans vermek ya da ticari olarak kullanmak; haksız avantaj elde etmek veya skorları, para birimlerini, ödülleri ya da liderlik tablolarını manipüle etmek için hile, bot, otomasyon, bellek düzenleyici, değiştirilmiş istemci veya başka herhangi bir yöntem kullanmak; sunucularımıza veya başka bir oyuncunun hesabına müdahale etmek, aşırı yük bindirmek ya da yetkisiz erişim sağlamaya çalışmak; veya arkadaşlar, takma ad ya da düello özelliklerini diğer oyuncuları taciz etmek, taklit etmek, dolandırmak veya istismar etmek ya da saldırgan, nefret içeren veya hukuka aykırı içerik göstermek için kullanmak.</p>
+
+        <h3>3. Hesaplar</h3>
+        <p><strong>3.1.</strong> Hesap açmak isteğe bağlıdır. Bir hesap oluşturursanız, hesap üzerinden gerçekleştirilen tüm etkinliklerden ve giriş için kullandığınız Apple veya Google hesabının güvenliğinden siz sorumlusunuz.</p>
+        <p><strong>3.2.</strong> Takma adınız kimsenin haklarını ihlal etmemeli; saldırgan, yanıltıcı veya taklit edici olmamalıdır. Buna aykırı bir takma adı geri alabilir veya sıfırlayabiliriz.</p>
+        <p><strong>3.3.</strong> Hesabınızı istediğiniz zaman <strong>Profil → Hesabı Sil</strong> bölümünden silebilirsiniz. Silme işlemi kalıcıdır ve geri alınamaz; kalan sanal öğeler ve harcanmamış bakiyeler iade edilmeksizin kaybedilir.</p>
+
+        <h3>4. Sanal Öğeler ve Uygulama İçi Satın Almalar</h3>
+        <p><strong>4.1.</strong> Uygulama, isteğe bağlı olarak sanal para birimi (altın ve değerli taş) satın alma imkânı sunar. Tüm satın almalar, kendi koşulları çerçevesinde Apple App Store veya Google Play tarafından işlenir; bu ödeme işleminin tarafı değiliz ve ödeme bilgilerinizi hiçbir zaman işlemeyiz.</p>
+        <p><strong>4.2.</strong> Altın, değerli taşlar, yetenekler, sandıklar ve oyun içindeki diğer tüm öğeler <strong>satılmaz, lisanslanır</strong>. Bunlar <strong>parasal değeri olmayan</strong> sanal içeriklerdir; gerçek parayla veya gerçek dünyada değeri olan herhangi bir şeyle değiştirilemez, devredilemez, satılamaz veya paraya çevrilemez ve hiçbir şekilde mülkiyet ya da sahiplik hakkı sağlamaz.</p>
+        <p><strong>4.3.</strong> Satın almalar, yürürlükteki mevzuatın izin verdiği azami ölçüde <strong>kesindir ve iade edilmez</strong>. İadeler münhasıran satın almanın yapıldığı mağazanın politikalarına tabidir; talepler bize değil, o mağazaya yöneltilmelidir. Kanunla ortadan kaldırılamayan cayma hakları veya tüketici hakları saklıdır.</p>
+        <p><strong>4.4.</strong> Oyun dengesi gerekçesi de dahil olmak üzere, herhangi bir sanal öğeyi, ödülü, fiyatı veya oyun mekaniğini istediğimiz zaman ekleyebilir, değiştirebilir, yeniden dengeleyebilir, yeniden fiyatlandırabilir, askıya alabilir veya kaldırabiliriz. Bu, daha önce edindiğiniz öğelerin faydasını azaltabilir ve size tazminat hakkı vermez.</p>
+        <p><strong>4.5.</strong> Uygulamadaki sandık ödülleri <strong>sabit ve belirlidir</strong> — belirli bir seviyedeki sandık her zaman tam olarak aynı ödülü verir. Uygulama, rastgele ücretli ödül mekanikleri ("ganimet kutusu") içermez.</p>
+
+        <h3>5. Reklamlar</h3>
+        <p>Uygulama, isteğe bağlı ödüllü video reklamlar gösterir. Reklam içeriği üçüncü taraf ağlar tarafından sağlanır; tarafımızca oluşturulmaz, incelenmez veya onaylanmaz. Reklamların içeriğinden veya tanıttıkları ürün, hizmet ya da web sitelerinden sorumlu değiliz. Bir reklamla etkileşim kendi sorumluluğunuzdadır ve reklamverenin kendi koşullarına ve gizlilik politikasına tabi olabilir.</p>
+
+        <h3>6. Hizmetin Sürekliliği ve Değişiklikler</h3>
+        <p><strong>6.1.</strong> Uygulama, üçüncü taraf hizmetlere (Google Firebase ve uygulama mağazaları dahil) ve internet bağlantınıza dayanır. Çevrimiçi özellikler — bulut senkronizasyonu, liderlik tabloları, arkadaşlar, düellolar ve bildirimler — kullanılamayabilir, gecikebilir veya kesintiye uğrayabilir; kesintisiz veya hatasız çalışmayı garanti etmeyiz.</p>
+        <p><strong>6.2.</strong> Uygulamayı veya özelliklerinden herhangi birini, tamamen ya da kısmen, istediğimiz zaman, bildirimde bulunarak veya bulunmaksızın değiştirebilir, askıya alabilir, sınırlayabilir veya sonlandırabiliriz. Belirli cihazları veya işletim sistemi sürümlerini desteklemeyi de bırakabiliriz.</p>
+
+        <h3>7. Fikri Mülkiyet</h3>
+        <p><strong>7.1.</strong> Uygulama ve tüm içeriği — kaynak kodu, grafikler, 3D modeller, çizimler, kullanıcı arayüzü, ses, müzik, metin ile "Word Snap 3D" ve "Ali Çelik Games" adları ve logoları — Ali Çelik'e aittir ve telif hakkı ile diğer fikri mülkiyet mevzuatı kapsamında korunmaktadır. Açıkça verilmeyen tüm haklar saklıdır.</p>
+        <p><strong>7.2.</strong> Üçüncü taraf markalar (Apple, Google ve diğerleri) ilgili sahiplerine aittir ve yalnızca tanımlama amacıyla kullanılır.</p>
+
+        <h3>8. Veriler, Yedekler ve Kayıp</h3>
+        <p><strong>8.1.</strong> Giriş yapmadan oynarsanız ilerlemeniz <strong>yalnızca cihazınızda</strong> bulunur. Uygulamayı kaldırmak, verilerini temizlemek, cihazı kaybetmek veya cihaz arızası bu ilerlemeyi kalıcı olarak yok eder. İlerlemenizi cihaz kaybına karşı korumanın tek yolu giriş yapmaktır.</p>
+        <p><strong>8.2.</strong> Makul özeni göstermekle birlikte bulut verilerinin hiçbir zaman kaybolmayacağını veya bozulmayacağını garanti etmeyiz ve <strong>oyun ilerlemesi, sanal para birimi, sanal öğeler veya hesap verilerinin</strong> sebebi ne olursa olsun <strong>kaybından sorumlu değiliz</strong>.</p>
+
+        <h3>9. Garanti Reddi</h3>
+        <p>Yürürlükteki mevzuatın izin verdiği azami ölçüde Uygulama, açık, zımni veya kanuni hiçbir garanti verilmeksizin <strong>"OLDUĞU GİBİ" ve "MEVCUT HÂLİYLE"</strong> sunulur; bu, satılabilirlik, belirli bir amaca uygunluk, doğruluk, huzurlu kullanım ve ihlal etmeme gibi zımni garantileri de kapsar ancak bunlarla sınırlı değildir. Uygulamanın gereksinimlerinizi karşılayacağını, kesintisiz çalışacağını, güvenli olacağını veya hata, kusur ya da zararlı bileşen içermeyeceğini garanti etmeyiz.</p>
+
+        <h3>10. Sorumluluğun Sınırlandırılması</h3>
+        <p><strong>10.1.</strong> Yürürlükteki mevzuatın izin verdiği azami ölçüde, Uygulamayı kullanmanızdan veya kullanamamanızdan kaynaklanan veya bununla bağlantılı dolaylı, arızi, özel, sonuç olarak doğan, cezai veya caydırıcı zararlardan ya da kâr, gelir, veri, itibar, ilerleme veya sanal öğe kayıplarından, bu tür zararların olasılığı bize bildirilmiş olsa dahi sorumlu olmayız.</p>
+        <p><strong>10.2.</strong> Yürürlükteki mevzuatın izin verdiği azami ölçüde, Uygulamadan kaynaklanan veya Uygulamayla ilgili toplam sorumluluğumuz, (a) talebe yol açan olaydan önceki <strong>on iki (12) ay</strong> içinde Word Snap 3D'deki uygulama içi satın almalar için ilgili uygulama mağazasına fiilen ödediğiniz toplam tutar veya (b) <strong>on ABD doları (10 USD)</strong> tutarlarından hangisi yüksekse onu aşamaz.</p>
+        <p><strong>10.3.</strong> Bu Koşullardaki hiçbir hüküm, ihmal sonucu ölüm veya yaralanmaya ilişkin sorumluluk, hile veya zorunlu tüketici koruma mevzuatı kapsamındaki sorumluluk dahil olmak üzere, kanunen hariç tutulamayan veya sınırlandırılamayan sorumluluğu hariç tutmaz veya sınırlamaz. Bazı ülkeler belirli istisnalara veya sınırlamalara izin vermez; bu nedenle yukarıdakilerin bir kısmı sizin için geçerli olmayabilir. Bu durumda sorumluluğumuz, kanunun izin verdiği en dar ölçüde sınırlandırılır.</p>
+
+        <h3>11. Tazmin</h3>
+        <p>Bu Koşulları ihlal etmenizden, Uygulamayı kötüye kullanmanızdan veya herhangi bir kanunu ya da üçüncü bir kişinin haklarını ihlal etmenizden doğan her türlü talep, istem, kayıp veya masrafa (makul avukatlık ücretleri dahil) karşı geliştiriciyi tazmin etmeyi ve zarar görmemesini sağlamayı kabul edersiniz.</p>
+
+        <h3>12. Askıya Alma ve Fesih</h3>
+        <p><strong>12.1.</strong> Uygulamayı kullanmayı istediğiniz zaman bırakabilir ve hesabınızı 3.3. maddede açıklandığı şekilde silebilirsiniz.</p>
+        <p><strong>12.2.</strong> Bu Koşulları ihlal ettiğinize — hile yapmak, hatalardan yararlanmak, liderlik tablolarını veya para birimlerini manipüle etmek ya da diğer oyunculara kötü davranmak dahil — makul olarak inanmamız hâlinde, çevrimiçi özelliklere veya Uygulamaya erişiminizi tamamen ya da kısmen, derhal ve iade yapılmaksızın askıya alabilir veya sonlandırabiliriz.</p>
+        <p><strong>12.3.</strong> Niteliği gereği fesihten sonra da geçerli olması gereken maddeler (4.2, 7, 8, 9, 10, 11 ve 13. maddeler dahil) geçerliliğini korur.</p>
+
+        <h3>13. Uygulanacak Hukuk ve Yetkili Mahkeme</h3>
+        <p>Bu Koşullar, kanunlar ihtilafı kurallarına bakılmaksızın <strong>Türkiye Cumhuriyeti</strong> hukukuna tabidir. Bu Koşullardan doğan veya bunlarla bağlantılı her türlü uyuşmazlıkta <strong>Ankara Mahkemeleri ve İcra Daireleri</strong> yetkilidir. Başka bir ülkede ikamet eden bir tüketiciyseniz bu hüküm, sözleşmeyle ortadan kaldırılamayan zorunlu tüketici mevzuatı korumasından veya ikamet ettiğiniz ülkenin mahkemelerinde dava açma hakkınızdan sizi yoksun bırakmaz. Türkiye'de ikamet eden tüketiciler, yasal parasal sınırlar dahilinde Tüketici Hakem Heyetlerine veya Tüketici Mahkemelerine de başvurabilir.</p>
+
+        <h3>14. Genel Hükümler</h3>
+        <p><strong>14.1.</strong> Bu Koşulların herhangi bir hükmünün geçersiz veya uygulanamaz bulunması hâlinde kalan hükümler tamamen yürürlükte kalır ve geçersiz hüküm, asıl amaca en yakın geçerli bir hükümle değiştirilir.</p>
+        <p><strong>14.2.</strong> Herhangi bir hükmü uygulamamamız, o hükümden feragat ettiğimiz anlamına gelmez.</p>
+        <p><strong>14.3.</strong> Bu Koşullardan doğan haklarınızı devredemezsiniz. Biz ise bu hakları Uygulamanın devri ile bağlantılı olarak devredebiliriz.</p>
+        <p><strong>14.4.</strong> Bu Koşullar, Gizlilik Politikası ile birlikte, Uygulamaya ilişkin olarak sizinle aramızdaki sözleşmenin tamamını oluşturur ve önceki tüm mutabakatların yerini alır.</p>
+        <p><strong>14.5.</strong> Uygulama Apple veya Google tarafından desteklenmemekte, onaylanmamakta veya yönetilmemektedir. Bu şirketler Uygulamadan sorumlu değildir ve Uygulama için herhangi bir garanti vermez.</p>
+        <p><strong>14.6. Dil.</strong> Bu Koşullar ve Gizlilik Politikası İngilizce, Türkçe, İspanyolca, Fransızca, Almanca ve İtalyanca olarak sunulur; bunları dilediğiniz dilde okuyabilir ve kabul edebilirsiniz. Dil sürümleri arasında herhangi bir tutarsızlık olması hâlinde, ikamet ettiğiniz ülkenin zorunlu mevzuatı kendi dilinizdeki sürümün esas alınmasını gerektirmedikçe Türkçe sürüm esas alınır.</p>
+
+        <h3>15. İletişim</h3>
+        <p>Destek, sorular, hesap silme veya diğer tüm talepler için: <strong><a href="mailto:alicelik1980@gmail.com">alicelik1980@gmail.com</a></strong> — Ali Çelik, Ankara, Türkiye.</p>
+    </div>
+
+    <footer>
+        © 2026 Word Snap 3D — Ali Çelik Games. Tüm hakları saklıdır.
+    </footer>
+</div>
+
+<script>
+    // First visit to the English page from a browser set to another supported language
+    // (e.g. a French-Canadian visitor following the store's single privacy-policy link) is sent
+    // to that language's page. Picking a language in the switcher is remembered, so choosing
+    // English afterwards sticks. Only the English page redirects; translated pages never do.
+    (function () {
+        var KEY = 'ws3dLangChosen';
+        document.querySelectorAll('.lang-switch a').forEach(function (a) {
+            a.addEventListener('click', function () {
+                try { localStorage.setItem(KEY, a.getAttribute('lang')); } catch (e) {}
+            });
+        });
+        if (document.documentElement.lang !== 'en') return;
+        var chosen = null;
+        try { chosen = localStorage.getItem(KEY); } catch (e) {}
+        if (chosen || /[?&]lang=en\b/.test(location.search)) return;
+        var supported = ['en', 'tr', 'es', 'fr', 'de', 'it'];
+        var prefs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en'];
+        for (var i = 0; i < prefs.length; i++) {
+            var code = String(prefs[i]).toLowerCase().split('-')[0];
+            if (supported.indexOf(code) === -1) continue;
+            if (code === 'en') return;
+            var page = location.pathname.split('/').pop() || 'wordsnap3d.html';
+            location.replace(page.replace(/\.html$/, '-' + code + '.html') + location.hash);
+            return;
+        }
+    })();
+
+    function switchTab(tabId) {
+        document.querySelectorAll('.content-box').forEach(box => box.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        document.getElementById('tab-' + tabId).classList.add('active');
+    }
+
+    // Language links keep the open tab, so switching language on the Privacy tab lands on
+    // the translated Privacy tab instead of jumping back to About.
+    document.querySelectorAll('.lang-switch a').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+            var open = document.querySelector('.content-box.active');
+            if (open && open.id !== 'about') { e.preventDefault(); location.href = a.getAttribute('href') + '#' + open.id; }
+        });
+    });
+
+    // Deep-link support: wordsnap3d.html#privacy / #terms opens straight to that tab —
+    // used by the in-game "Privacy Policy" / "Terms of Service" links and by the store listings.
+    var initialTab = (location.hash || '').replace('#', '');
+    if (initialTab === 'privacy' || initialTab === 'terms') {
+        switchTab(initialTab);
+    }
+</script>
+
+</body>
+</html>

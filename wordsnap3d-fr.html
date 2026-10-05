@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Snap 3D | Détails et informations légales</title>
+    <meta name="description" content="Word Snap 3D — un jeu de lettres en 3D d'Ali Çelik Games. Présentation du jeu, Politique de confidentialité et Conditions d'utilisation.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #00f2ff; --bg: #0a0b10; --card: #16181d; --text: #94a3b8; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: var(--bg); color: #fff; line-height: 1.7; }
+        .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+        .back-btn { color: var(--primary); text-decoration: none; font-weight: 600; display: inline-block; margin-bottom: 30px; }
+
+        .hero-header { background: linear-gradient(45deg, #4facfe, #00f2fe); border-radius: 24px; display: flex; align-items: center; justify-content: center; margin-bottom: 40px; padding: 30px; }
+        .hero-header img { width: 160px; height: 160px; border-radius: 34px; box-shadow: 0 20px 40px rgba(0,0,0,0.35); }
+
+        h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 10px; }
+        .tagline { color: var(--primary); font-weight: 600; margin-bottom: 30px; }
+
+        .tabs { display: flex; gap: 15px; margin-bottom: 30px; border-bottom: 1px solid #222; padding-bottom: 15px; flex-wrap: wrap; }
+        .tab-btn { background: none; border: none; color: var(--text); font-size: 1.1rem; font-weight: 600; cursor: pointer; padding: 5px 15px; transition: 0.3s; }
+        .tab-btn.active { color: var(--primary); border-bottom: 2px solid var(--primary); }
+
+        .content-box { background: var(--card); padding: 40px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); display: none; }
+        .content-box.active { display: block; }
+
+        h2 { color: #fff; font-size: 1.5rem; margin: 30px 0 15px; border-left: 4px solid var(--primary); padding-left: 15px; }
+        h3 { color: #fff; font-size: 1.1rem; margin: 26px 0 10px; }
+        h4 { color: #e2e8f0; font-size: 1rem; margin: 18px 0 8px; }
+        p, li { color: var(--text); margin-bottom: 12px; font-size: 0.95rem; }
+        strong { color: #fff; }
+        ul, ol { margin-left: 22px; margin-bottom: 20px; }
+        a { color: var(--primary); }
+
+        .feature-box { background: rgba(0, 242, 255, 0.05); padding: 20px; border-radius: 12px; border: 1px solid #222; margin-bottom: 30px; }
+        .notice { background: rgba(250, 204, 21, 0.07); border: 1px solid rgba(250, 204, 21, 0.25); border-radius: 12px; padding: 18px 20px; margin: 20px 0; }
+        .notice p:last-child { margin-bottom: 0; }
+        .meta { color: #64748b; font-size: 0.85rem; }
+
+        table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.9rem; }
+        th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #222; vertical-align: top; color: var(--text); }
+        th { color: #fff; font-weight: 600; background: rgba(255,255,255,0.02); }
+
+        footer { text-align: center; padding: 60px 0; color: var(--text); font-size: 0.8rem; }
+
+        .top-bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; }
+        .top-bar .back-btn { margin-bottom: 0; }
+        .lang-switch { display: flex; flex-wrap: wrap; gap: 6px; }
+        .lang-switch a { color: var(--text); text-decoration: none; font-size: 0.85rem; font-weight: 600; padding: 4px 10px; border: 1px solid #222; border-radius: 999px; }
+        .lang-switch a.current { color: var(--bg); background: var(--primary); border-color: var(--primary); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="top-bar">
+        <a href="index.html" class="back-btn">← Retour aux projets</a>
+        <nav class="lang-switch" aria-label="Langue">
+            <a href="wordsnap3d.html" lang="en">English</a>
+            <a href="wordsnap3d-tr.html" lang="tr">Türkçe</a>
+            <a href="wordsnap3d-es.html" lang="es">Español</a>
+            <a href="wordsnap3d-fr.html" class="current" lang="fr">Français</a>
+            <a href="wordsnap3d-de.html" lang="de">Deutsch</a>
+            <a href="wordsnap3d-it.html" lang="it">Italiano</a>
+        </nav>
+    </div>
+    <div class="hero-header"><img src="WordSnap3D.png" alt="Icône de Word Snap 3D"></div>
+    <h1>Word Snap 3D</h1>
+    <p class="tagline">Trouvez des mots, assemblez-les en 3D !</p>
+
+    <div class="tabs">
+        <button id="tab-about" class="tab-btn active" onclick="switchTab('about')">À propos</button>
+        <button id="tab-privacy" class="tab-btn" onclick="switchTab('privacy')">Politique de confidentialité</button>
+        <button id="tab-terms" class="tab-btn" onclick="switchTab('terms')">Conditions d'utilisation</button>
+    </div>
+
+    <!-- ================= À PROPOS ================= -->
+    <div id="about" class="content-box active">
+        <h2>Un jeu de lettres tout en profondeur</h2>
+        <p><strong>Word Snap 3D</strong> fait passer le jeu classique de mots cachés en trois dimensions. Les lettres sont dispersées dans un véritable espace 3D : faites pivoter la scène, choisissez les lettres sous n'importe quel angle, glissez-les dans le plateau de mots et assemblez-les pour révéler les mots cachés.</p>
+
+        <div class="feature-box">
+            <p>🎯 <strong>Niveaux infinis :</strong> les manches sont générées en continu et deviennent plus difficiles à mesure que vous progressez — longueur des mots, lettres leurres et masquage augmentent avec votre niveau.</p>
+            <p>🧠 <strong>Mots cibles et bonus :</strong> trouvez les mots cibles du niveau, puis continuez à chercher des mots bonus pour gagner des récompenses supplémentaires.</p>
+            <p>⚡ <strong>Compétences :</strong> cinq compétences, dont l'Aimant, rechargeables avec de l'or ou en regardant une publicité facultative.</p>
+            <p>🎁 <strong>Récompenses quotidiennes et défis :</strong> une série de connexions sur 7 jours, ainsi que des quêtes quotidiennes et hebdomadaires.</p>
+            <p>🧰 <strong>Coffres et monnaies :</strong> gagnez des pièces et des gemmes, et ouvrez des coffres aux récompenses fixes et entièrement transparentes.</p>
+            <p>👥 <strong>Amis et classements :</strong> ajoutez des amis par pseudo, comparez vos scores et défiez-les en duels de mots quotidiens, hebdomadaires ou mensuels.</p>
+            <p>🏆 <strong>Succès :</strong> des objectifs à long terme qui suivent votre progression globale.</p>
+            <p>☁️ <strong>Synchronisation cloud facultative :</strong> connectez-vous avec Apple ou Google pour retrouver votre progression sur tous vos appareils — ou jouez entièrement hors ligne, sans compte.</p>
+            <p>🌍 <strong>Six langues :</strong> jouez en anglais, turc, espagnol, français, allemand ou italien — les menus et la banque de mots changent ensemble.</p>
+        </div>
+
+        <h3>Conçu pour la détente</h3>
+        <p>Il n'y a ni défaite ni pression du chronomètre. Vous ne pouvez pas perdre une manche — vous pouvez seulement trouver plus de mots. Les publicités ne vous sont jamais imposées : chaque publicité du jeu est une vidéo récompensée facultative que vous choisissez de regarder en échange d'un avantage précis.</p>
+
+        <h3>Disponibilité</h3>
+        <p>Word Snap 3D est publié par <strong>Ali Çelik Games</strong> sur iOS et Android. Le jeu n'est pas proposé dans tous les pays ; consultez la fiche de la boutique de votre région pour connaître sa disponibilité.</p>
+
+        <p class="meta">Développeur : Ali Çelik · Ankara, Türkiye · <a href="mailto:alicelik1980@gmail.com">alicelik1980@gmail.com</a></p>
+    </div>
+
+    <!-- ================= CONFIDENTIALITÉ ================= -->
+    <div id="privacy" class="content-box">
+        <h2>Politique de confidentialité</h2>
+        <p class="meta">Dernière mise à jour : 5 octobre 2026 · En vigueur à compter de sa date de publication</p>
+
+        <p>La présente Politique de confidentialité explique quelles informations le jeu mobile <strong>Word Snap 3D</strong> (« l'Application », « le Jeu ») recueille, pourquoi elles sont recueillies, comment elles sont utilisées et conservées, ainsi que les choix et les droits dont vous disposez. Elle tient également lieu d'avis d'information (<em>aydınlatma metni</em>) exigé par la loi turque n° 6698 (« KVKK »). Elle s'applique uniquement à Word Snap 3D et à aucune autre application ou site web.</p>
+
+        <p><strong>Responsable du traitement :</strong> Ali Çelik (développeur unique, exerçant sous le nom d'Ali Çelik Games), Ankara, Türkiye. Contact : <a href="mailto:alicelik1980@gmail.com">alicelik1980@gmail.com</a>.</p>
+
+        <div class="notice">
+            <p><strong>Résumé en un paragraphe :</strong> vous pouvez jouer à l'ensemble du jeu sans compte et sans nous communiquer la moindre information personnelle. Si vous choisissez de vous connecter, nous conservons un petit profil (pseudo, progression, monnaies, succès, amis et historique des défis) afin de le synchroniser entre vos appareils. Nous utilisons Google Firebase pour les comptes et le stockage dans le nuage, Google AdMob pour les publicités récompensées facultatives, et l'Apple App Store / Google Play pour les achats. <strong>Nous ne vendons jamais vos données.</strong> Vous pouvez supprimer votre compte et toutes ses données dans le nuage à tout moment depuis l'application.</p>
+        </div>
+
+        <h3>1. Jouer sans compte</h3>
+        <p>La connexion est entièrement facultative. Si vous ne vous connectez jamais, votre progression — niveau, pièces, gemmes, compétences, succès, série de récompenses quotidiennes et paramètres — est conservée <strong>uniquement sur votre appareil</strong>, dans le stockage local standard du système d'exploitation. Elle ne nous est pas transmise et nous ne pouvons pas la voir. Désinstaller l'application efface définitivement ces données locales, sans possibilité de récupération.</p>
+
+        <h3>2. Compte et connexion</h3>
+        <p>L'Application propose de manière facultative la <strong>connexion avec Apple</strong> et la <strong>connexion avec Google</strong>, gérées par Firebase Authentication. Lorsque vous vous connectez, nous recevons de votre fournisseur :</p>
+        <ul>
+            <li>un identifiant de compte unique (Firebase UID),</li>
+            <li>une adresse courriel, et</li>
+            <li>un nom d'affichage, si le fournisseur en transmet un.</li>
+        </ul>
+        <p>Avec la connexion avec Apple, vous pouvez utiliser l'option <strong>« Masquer mon adresse e-mail »</strong> ; nous ne recevons alors qu'une adresse de relais anonyme, jamais votre adresse réelle. Nous ne recevons, ne voyons et ne conservons pas votre mot de passe Apple ou Google.</p>
+
+        <h3>3. Ce que nous conservons dans le nuage</h3>
+        <p>Une fois connecté, les éléments suivants sont conservés dans Google Cloud Firestore sous votre identifiant de compte :</p>
+        <table>
+            <tr><th>Donnée</th><th>Finalité</th></tr>
+            <tr><td>Pseudo</td><td>Vous identifier auprès de vos amis et dans les classements, et conserver le même nom après une réinstallation</td></tr>
+            <tr><td>Progression (mots trouvés au total, niveau, meilleur score, décomptes quotidiens/hebdomadaires/mensuels)</td><td>Synchronisation entre appareils, classements et résolution des défis entre amis</td></tr>
+            <tr><td>Liste d'amis et demandes d'ami en attente</td><td>Faire fonctionner la fonction Amis</td></tr>
+            <tr><td>Invitations à des défis, défis en cours et résultats</td><td>Faire fonctionner les duels de mots entre amis</td></tr>
+            <tr><td>Jeton de notifications push</td><td>Envoyer les notifications décrites à la section 5</td></tr>
+            <tr><td>Langue de jeu sélectionnée</td><td>Envoyer ces notifications dans la langue dans laquelle vous jouez</td></tr>
+        </table>
+        <p>Les soldes de pièces et de gemmes, le contenu acheté et la progression des succès sont également associés à votre compte afin d'être conservés en cas de changement d'appareil.</p>
+
+        <h3>4. Ce que les autres joueurs peuvent voir</h3>
+        <p>Si vous utilisez les fonctions Amis, Défis ou Classements, votre <strong>pseudo et votre score</strong> peuvent être visibles par les joueurs qui vous ajoutent comme ami, par les joueurs que vous défiez et par les autres joueurs qui consultent le classement. Aucun autre élément de votre profil — ni votre adresse courriel, ni votre identifiant de compte — n'est montré aux autres joueurs. Choisissez un pseudo que vous acceptez de rendre public.</p>
+
+        <h3>5. Notifications push</h3>
+        <p>Si vous autorisez les notifications, un jeton de notification de l'appareil est conservé afin que nous puissions vous envoyer des messages comme le défi d'un ami, le résultat d'un défi terminé ou des rappels de récompenses quotidiennes. Les notifications sont envoyées côté serveur via Firebase Cloud Messaging, dans la langue de jeu que vous avez sélectionnée. Vous pouvez les désactiver à tout moment dans les réglages de votre appareil ou dans le panneau Paramètres du jeu.</p>
+
+        <h3>6. Publicité</h3>
+        <p>L'Application affiche <strong>uniquement des publicités vidéo récompensées</strong>, fournies par Google AdMob. Il n'y a ni bannières, ni interstitiels, ni publicités qui interrompent le jeu. Chaque publicité est facultative : vous choisissez de la regarder en échange d'une récompense annoncée (par exemple doubler la récompense d'un niveau ou recharger une compétence). Refuser une publicité ne bloque jamais votre progression.</p>
+
+        <h4>6.1 iOS — Transparence du suivi des apps</h4>
+        <p>Sur iOS, la demande système de <strong>Transparence du suivi des apps (App Tracking Transparency)</strong> s'affiche avant toute utilisation d'un identifiant publicitaire. Si vous refusez, vous pouvez continuer à jouer et à gagner des récompenses en regardant des publicités — celles-ci seront simplement moins personnalisées.</p>
+
+        <h4>6.2 Régions soumises à un consentement</h4>
+        <p>Lorsque la loi l'exige — notamment dans l'Espace économique européen, au Royaume-Uni et en Suisse — l'Application présente, avant toute demande de publicité, un formulaire de consentement fourni par la plateforme de messages aux utilisateurs de Google, et respecte votre choix entre publicité personnalisée et non personnalisée. Le cas échéant, vous pouvez revoir et modifier ce choix à tout moment depuis <strong>Paramètres → Choix de confidentialité publicitaire</strong> dans l'application.</p>
+
+        <h3>7. Achats</h3>
+        <p>Les achats intégrés (packs de pièces et de gemmes) sont entièrement traités par l'<strong>Apple App Store</strong> ou <strong>Google Play</strong>. Votre numéro de carte, votre adresse de facturation et vos informations de paiement sont gérés par ces boutiques et ne sont <strong>jamais vus, reçus ni conservés par le développeur</strong>. Nous recevons uniquement un reçu d'achat, validé afin de créditer le contenu acheté sur votre compte. Nous ne proposons pas d'abonnement.</p>
+
+        <h3>8. Statistiques et diagnostics</h3>
+        <p>Nous utilisons Google Analytics for Firebase pour comprendre l'utilisation globale et anonymisée — par exemple le nombre de manches jouées ou l'endroit où les joueurs cessent de progresser — et pour recevoir des diagnostics de plantage et de performance. Cela nous aide à corriger les bogues et à équilibrer le jeu. Nous n'utilisons pas ces données pour vous identifier personnellement.</p>
+
+        <h3>9. Prestataires de services</h3>
+        <p>Nous faisons appel aux prestataires suivants, qui agissent comme sous-traitants pour notre compte et sont liés par leurs propres engagements de confidentialité :</p>
+        <ul>
+            <li><strong>Google Firebase</strong> — authentification, base de données dans le nuage, notifications push, statistiques, fonctions serveur</li>
+            <li><strong>Google AdMob</strong> et la <strong>plateforme de messages aux utilisateurs de Google</strong> — publicités récompensées et consentement publicitaire</li>
+            <li><strong>Apple</strong> et <strong>Google Play</strong> — fournisseurs de connexion, distribution de l'application et traitement des paiements</li>
+        </ul>
+        <p><strong>Nous ne vendons pas vos données personnelles et ne les partageons pas avec des courtiers en données ou des annonceurs pour leurs propres fins.</strong></p>
+
+        <h3>10. Sécurité</h3>
+        <p>Les données sont transmises par des connexions chiffrées (HTTPS/TLS) et conservées sur l'infrastructure de Google Firebase. L'accès à la base de données est restreint par des règles de sécurité côté serveur, de sorte que chaque compte ne peut écrire que ses propres données. Aucune méthode de transmission ou de stockage n'est entièrement sûre et nous ne pouvons garantir une sécurité absolue.</p>
+
+        <h3>11. Conservation des données</h3>
+        <p>Les données du compte dans le nuage sont conservées tant que votre compte existe. Si vous supprimez votre compte, les données associées sont retirées de nos systèmes actifs comme décrit à la section 12 ; des copies résiduelles peuvent subsister brièvement dans les sauvegardes courantes de notre fournisseur d'infrastructure avant d'être écrasées. Les données stockées sur l'appareil n'existent que tant que l'application reste installée.</p>
+
+        <h3>12. Supprimer votre compte et vos données</h3>
+        <p>Vous pouvez supprimer votre compte depuis l'Application : ouvrez <strong>Profil → Supprimer le compte</strong>. Cela supprime définitivement votre profil dans le nuage, la réservation de votre pseudo, vos amis, vos demandes d'ami, vos défis et leurs résultats. La suppression est irréversible et les objets virtuels achetés ne sont ni restaurés ni remboursés. Vous pouvez également demander la suppression en écrivant à <a href="mailto:alicelik1980@gmail.com">alicelik1980@gmail.com</a> depuis l'adresse courriel associée à votre compte. Les instructions détaillées et la liste complète de ce qui est supprimé et conservé figurent sur la page dédiée <a href="wordsnap3d-delete-account-fr.html">Supprimer votre compte et vos données</a>.</p>
+
+        <h3>13. Transferts internationaux de données</h3>
+        <p>Nos prestataires peuvent traiter et conserver des données sur des serveurs situés hors de votre pays de résidence, notamment dans l'Union européenne et aux États-Unis, selon les garanties que ces prestataires appliquent aux transferts internationaux.</p>
+
+        <h3>14. Protection des enfants</h3>
+        <p>Word Snap 3D est un jeu tout public. Il <strong>ne s'adresse pas aux enfants de moins de 13 ans</strong> (ou de l'âge minimal équivalent dans votre pays) et nous ne recueillons pas sciemment de renseignements personnels les concernant. Si vous pensez qu'un enfant nous a fourni des renseignements personnels, contactez-nous et nous les supprimerons rapidement.</p>
+
+        <h3>15. Vos droits en vertu de la loi turque (KVKK)</h3>
+        <p>Le développeur étant établi en Türkiye, le traitement est soumis à la loi turque n° 6698 sur la protection des données personnelles (« KVKK »).</p>
+        <p><strong>Bases juridiques (art. 5–6 KVKK) :</strong> le traitement repose sur votre consentement explicite (connexion facultative, personnalisation publicitaire, notifications) et, le cas échéant, sur la nécessité du traitement pour fournir le service que vous avez demandé (par exemple synchroniser votre progression une fois connecté).</p>
+        <p><strong>Transfert transfrontalier (art. 9 KVKK) :</strong> les transferts vers nos prestataires situés hors de Türkiye reposent sur votre consentement explicite et/ou sur les garanties reconnues par l'art. 9.</p>
+        <p><strong>Vos droits (art. 11 KVKK) :</strong> savoir si vos données sont traitées et demander des informations à ce sujet ; connaître la finalité du traitement et si elles sont utilisées conformément à celle-ci ; connaître les tiers, en Türkiye ou à l'étranger, auxquels vos données sont transférées ; demander la rectification de données incomplètes ou inexactes ; demander l'effacement ou la destruction lorsque les motifs du traitement n'existent plus, et que toute rectification ou suppression soit notifiée aux tiers ; vous opposer à un résultat qui vous est défavorable obtenu exclusivement par analyse automatisée ; et réclamer réparation du préjudice causé par un traitement illicite.</p>
+        <p><strong>Comment les exercer :</strong> envoyez votre demande par écrit à l'adresse de contact ci-dessous, conformément au Communiqué sur les procédures et principes de demande auprès du responsable du traitement. Nous répondrons dans un délai de 30 jours, comme l'exige l'art. 13 KVKK. Si vous n'êtes pas satisfait de la réponse, vous pouvez déposer une plainte auprès de l'Autorité turque de protection des données personnelles (<em>Kişisel Verileri Koruma Kurumu</em>).</p>
+
+        <h3>16. Autres droits régionaux</h3>
+        <p>Lorsqu'une autre loi sur la protection des données vous est applicable — y compris, au Québec, la Loi sur la protection des renseignements personnels dans le secteur privé —, vous disposez des droits correspondants d'<strong>accès, de rectification, de suppression, de portabilité, d'opposition et de limitation</strong>, ainsi que du droit de <strong>retirer votre consentement</strong> à la personnalisation publicitaire à tout moment (voir la section 6.2). Pour exercer l'un de ces droits, contactez-nous à l'adresse ci-dessous ; nous répondrons dans un délai raisonnable et gratuitement. Vous pouvez également porter plainte auprès de votre autorité de contrôle locale (au Québec, la Commission d'accès à l'information).</p>
+
+        <h3>17. Modifications de la présente Politique</h3>
+        <p>Nous pouvons mettre à jour la présente Politique à mesure que le jeu évolue ou que la loi change. La version en vigueur est toujours publiée sur cette page avec la date de « Dernière mise à jour » indiquée ci-dessus. Les modifications importantes seront signalées dans l'application ou sur la fiche de la boutique. Continuer à utiliser l'Application après une mise à jour signifie que vous acceptez la Politique révisée.</p>
+
+        <h3>18. Versions linguistiques</h3>
+        <p>La présente Politique est publiée en anglais, turc, espagnol, français, allemand et italien ; utilisez le sélecteur de langue en haut de cette page. Toutes les versions décrivent les mêmes pratiques. En cas de divergence, la version indiquée à l'article 14.6 des Conditions d'utilisation prévaut.</p>
+
+        <h3>19. Contact</h3>
+        <p>Questions, demandes relatives aux données ou plaintes : <strong><a href="mailto:alicelik1980@gmail.com">alicelik1980@gmail.com</a></strong> — Ali Çelik, Ankara, Türkiye.</p>
+    </div>
+
+    <!-- ================= CONDITIONS ================= -->
+    <div id="terms" class="content-box">
+        <h2>Conditions d'utilisation</h2>
+        <p class="meta">Dernière mise à jour : 5 octobre 2026</p>
+
+        <p>Les présentes Conditions d'utilisation (les « Conditions ») constituent un contrat qui vous lie à <strong>Ali Çelik</strong> (exerçant sous le nom d'Ali Çelik Games), Ankara, Türkiye (« nous », « le développeur »), et régissent votre utilisation du jeu mobile <strong>Word Snap 3D</strong> et de tout service connexe (« l'Application »).</p>
+
+        <h3>1. Acceptation et modifications</h3>
+        <p><strong>1.1.</strong> En téléchargeant, en installant ou en utilisant l'Application, vous acceptez les présentes Conditions. Si vous ne les acceptez pas, n'utilisez pas l'Application.</p>
+        <p><strong>1.2.</strong> Nous pouvons modifier les présentes Conditions de temps à autre. La version en vigueur est toujours publiée sur cette page avec la date indiquée ci-dessus. Continuer à utiliser l'Application après une modification vaut acceptation. Si vous n'acceptez pas une modification, cessez d'utiliser l'Application ; vous pouvez supprimer votre compte.</p>
+        <p><strong>1.3.</strong> Vous devez avoir au moins <strong>13 ans</strong> (ou l'âge minimal requis dans votre pays) pour utiliser l'Application. Si vous êtes mineur selon votre législation locale, vous ne pouvez utiliser l'Application qu'avec le consentement et sous la surveillance d'un parent ou d'un tuteur légal, qui accepte les présentes Conditions en votre nom.</p>
+
+        <h3>2. Licence</h3>
+        <p><strong>2.1.</strong> Nous vous accordons une licence limitée, personnelle, non exclusive, non transférable et révocable pour installer et utiliser l'Application sur des appareils que vous possédez ou contrôlez, pour votre divertissement personnel et non commercial.</p>
+        <p><strong>2.2. Il vous est interdit de :</strong> copier, modifier, traduire, faire de l'ingénierie inverse, décompiler ou désassembler l'Application, sauf dans la mesure où cette restriction est interdite par la loi applicable ; distribuer, vendre, louer, concéder en sous-licence ou exploiter commercialement l'Application ou son contenu ; utiliser des tricheries, robots, automatisations, éditeurs de mémoire, clients modifiés ou toute autre méthode pour obtenir un avantage déloyal ou manipuler les scores, monnaies, récompenses ou classements ; perturber ou surcharger nos serveurs, ou tenter d'y accéder sans autorisation ou d'accéder au compte d'un autre joueur ; ou utiliser les fonctions Amis, Pseudo ou Défis pour harceler, usurper l'identité, frauder ou maltraiter d'autres joueurs, ou pour afficher un contenu offensant, haineux ou illégal.</p>
+
+        <h3>3. Comptes</h3>
+        <p><strong>3.1.</strong> Le compte est facultatif. Si vous en créez un, vous êtes responsable de toute activité effectuée par son intermédiaire et de la sécurité du compte Apple ou Google utilisé pour vous connecter.</p>
+        <p><strong>3.2.</strong> Votre pseudo ne doit pas porter atteinte aux droits d'autrui ni être offensant, trompeur ou usurper une identité. Nous pouvons récupérer ou réinitialiser un pseudo qui enfreint cette règle.</p>
+        <p><strong>3.3.</strong> Vous pouvez supprimer votre compte à tout moment depuis <strong>Profil → Supprimer le compte</strong>. La suppression est définitive et irréversible, et entraîne la perte, sans remboursement, des objets virtuels restants et des soldes non utilisés.</p>
+
+        <h3>4. Objets virtuels et achats intégrés</h3>
+        <p><strong>4.1.</strong> L'Application propose des achats facultatifs de monnaie virtuelle (pièces et gemmes). Tous les achats sont traités par l'Apple App Store ou Google Play selon leurs propres conditions ; nous ne sommes pas partie à cette transaction de paiement et ne traitons jamais vos informations de paiement.</p>
+        <p><strong>4.2.</strong> Les pièces, gemmes, compétences, coffres et tout autre objet du jeu sont <strong>concédés sous licence et non vendus</strong>. Il s'agit de contenu virtuel <strong>sans valeur monétaire</strong>, qui ne peut être échangé, transféré, vendu ni converti en argent réel ou en tout bien ayant une valeur réelle, et qui ne confère aucun droit de propriété de quelque nature que ce soit.</p>
+        <p><strong>4.3.</strong> Dans toute la mesure permise par la loi applicable, les achats sont <strong>définitifs et non remboursables</strong>. Tout remboursement est régi exclusivement par les politiques de la boutique où l'achat a été effectué ; les demandes doivent être adressées à cette boutique et non à nous. Les droits légaux de rétractation ou de consommateur auxquels la loi ne permet pas de déroger demeurent inchangés.</p>
+        <p><strong>4.4.</strong> Nous pouvons ajouter, modifier, rééquilibrer, changer le prix, suspendre ou retirer tout objet virtuel, récompense, prix ou mécanique de jeu à tout moment, y compris pour des raisons d'équilibre du jeu. Cela peut réduire l'utilité des objets que vous avez déjà obtenus et ne donne droit à aucune indemnisation.</p>
+        <p><strong>4.5.</strong> Les récompenses des coffres de l'Application sont <strong>fixes et déterminées</strong> — un coffre d'un niveau donné accorde toujours exactement la même récompense. L'Application ne contient aucune mécanique de récompense aléatoire payante (« coffres à butin »).</p>
+
+        <h3>5. Publicité</h3>
+        <p>L'Application affiche des publicités vidéo récompensées facultatives. Le contenu publicitaire est fourni par des réseaux tiers ; il n'est ni créé, ni vérifié, ni approuvé par nous. Nous ne sommes pas responsables du contenu des publicités ni des produits, services ou sites web qu'elles promeuvent. Interagir avec une publicité se fait à vos propres risques et peut être soumis aux conditions et à la politique de confidentialité de l'annonceur.</p>
+
+        <h3>6. Disponibilité du service et modifications</h3>
+        <p><strong>6.1.</strong> L'Application dépend de services tiers (notamment Google Firebase et les boutiques d'applications) et de votre connexion Internet. Les fonctions en ligne — synchronisation dans le nuage, classements, amis, défis et notifications — peuvent être indisponibles, retardées ou interrompues, et nous ne garantissons pas un fonctionnement ininterrompu ou exempt d'erreurs.</p>
+        <p><strong>6.2.</strong> Nous pouvons modifier, suspendre, limiter ou interrompre l'Application ou l'une de ses fonctions, en tout ou en partie, à tout moment, avec ou sans préavis. Nous pouvons également cesser de prendre en charge certains appareils ou certaines versions de système d'exploitation.</p>
+
+        <h3>7. Propriété intellectuelle</h3>
+        <p><strong>7.1.</strong> L'Application et l'ensemble de son contenu — code source, graphismes, modèles 3D, illustrations, interface utilisateur, sons, musique, textes ainsi que les noms et logos « Word Snap 3D » et « Ali Çelik Games » — appartiennent à Ali Çelik et sont protégés par le droit d'auteur et les autres lois sur la propriété intellectuelle. Tous les droits non expressément accordés sont réservés.</p>
+        <p><strong>7.2.</strong> Les marques de tiers (Apple, Google et autres) appartiennent à leurs propriétaires respectifs et ne sont utilisées qu'à des fins d'identification.</p>
+
+        <h3>8. Données, sauvegardes et pertes</h3>
+        <p><strong>8.1.</strong> Si vous jouez sans vous connecter, votre progression existe <strong>uniquement sur votre appareil</strong>. La désinstallation de l'application, l'effacement de ses données, la perte de l'appareil ou une panne détruiront définitivement cette progression. La connexion est le seul moyen de protéger votre progression contre la perte de l'appareil.</p>
+        <p><strong>8.2.</strong> Bien que nous agissions avec un soin raisonnable, nous ne garantissons pas que les données dans le nuage ne seront jamais perdues ou corrompues, et <strong>nous ne sommes pas responsables de la perte de progression, de monnaie virtuelle, d'objets virtuels ou de données de compte</strong>, quelle qu'en soit la cause.</p>
+
+        <h3>9. Exclusion de garanties</h3>
+        <p>Dans toute la mesure permise par la loi applicable, l'Application est fournie <strong>« TELLE QUELLE » et « SELON DISPONIBILITÉ », sans garantie d'aucune sorte</strong>, expresse, implicite ou légale, y compris, sans s'y limiter, les garanties implicites de qualité marchande, d'adéquation à un usage particulier, d'exactitude, de jouissance paisible et d'absence de contrefaçon. Nous ne garantissons pas que l'Application répondra à vos besoins, fonctionnera sans interruption, sera sécurisée ou exempte d'erreurs, de bogues ou de composants nuisibles.</p>
+
+        <h3>10. Limitation de responsabilité</h3>
+        <p><strong>10.1.</strong> Dans toute la mesure permise par la loi applicable, nous ne serons pas responsables des dommages indirects, accessoires, spéciaux, consécutifs, punitifs ou exemplaires, ni de toute perte de bénéfices, de revenus, de données, de clientèle, de progression ou d'objets virtuels, découlant de votre utilisation ou de votre incapacité à utiliser l'Application, ou liés à celles-ci, même si nous avons été avisés de la possibilité de tels dommages.</p>
+        <p><strong>10.2.</strong> Dans toute la mesure permise par la loi applicable, notre responsabilité totale découlant de l'Application ou s'y rapportant ne dépassera pas le plus élevé des montants suivants : (a) le montant total que vous avez effectivement payé à la boutique d'applications concernée pour des achats intégrés dans Word Snap 3D au cours des <strong>douze (12) mois</strong> précédant l'événement à l'origine de la réclamation, ou (b) <strong>dix dollars américains (10 USD)</strong>.</p>
+        <p><strong>10.3.</strong> Aucune disposition des présentes Conditions n'exclut ni ne limite une responsabilité qui ne peut légalement être exclue ou limitée, notamment la responsabilité en cas de décès ou de préjudice corporel causé par une négligence, en cas de fraude ou en vertu des lois impératives de protection du consommateur. Certaines juridictions — dont le Québec — n'autorisent pas certaines exclusions ou limitations ; il se peut donc que certaines des dispositions ci-dessus ne s'appliquent pas à vous, auquel cas notre responsabilité est limitée dans la moindre mesure permise par la loi.</p>
+
+        <h3>11. Indemnisation</h3>
+        <p>Vous acceptez d'indemniser et de dégager de toute responsabilité le développeur à l'égard de toute réclamation, demande, perte ou dépense (y compris des honoraires d'avocat raisonnables) découlant de votre violation des présentes Conditions, de votre mauvaise utilisation de l'Application ou de votre violation d'une loi ou des droits d'un tiers.</p>
+
+        <h3>12. Suspension et résiliation</h3>
+        <p><strong>12.1.</strong> Vous pouvez cesser d'utiliser l'Application à tout moment et supprimer votre compte comme décrit à l'article 3.3.</p>
+        <p><strong>12.2.</strong> Nous pouvons suspendre ou résilier votre accès aux fonctions en ligne ou à l'Application, en tout ou en partie, avec effet immédiat et sans remboursement, si nous avons des motifs raisonnables de croire que vous avez enfreint les présentes Conditions — notamment par la triche, l'exploitation de bogues, la manipulation des classements ou des monnaies, ou des abus envers d'autres joueurs.</p>
+        <p><strong>12.3.</strong> Les articles qui, par leur nature, doivent survivre à la résiliation (notamment les articles 4.2, 7, 8, 9, 10, 11 et 13) demeurent en vigueur.</p>
+
+        <h3>13. Droit applicable et juridiction</h3>
+        <p>Les présentes Conditions sont régies par le droit de la <strong>République de Türkiye</strong>, sans égard aux règles de conflit de lois. Les <strong>tribunaux et offices d'exécution d'Ankara, Türkiye</strong> sont compétents pour tout litige découlant des présentes Conditions ou s'y rapportant. Si vous êtes un consommateur résidant ailleurs, cela ne vous prive pas de la protection des dispositions impératives du droit de la consommation de votre lieu de résidence (y compris, au Québec, la Loi sur la protection du consommateur), ni du droit d'intenter une action devant les tribunaux de votre pays ou province de résidence, lorsque ces droits ne peuvent être exclus par contrat. Les consommateurs résidant en Türkiye peuvent également saisir les commissions d'arbitrage des consommateurs ou les tribunaux de la consommation dans les limites monétaires prévues par la loi.</p>
+
+        <h3>14. Dispositions générales</h3>
+        <p><strong>14.1.</strong> Si une disposition des présentes Conditions est jugée invalide ou inapplicable, les autres dispositions demeurent pleinement en vigueur et la disposition invalide est remplacée par une disposition valide reflétant le plus fidèlement possible l'intention d'origine.</p>
+        <p><strong>14.2.</strong> Le fait de ne pas faire appliquer une disposition ne constitue pas une renonciation à celle-ci.</p>
+        <p><strong>14.3.</strong> Vous ne pouvez pas céder les droits que vous confèrent les présentes Conditions. Nous pouvons les céder dans le cadre d'un transfert de l'Application.</p>
+        <p><strong>14.4.</strong> Les présentes Conditions, ainsi que la Politique de confidentialité, constituent l'intégralité de l'entente entre vous et nous concernant l'Application et remplacent toute entente antérieure.</p>
+        <p><strong>14.5.</strong> L'Application n'est ni parrainée, ni approuvée, ni administrée par Apple ou Google. Ces sociétés ne sont pas responsables de l'Application et n'offrent aucune garantie à son égard.</p>
+        <p><strong>14.6. Langue.</strong> Les présentes Conditions et la Politique de confidentialité sont offertes en anglais, turc, espagnol, français, allemand et italien, et vous pouvez les lire et les accepter dans la langue de votre choix. En cas d'incohérence entre les versions linguistiques, la version turque prévaut, sauf si la loi impérative de votre lieu de résidence exige que la version dans votre langue prévale.</p>
+
+        <h3>15. Contact</h3>
+        <p>Pour l'assistance, les questions, la suppression de compte ou toute autre demande : <strong><a href="mailto:alicelik1980@gmail.com">alicelik1980@gmail.com</a></strong> — Ali Çelik, Ankara, Türkiye.</p>
+    </div>
+
+    <footer>
+        © 2026 Word Snap 3D — Ali Çelik Games. Tous droits réservés.
+    </footer>
+</div>
+
+<script>
+    // First visit to the English page from a browser set to another supported language
+    // (e.g. a French-Canadian visitor following the store's single privacy-policy link) is sent
+    // to that language's page. Picking a language in the switcher is remembered, so choosing
+    // English afterwards sticks. Only the English page redirects; translated pages never do.
+    (function () {
+        var KEY = 'ws3dLangChosen';
+        document.querySelectorAll('.lang-switch a').forEach(function (a) {
+            a.addEventListener('click', function () {
+                try { localStorage.setItem(KEY, a.getAttribute('lang')); } catch (e) {}
+            });
+        });
+        if (document.documentElement.lang !== 'en') return;
+        var chosen = null;
+        try { chosen = localStorage.getItem(KEY); } catch (e) {}
+        if (chosen || /[?&]lang=en\b/.test(location.search)) return;
+        var supported = ['en', 'tr', 'es', 'fr', 'de', 'it'];
+        var prefs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en'];
+        for (var i = 0; i < prefs.length; i++) {
+            var code = String(prefs[i]).toLowerCase().split('-')[0];
+            if (supported.indexOf(code) === -1) continue;
+            if (code === 'en') return;
+            var page = location.pathname.split('/').pop() || 'wordsnap3d.html';
+            location.replace(page.replace(/\.html$/, '-' + code + '.html') + location.hash);
+            return;
+        }
+    })();
+
+    function switchTab(tabId) {
+        document.querySelectorAll('.content-box').forEach(box => box.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        document.getElementById('tab-' + tabId).classList.add('active');
+    }
+
+    // Language links keep the open tab, so switching language on the Privacy tab lands on
+    // the translated Privacy tab instead of jumping back to About.
+    document.querySelectorAll('.lang-switch a').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+            var open = document.querySelector('.content-box.active');
+            if (open && open.id !== 'about') { e.preventDefault(); location.href = a.getAttribute('href') + '#' + open.id; }
+        });
+    });
+
+    // Deep-link support: wordsnap3d.html#privacy / #terms opens straight to that tab —
+    // used by the in-game "Privacy Policy" / "Terms of Service" links and by the store listings.
+    var initialTab = (location.hash || '').replace('#', '');
+    if (initialTab === 'privacy' || initialTab === 'terms') {
+        switchTab(initialTab);
+    }
+</script>
+
+</body>
+</html>
